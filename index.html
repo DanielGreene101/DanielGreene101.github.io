@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+	<html ng-app="CharacterBuilds">
+	<head>
+		<title>Character - Builds</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- font awesome -->
+		<!-- BootStrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- local styles -->
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<div ng-include="'partials/navbar.html'"></div>
+		<div class="container">
+			<div ng-view></div>
+		</div>
+
+
+		<!-- angular -->
+		<script type="text/javascript" src="./lib/node_modules/angular/angular.min.js"></script>
+    	<script type="text/javascript" src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+    	<!-- firebase -->
+    	<script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
+
+    	<!-- Bootstrap -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- local scripts compiled -->
+		<script type="text/javascript" src="dist/built.js"></script>
+	</body>
+	</html>

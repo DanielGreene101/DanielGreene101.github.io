@@ -1,0 +1,23 @@
+#profile-image-anchor {
+  width: 65px;
+  height: 65px;
+  border: none !important;
+  border-radius: 50%;
+  background-color: transparent !important;
+  z-index: 999;
+  display: inline-flex;
+  float: right;
+  margin-right: 0 !important;
+  margin-left: 10px !important;
+  margin-bottom: 5px !important; }
+
+#profile-image-anchor img {
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+  display: block;
+  position: relative;
+  z-index: 998; }
+
+#profile-image-anchor {
+  margin-right: 3%; }
