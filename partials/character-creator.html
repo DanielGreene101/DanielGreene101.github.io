@@ -1,4 +1,219 @@
-<h1>CHARACTOR CREATOR</h1>
+<div id="charCreat">
+	<h1>CHARACTOR CREATOR</h1>
 
-<h3 id="classes">Classes</h3>
-<p id="classList"></p>
+	<!-- RACE -->
+	<div id="races" class="createBox" ng-model="race">
+		<h3>Races</h3>
+		<ul id="raceList" ng-repeat="item in races">
+			<input type="radio" name="raceButton" ng-click="addRace(item)"></input>{{item.name}}
+		</ul>
+		<ul id="raceList" ng-repeat="item in subraces">
+			<input type="radio" name="raceButton" ng-click="addRace(item)"></input>{{item.name}}
+		</ul>
+	</div>
+
+<!-- CLASS -->
+	<div id="classes" class="createBox" ng-model="class">
+		<h3>Classes</h3>
+		<ul id="classList" ng-repeat="item in classes">
+			<li ng-click="addClass(item)">{{item.name}}</li>
+		</ul>
+		<ul id="classList" ng-repeat="item in subclasses">
+			<li ng-click="addClass(item)">{{item.name}}</li>
+		</ul>
+	</div>
+
+
+<!-- LEVELS -->
+	<!-- <div id="levels" class="createBox" ng-model="level">
+		<h3 id="levels">levels</h3>
+		<ul id="levelsList">
+		</ul>
+	</div> -->
+
+	<!-- SKILLS -->
+	<div id="skills" class="createBox" ng-model="skills">
+		<h3>Skills</h3>
+		<ul id="skillList" ng-repeat="item in skills">
+			<li ng-click="addSkill(item)">{{item.name}}</li>
+		</ul>
+	</div>
+
+	<!-- PROFICIENCIES -->
+	<div id="proficiencies" class="createBox" ng-model="proficiencies">
+		<h3>Proficiencies</h3>
+		<ul id="proficienciesList" ng-repeat="item in proficiencies">
+			<li ng-click="addproficiency(item)">{{item.name}}</li>
+		</ul>
+	</div>
+
+	<!-- FEATS -->
+	<div id="features" class="createBox" ng-model="features">
+		<h3>Features</h3>
+		<ul id="featuresList" ng-repeat="item in features">
+			<li ng-click="addFeature(item)">{{item.name}}</li>
+		</ul>
+	</div>
+
+	<!-- EQUIPMENT -->
+	<div id="equipment" class="createBox" ng-model="equipment">
+		<h3>Equipment</h3>
+		<ul id="equipmentList" ng-repeat="item in equipment">
+			<li ng-click="addEquipment(item)">{{item.name}}</li>
+		</ul>
+	</div>
+
+	<!-- MAGIC SCHOOLS -->
+	<div id="magicSchools" class="createBox" ng-model="magicSchools">
+		<h3>Magic-Schools</h3>
+		<ul id="magicSchoolsList" ng-repeat="item in magicSchools">
+			<li ng-click="addMagicSchools(item)">{{item.name}}</li>
+		</ul>
+	</div>
+
+
+	<!-- SPELLS -->
+	<div id="spells" class="createBox" ng-model="spells">
+		<h3>Spells</h3>
+		<ul id="spellList" ng-repeat="item in spells">
+			<li ng-click="addSpell(item)">{{item.name}}</li>
+		</ul>
+	</div>
+
+	<!-- REGIONS -->
+	<!-- <div id="region" class="createBox" ng-model="region">
+		<h3>Region</h3>
+		<ul id="regionList">
+		</ul>
+	</div>  -->
+
+
+	<!-- STORY LINES -->
+	<!-- <div id="storyLines" class="createBox" ng-model="storyLines">
+		<h3>Story Lines</h3>
+		<ul id="storyList">
+		</ul>
+	</div> -->
+
+
+	<!-- ALIGNMENT -->
+	<!-- <div id="alignment" class="createBox" ng-model="alignment">
+		<h3>Alignment</h3>
+		<ul id="alignment">
+		</ul>
+	</div> -->
+
+	<!-- NOTES -->
+	<div>
+		<h3>Notes</h3>
+		<textarea rows="10" cols="40" id="notes" ng-model="notes"></textarea>
+		<button id="notesForChar" ng-click="submitNotes(notes)">ENTER</button>
+	</div>
+</div>
+
+<!--*************************************************************************************************************************************************************************************-->
+<!-- FORM TO BE FILLED OUT  -->
+<div id="charForm">
+	<h1>character Form</h1>
+
+	<!-- RACE -->
+	<div id="race" class="formBox" ng-model="race">
+		<h3>Race</h3>
+		<ul id="selectedRace" ng-repeat="name in yourRace">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- CLASS -->
+	<div id="class" class="formBox" ng-model="class">
+		<h3>Class</h3>
+		<ul id="selectedClass" ng-repeat="name in yourClass">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- LEVEL -->
+	<!-- <div id="level" class="formBox" ng-model="level">
+		<h3>level</h3>
+		<ul id="selectedLevel">
+		</ul>
+	</div> -->
+
+	<!-- SKILLS -->
+	<div id="skill" class="formBox" ng-model="skills">
+		<h3>Skills</h3>
+		<ul id="selectedSkill" ng-repeat="name in yourSkills">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- PROFICIENCIES -->
+	<div id="proficienciesForm" class="formBox" ng-model="proficiencies">
+		<h3>Proficiencies</h3>
+		<ul id="selectedProficiencies" ng-repeat="name in yourProficiencies">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- FEATS -->
+	<div id="featuresForm" class="formBox" ng-model="features">
+		<h3>Features</h3>
+		<ul id="selectedFeatures" ng-repeat="name in yourFeats">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- EQUIPMENT -->
+	<div id="equipmentForm" class="formBox" ng-model="equipment">
+		<h3>Equipment</h3>
+		<ul id="Selectedequipment" ng-repeat="name in yourEquipment">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- MAGIC SCHOOLS -->
+	<div id="magicSchoolsForm" class="formBox" ng-model="magicSchools">
+		<h3>Magic-Schools</h3>
+		<ul id="selectedMagicSchools" ng-repeat="name in yourMagicSchools">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- SPELLS -->
+	<div id="spellsForm" class="formBox" ng-model="spells">
+		<h3>Spells</h3>
+		<ul id="selectedSpells" ng-repeat="name in yourSpells">
+			<li>{{name}}</li>
+		</ul>
+	</div>
+
+	<!-- REGION -->
+	<!-- <div id="regionForm" class="formBox" ng-model="region">
+		<h3>Region</h3>
+		<ul id="selectedRegion" ng-repeat="name in yourRegion">
+			<li>{{name}}</li>
+		</ul>
+	</div> -->
+
+	<!-- STORY LINES -->
+	<!-- <div id="storyLinesForm" class="formBox" ng-model="storyLines">
+		<h3>Story Lines</h3>
+		<ul id="selectedStory">
+		</ul>
+	</div> -->
+
+	<!-- ALIGNMENT -->
+	<!-- <div id="alignmentForm" class="formBox" ng-model="alignment">
+		<h3>Alignment</h3>
+		<ul id="selectedAlignment">
+		</ul>
+	</div> -->
+
+	<!-- NOTES -->
+	<div>
+		<h3>Notes</h3>
+			<p ng-view="$scope.yourNotes"></p>
+		</div>
+	</div>
+	<button type="submit" ng-click="sumbitNewCharacter()">SAVE CHARACTER</button>
+</div>

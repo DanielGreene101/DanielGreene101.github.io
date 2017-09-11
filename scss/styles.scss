@@ -1,3 +1,4 @@
+/*NAV BAR*/
 #profile-image-anchor {
   width: 65px;
   height: 65px;
@@ -21,3 +22,15 @@
 
 #profile-image-anchor {
   margin-right: 3%; }
+
+/*CHARACTER CREATOR*/
+#charCreat{
+  width: 45%;
+  display: inline-block;
+  float: left;
+}
+#charForm{
+  width: 45%;
+  display: inline-block;
+  float: right;
+}
