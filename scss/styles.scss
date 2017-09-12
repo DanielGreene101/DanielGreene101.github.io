@@ -1,3 +1,7 @@
+body{
+  background-color: #7f8c8d;
+}
+
 /*NAV BAR*/
 #profile-image-anchor {
   width: 65px;
@@ -23,14 +27,45 @@
 #profile-image-anchor {
   margin-right: 3%; }
 
-/*CHARACTER CREATOR*/
+/******CHARACTER CREATOR*******/
+#CharacterCreationPage{
+  width: 100%;
+  height: 100%;
+  color: #FFFFFF;
+}
+
 #charCreat{
   width: 45%;
   display: inline-block;
   float: left;
+  background-color: #DFD297;
 }
+#charCreat div ul{
+
+}
+#charCreat div{
+  display: flex;
+  flex-direction: column;
+  max-height: 1000px;
+  overflow: scroll;
+  background-color: #AC2832;
+  margin: 2vh;
+  border: solid black 3px;
+}
+
+/*CHAR FORM*/
 #charForm{
   width: 45%;
   display: inline-block;
   float: right;
+  background-color: #000000;
+  position: fixed;
+  padding: 3vh;
+  height: 100vh;
+  overflow: scroll;
+  padding-bottom: 12vh;
+}
+
+#yourName{
+  color: black;
 }

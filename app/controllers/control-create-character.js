@@ -1,8 +1,9 @@
 "use strict";
 
-app.controller('CreateCharCtrl', function ($scope, $location, $http) {
+app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory, postFactory) {
 
 //Empty arrays for pushed items
+	$scope.yourName = [];
 	$scope.yourRace = [];
 	$scope.yourClass = [];
 	$scope.yourSkills = [];
@@ -11,7 +12,23 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http) {
 	$scope.yourEquipment = [];
 	$scope.yourMagicSchools = [];
 	$scope.yourSpells = [];
-	$scope.yourNotes = '';
+	$scope.yourNotes = [];
+//To submit new character obj
+let user = userFactory.getCurrentUser();
+console.log("user", user);
+let newCharacter = {
+		name: $scope.yourName,
+		race: $scope.yourRace,
+		class: $scope.yourClass,
+		skills: $scope.yourSkills,
+		proficiencies: $scope.yourProficiencies,
+		feats: $scope.yourFeats,
+		Equipment: $scope.yourEquipment,
+		magicschools: $scope.yourMagicSchools,
+		spells: $scope.yourSpells,
+		storyline: $scope.yourNotes,
+		uid: user
+	};
 
 //handle pushing clicked item
 	$scope.addRace = (item) => {
@@ -31,7 +48,7 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http) {
 		$scope.yourSkills.push(item.name);
 		console.log("added to form");
 	};
-	$scope.addFeature = (item) => {
+	$scope.addFeat = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourFeats.push(item.name);
 		console.log("added to form");
@@ -55,6 +72,7 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http) {
 		console.log("item", item, item.name);
 		$scope.yourSpells.push(item.name);
 		console.log("added to form");
+		console.log("New Character", newCharacter);
 	};
 
 //Empty arrays for api calls
@@ -64,12 +82,12 @@ $scope.classes = [];
 $scope.subclasses = [];
 $scope.skills = [];
 $scope.proficiencies = [];
-$scope.features = [];
+$scope.feats = [];
 $scope.equipment = [];
 $scope.magicSchools = [];
 $scope.spells = [];
 
-//api calls
+////// pull in api /////////
 function callRaces(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/races/',})
@@ -82,7 +100,6 @@ function callRaces(){
 
 }
 callRaces();
-
 
 function callSubRaces(){
 	$http({ method : 'GET',
@@ -97,8 +114,6 @@ function callSubRaces(){
 }
 callSubRaces();
 
-
-
 function callClasses(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/classes/'})
@@ -111,8 +126,6 @@ function callClasses(){
 
 }
 callClasses();
-
-
 
 function callSubClasses(){
 	$http({ method : 'GET',
@@ -167,18 +180,18 @@ function callproficiencies(){
 callproficiencies();
 
 
-function callFeatures(){
+function callFeats(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/features/'})
 		.then(function(data){
-			$scope.features = data.data.results;
+			$scope.feats = data.data.results;
 		})
 		.catch(function(){
 			console.log("ERROR");
 		});
 
 }
-callFeatures();
+callFeats();
 
 function callEquipment(){
 	$http({ method : 'GET',
@@ -217,18 +230,26 @@ function callSpells(){
 }
 callSpells();
 
-//connect new char notes to form notes
-$scope.submitNotes = (notes) => {
-	console.log("hello");
-	console.log("notes", notes);
-	$scope.yourNotes = notes;
+//////connect new char notes to form notes and name////////
+	$scope.submitNotes = (notes) => {
+		console.log("hello");
+		console.log("notes", notes);
+		$scope.yourNotes.push(notes); 
+	};
+$scope.submitName = (yourName) => {
+		console.log("hello");
+		console.log("yourName", yourName);
+		$scope.yourName.push(yourName); 
+		console.log("yourName", $scope.yourName);
+	};
 
-
+///////submit new character function/////////
+$scope.sumbitNewCharacter = () => {
+	console.log("function fired");
+	var newCharToAdd = newCharacter;
+	console.log("newCharToAdd", newCharToAdd);
+	postFactory.addCharacter(newCharToAdd);
 };
-
-//submit new character
-
-
 
 
 });
