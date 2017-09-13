@@ -13,7 +13,21 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory
 	$scope.yourMagicSchools = [];
 	$scope.yourSpells = [];
 	$scope.yourNotes = "";
-
+	$scope.yourHP = "";
+	$scope.yourINITIATIVE = "";
+	$scope.yourAC = "";
+	$scope.yourSTR = "";
+	$scope.yourDEX = "";
+	$scope.yourCON = "";
+	$scope.yourINT = "";
+	$scope.yourWIS = "";
+	$scope.yourCHA = "";
+	$scope.yourFORT = "";
+	$scope.yourREF = "";
+	$scope.yourWILL = "";
+	$scope.yourBAB = "";
+	$scope.yourGRAPPLE = "";
+	$scope.yourSPRES = "";
 //DEFINE USER 
 let user = userFactory.getCurrentUser();
 console.log("user", user);
@@ -29,7 +43,22 @@ let newCharacter = {
 		magicschools: $scope.yourMagicSchools,
 		spells: $scope.yourSpells,
 		storyline: $scope.yourNotes,
-		uid: user
+		uid: user,
+		HP: $scope.yourHP,
+		INITIATIVE: $scope.yourINITIATIVE,
+		AC: $scope.yourAC,
+		STR: $scope.yourSTR,
+		DEX: $scope.yourDEX,
+		CON: $scope.yourCON,
+		INT: $scope.yourINT,
+		WIS: $scope.yourWIS,
+		CHA: $scope.yourCHA,
+		FORT: $scope.yourFORT,
+		REF: $scope.yourREF,
+		WILL: $scope.yourWILL,
+		BAB: $scope.yourBAB,
+		GRAPPLE: $scope.yourGRAPPLE,
+		SPRES: $scope.yourSPRES
 	};
 
 //Empty arrays for api calls
@@ -236,27 +265,72 @@ callSpells();
 
 
 //////connect new char notes to form notes and name////////
-	$scope.submitNotes = (notes) => {
-		console.log("hello");
-		console.log("notes", notes);
-		$scope.yourNotes =notes;
-		newCharacter.storyline = $scope.yourNotes;
-	};
-$scope.submitName = (yourName) => {
-		console.log("hello");
-		console.log("yourName", yourName);
+// 	$scope.submitNotes = (notes) => {
+// 		console.log("hello");
+// 		console.log("notes", notes);
+// 		$scope.yourNotes =notes;
+// 		newCharacter.storyline = $scope.yourNotes;
+// 	};
+// $scope.submitName = (yourName) => {
+// 		console.log("hello");
+// 		console.log("yourName", yourName);
+// 		$scope.yourName = yourName; 
+// 		newCharacter.name = $scope.yourName;
+// 		console.log("yourName", $scope.yourName);
+// 	};
+///////submit new character function/////////
+// $scope.sumbitNewCharacter = () => {
+// 	console.log("function fired");
+// 	var newCharToAdd = newCharacter;
+// 	console.log("newCharToAdd", newCharToAdd);
+// 	postFactory.addCharacter(newCharToAdd);
+// };
+
+$scope.saveInfo = (notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE) => {
+		console.log("notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE", notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE);
+		$scope.yourHP = HP;
+		$scope.yourINITIATIVE = INITIATIVE;
+		$scope.yourAC = AC;
+		$scope.yourSTR = STR;
+		$scope.yourDEX = DEX;
+		$scope.yourCON = CON;
+		$scope.yourINT = INT;
+		$scope.yourWIS = WIS;
+		$scope.yourCHA = CHA;
+		$scope.yourFORT = FORT;
+		$scope.yourREF = REF;
+		$scope.yourWILL = WILL;
+		$scope.yourBAB = BAB;
+		$scope.yourGRAPPLE = GRAPPLE;
+		$scope.yourSPRES = SPRES;
+
+		newCharacter.HP = $scope.yourHP;
+		newCharacter.INITIATIVE = $scope.yourINITIATIVE;
+		newCharacter.AC = $scope.yourAC;
+		newCharacter.STR = $scope.yourSTR;
+		newCharacter.DEX = $scope.yourDEX;
+		newCharacter.CON = $scope.yourCON;
+		newCharacter.INT = $scope.yourINT;
+		newCharacter.WIS = $scope.yourWIS;
+		newCharacter.CHA = $scope.yourCHA;
+		newCharacter.FORT = $scope.yourFORT;
+		newCharacter.REF = $scope.yourREF;
+		newCharacter.WILL = $scope.yourWILL;
+		newCharacter.BAB = $scope.yourBAB;
+		newCharacter.GRAPPLE = $scope.yourGRAPPLE;
+		newCharacter.SPRES = $scope.yourSPRES;
+
 		$scope.yourName = yourName; 
 		newCharacter.name = $scope.yourName;
-		console.log("yourName", $scope.yourName);
+
+		$scope.yourName = yourName; 
+		newCharacter.name = $scope.yourName;
+		console.log("function fired");
+		var newCharToAdd = newCharacter;
+		console.log("newCharToAdd", newCharToAdd);
+		postFactory.addCharacter(newCharToAdd);
 	};
 
-///////submit new character function/////////
-$scope.sumbitNewCharacter = () => {
-	console.log("function fired");
-	var newCharToAdd = newCharacter;
-	console.log("newCharToAdd", newCharToAdd);
-	postFactory.addCharacter(newCharToAdd);
-};
 
 
 });
