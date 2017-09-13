@@ -42,6 +42,26 @@
         <ul>
         	<li>{{characters.storyline}}</li>
         </ul>
+        <h5>STATS</h5>
+        <ul>
+        <li>HP: {{characters.HP}}</li>
+        <li>AC: {{characters.AC}}</li>
+        <li>BAB: {{characters.BAB}}</li><br>
+        <li>INITIATIVE: {{characters.INITIATIVE}}</li>
+        <li>SPELL RESIST: {{characters.SPRES}}</li>
+        <li>REFLEX: {{characters.REF}}</li>
+        <li>GRAPPLE: {{characters.GRAPPLE}}</li>
+        <li>FORT: {{characters.FORT}}</li><br>
+        <li>STR: {{characters.STR}}</li>
+        <li>DEX: {{characters.DEX}}</li>
+        <li>CON: {{characters.CON}}</li>
+        <li>CHA: {{characters.CHA}}</li>
+        <li>WIS: {{characters.WIS}}</li>
+        <li>INT: {{characters.INT}}</li>
+        <li>WILL: {{characters.WILL}}</li>
+ 
+        </ul>
+
         <a class="btn btn-primary" role="button" ng-href="#!/EditCharacter/{{characters.id}}">Edit</a>
         <!-- SENT TO EDIT PARTIAL PAGE NO FUNCTIONS FIRED JUST ng-models TAKEN -->
         <a class="btn btn-primary" role="button" ng-click="deleteBtn(characters.id)">Delete</a> 
