@@ -25,26 +25,35 @@ app.config(($routeProvider) => {
 	})
 	.when('/MyCharacters', {
 		templateUrl: 'partials/my-characters.html',
-		controller: 'MyCharCtrl'
+		controller: 'myProfileCtrl',
+		resolve: {isAuth}
 	})
 	.when('/MyMaps', {
 		templateUrl: 'partials/my-regions.html',
-		controller: 'MyMapsCtrl'
+		controller: 'MyMapsCtrl',
+		resolve: {isAuth}
 	})
 	.when('/CreateCharacter', {
 		templateUrl: 'partials/character-creator.html',
-		controller: 'CreateCharCtrl'
+		controller: 'CreateCharCtrl',
+		resolve: {isAuth}
 	})
 	.when('/CreateRegion', {
 		templateUrl: 'partials/create-regions.html',
-		controller: 'CreateMapCtrl'
+		controller: 'CreateMapCtrl',
+		resolve: {isAuth}
 	})
 	.when('/home', {
 		//the first view when the user logs in
 		templateUrl: 'partials/home-view.html',
 		controller: 'HomeCtrl',
 		resolve: {isAuth}
-
+	})
+	.when('/EditCharacter/:id', {
+		//the first view when the user logs in
+		templateUrl: 'partials/edit-character.html',
+		controller: 'EditCtrl',
+		resolve: {isAuth}
 	})
 	.otherwise('/');
 });
