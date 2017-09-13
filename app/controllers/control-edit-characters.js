@@ -1,36 +1,47 @@
 "use strict";
 
-app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory, postFactory) {
+app.controller('EditCtrl', function($scope, userFactory, $location, postFactory, $routeParams, $http) {
 
-//Empty arrays for pushed items
-	$scope.yourName = "";
-	$scope.yourRace = "";
-	$scope.yourClass = [];
-	$scope.yourSkills = [];
-	$scope.yourProficiencies = [];
-	$scope.yourFeats = [];
-	$scope.yourEquipment = [];
-	$scope.yourMagicSchools = [];
-	$scope.yourSpells = [];
-	$scope.yourNotes = "";
+	$scope.title = "Add Character";
 
-//DEFINE USER 
-let user = userFactory.getCurrentUser();
-console.log("user", user);
+	let currrentUser = userFactory.getCurrentUser();
 
-let newCharacter = {
-		name: $scope.yourName,
-		race: $scope.yourRace,
-		class: $scope.yourClass,
-		skills: $scope.yourSkills,
-		proficiencies: $scope.yourProficiencies,
-		feats: $scope.yourFeats,
-		equipment: $scope.yourEquipment,
-		magicschools: $scope.yourMagicSchools,
-		spells: $scope.yourSpells,
-		storyline: $scope.yourNotes,
-		uid: user
+	$scope.character = {
+		name: "",
+		race: "",
+		class: [],
+		skills: [],
+		storyline: "",
+		feats: [],
+		proficiencies: [],
+		spells: [],
+		magicschools: [],
+		equipment: []
 	};
+
+	const showEditChar = () => {
+		console.log("$routeParams.id", $routeParams.id);
+		postFactory.getSingleChar($routeParams.id)
+		.then((data) => {
+			$scope.character = data;
+			$scope.character.id = $routeParams.id;
+			$scope.character.uid = currrentUser;
+		});
+	};
+//SUBMIT NEW/EDITED CHARACTER TO FIREBASE
+	$scope.submitCharacter = () => {
+		// let obj = $scope.character;
+		// console.log( "HELLO", obj, currrentUser );
+		console.log("test", $routeParams.id, $scope.character);
+		postFactory.editChar($routeParams.id, $scope.character)
+		.then((data) => {
+			$location.path('/');
+			// $scope.$apply();
+		});
+	};
+
+	showEditChar();
+
 
 //Empty arrays for api calls
 $scope.races = [];
@@ -92,7 +103,6 @@ function callSubClasses(){
 		.catch(function(){
 			console.log("ERROR");
 		});
-
 }
 callSubClasses();
 
@@ -186,77 +196,63 @@ function callSpells(){
 }
 callSpells();
 
-
+// FUNCTION TO ADD PUSHED ITEMS TO ARRAY OF CHARACTER
 //handle pushing clicked item
-	$scope.addRace = (item) => {
-		console.log("item", item, item.name);
-		// $scope.yourRace.pop();
-		$scope.yourRace = item.name;
-		newCharacter.race = $scope.yourRace;
-		console.log("$scope.yourRace", $scope.yourRace);
-		console.log("added to form");
-	};
 	$scope.addClass = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourClass.push(item.name);
+		$scope.character.class.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addSkill = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourSkills.push(item.name);
+		$scope.character.skills.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourFeats.push(item.name);
+		$scope.character.feats.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addproficiency = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourProficiencies.push(item.name);
+		$scope.character.proficiencies.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourEquipment.push(item.name);
+		$scope.character.equipment.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addMagicSchools = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourMagicSchools.push(item.name);
+		$scope.character.magicschools.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addSpell = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourSpells.push(item.name);
+		$scope.character.spells.push(item.name);
 		console.log("added to form");
-		console.log("New Character", newCharacter);
 	};
 
-
-
-//////connect new char notes to form notes and name////////
 	$scope.submitNotes = (notes) => {
 		console.log("hello");
 		console.log("notes", notes);
-		$scope.yourNotes =notes;
-		newCharacter.storyline = $scope.yourNotes;
+		$scope.character.storyline = notes;
+		console.log("New SL", $scope.character.storyline);
+
 	};
-$scope.submitName = (yourName) => {
+	$scope.submitName = (name) => {
 		console.log("hello");
-		console.log("yourName", yourName);
-		$scope.yourName = yourName; 
-		newCharacter.name = $scope.yourName;
-		console.log("yourName", $scope.yourName);
+		console.log("yourName", name);
+		$scope.character.name = name; 
+		console.log("New Name", $scope.character.name);
 	};
 
-///////submit new character function/////////
-$scope.sumbitNewCharacter = () => {
-	console.log("function fired");
-	var newCharToAdd = newCharacter;
-	console.log("newCharToAdd", newCharToAdd);
-	postFactory.addCharacter(newCharToAdd);
-};
-
+	$scope.submitRace = (race) => {
+		console.log("hello");
+		console.log("yourRame", race);
+		$scope.character.race = race; 
+		console.log("New Name", $scope.character.race);
+	};
 
 });

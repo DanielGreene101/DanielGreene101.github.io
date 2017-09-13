@@ -12,8 +12,7 @@
 				<input type="radio" name="raceButton" ng-click="addRace(item)"></input>{{item.name}}
 			</ul>
 		</div>
-
-	<!-- CLASS -->
+		<!-- CLASS -->
 			<h3>Classes</h3>
 		<div id="classes" class="createBox" ng-model="class">
 			<ul id="classList" ng-repeat="item in classes">
@@ -23,15 +22,6 @@
 				<li ng-click="addClass(item)">{{item.name}}</li>
 			</ul>
 		</div>
-
-
-	<!-- LEVELS -->
-		<!-- <div id="levels" class="createBox" ng-model="level">
-			<h3 id="levels">levels</h3>
-			<ul id="levelsList">
-			</ul>
-		</div> -->
-
 		<!-- SKILLS -->
 			<h3>Skills</h3>
 		<div id="skills" class="createBox" ng-model="skills">
@@ -39,7 +29,6 @@
 				<li ng-click="addSkill(item)">{{item.name}}</li>
 			</ul>
 		</div>
-
 		<!-- PROFICIENCIES -->
 			<h3>Proficiencies</h3>
 		<div id="proficiencies" class="createBox" ng-model="proficiencies">
@@ -47,7 +36,6 @@
 				<li ng-click="addproficiency(item)">{{item.name}}</li>
 			</ul>
 		</div>
-
 		<!-- FEATS -->
 			<h3>Features</h3>
 		<div id="features" class="createBox" ng-model="features">
@@ -55,7 +43,6 @@
 				<li ng-click="addFeat(item)">{{item.name}}</li>
 			</ul>
 		</div>
-
 		<!-- EQUIPMENT -->
 			<h3>Equipment</h3>
 		<div id="equipment" class="createBox" ng-model="equipment">
@@ -63,7 +50,6 @@
 				<li ng-click="addEquipment(item)">{{item.name}}</li>
 			</ul>
 		</div>
-
 		<!-- MAGIC SCHOOLS -->
 			<h3>Magic-Schools</h3>
 		<div id="magicSchools" class="createBox" ng-model="magicSchools">
@@ -71,8 +57,6 @@
 				<li ng-click="addMagicSchools(item)">{{item.name}}</li>
 			</ul>
 		</div>
-
-
 		<!-- SPELLS -->
 			<h3>Spells</h3>
 		<div id="spells" class="createBox" ng-model="spells">
@@ -80,48 +64,21 @@
 				<li ng-click="addSpell(item)">{{item.name}}</li>
 			</ul>
 		</div>
-
-		<!-- REGIONS -->
-		<!-- <div id="region" class="createBox" ng-model="region">
-			<h3>Region</h3>
-			<ul id="regionList">
-			</ul>
-		</div>  -->
-
-
-		<!-- STORY LINES -->
-		<!-- <div id="storyLines" class="createBox" ng-model="storyLines">
-			<h3>Story Lines</h3>
-			<ul id="storyList">
-			</ul>
-		</div> -->
-
-
-		<!-- ALIGNMENT -->
-		<!-- <div id="alignment" class="createBox" ng-model="alignment">
-			<h3>Alignment</h3>
-			<ul id="alignment">
-			</ul>
-		</div> -->
 	</div>
 
 	<!--*************************************************************************************************************************************************************************************-->
 	<!-- FORM TO BE FILLED OUT  -->
 	<div id="charForm">
 		<h1>CHARACTER FORM</h1>
-
 		<!--NAME-->
 		Name: <input type="text" name="Name" placeholder="Character Name" id="yourName" ng-model="charName">
 		<button ng-click="submitName(charName)">Save Name</button>
-
 		<!-- RACE -->
-		<div id="race" class="formBox" ng-model="race">
+		<div id="race" class="formBox">
 			<h3>Race</h3>
-			<ul id="selectedRace" ng-repeat="name in yourRace">
-				<li>{{name}}</li>
-			</ul>
+			<p id="selectedRace">{{yourRace}}
+			</p>
 		</div>
-
 		<!-- CLASS -->
 		<div id="class" class="formBox" ng-model="class">
 			<h3>Class</h3>
@@ -129,14 +86,6 @@
 				<li>{{name}}</li>
 			</ul>
 		</div>
-
-		<!-- LEVEL -->
-		<!-- <div id="level" class="formBox" ng-model="level">
-			<h3>level</h3>
-			<ul id="selectedLevel">
-			</ul>
-		</div> -->
-
 		<!-- SKILLS -->
 		<div id="skill" class="formBox" ng-model="skills">
 			<h3>Skills</h3>
@@ -176,7 +125,6 @@
 				<li>{{name}}</li>
 			</ul>
 		</div>
-
 		<!-- SPELLS -->
 		<div id="spellsForm" class="formBox" ng-model="spells">
 			<h3>Spells</h3>
@@ -184,7 +132,6 @@
 				<li>{{name}}</li>
 			</ul>
 		</div>
-
 		<!-- REGION -->
 		<!-- <div id="regionForm" class="formBox" ng-model="region">
 			<h3>Region</h3>
@@ -192,27 +139,34 @@
 				<li>{{name}}</li>
 			</ul>
 		</div> -->
-
-		<!-- STORY LINES -->
-		<!-- <div id="storyLinesForm" class="formBox" ng-model="storyLines">
-			<h3>Story Lines</h3>
-			<ul id="selectedStory">
-			</ul>
-		</div> -->
-
-		<!-- ALIGNMENT -->
-		<!-- <div id="alignmentForm" class="formBox" ng-model="alignment">
-			<h3>Alignment</h3>
-			<ul id="selectedAlignment">
-			</ul>
-		</div> -->
-
 		<!-- NOTES -->
 		<div>
 			<h3>Story Line</h3>
 			<textarea rows="10" cols="70" id="notes" ng-model="notes" placeholder="Quest involvement, backstory, personality, etc."></textarea>
-			<button ng-click="submitNotes(notes)">Save Story</button>
+			<button ng-click="submitNotes(notes)">Save Story</button><br><br>
 		</div>
+		<!-- STATS -->
+		<input type="text"></input>:HP<br>
+		<input type="text"></input>:INITIATIVE<br>
+		<input type="text"></input>:AC<br>
+		<br><br>
+
+		<input type="text"></input>:STR<br>
+		<input type="text"></input>:DEX<br>
+		<input type="text"></input>:CON<br>
+		<input type="text"></input>:INT<br>
+		<input type="text"></input>:WIS<br>
+		<input type="text"></input>:CHA<br>
+		<br><br>
+
+		<input type="text"></input>:FORT<br>
+		<input type="text"></input>:REF<br>
+		<input type="text"></input>:WILL<br>
+		<br><br>
+
+		<input type="text"></input>:BAB<br>
+		<input type="text"></input>:SPELL RESIST<br>
+		<input type="text"></input>:GRAPPLE<br>
 		<br><br>
 		<button type="submit" ng-click="sumbitNewCharacter()">SAVE CHARACTER</button>
 	</div>
