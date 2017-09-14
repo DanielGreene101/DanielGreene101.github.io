@@ -1,18 +1,14 @@
 <div id="characterToEdit">
 	<h1>CHARACTER TO EDIT</h1>
 	<input type="textarea" class="form-control" ng-model="character.name"></input>
-	<button ng-click="submitName(character.name)">Save Name</button>
 	<h3>RACE</h3>
 	<input type="textarea" class="form-control" ng-model="character.race"></input>
-	<button ng-click="submitRace(character.race)">Save Race</button>
 	<h3>CLASS</h3>
 	<p ng-model="character.class">{{character.class}}</p>
 	<h3>SKILL</h3>
 	<p ng-model="character.skills">{{character.skills}}</p>
 	<h3>FEATS</h3>
 	<p ng-model="character.feats">{{character.feats}}</p>
-	<h3>PROFICIENCIES</h3>
-	<p ng-model="character.proficiencies">{{character.proficiencies}}</p>
 	<h3>MAGIC SCHOOLS</h3>
 	<p ng-model="character.magicschools">{{character.magicschools}}</p>
 	<h3>SPELLS</h3>
@@ -20,9 +16,8 @@
 	<h3>EQUIPMENT</h3>
 	<p ng-model="character.equipment">{{character.equipment}}</p>
 	<h3>STORY LINE</h3>
-	<input type="textarea" class="form-control" ng-model="character.storyline">
-	<button ng-click="submitNotes(character.storyline)">Save Story</button><br><br>
-	<a class="btn btn-default" role="button" ng-click="submitCharacter(characters.id)">Save</a>
+	<input type="textarea" class="form-control" ng-model="character.storyline"><br><br>
+	<a class="btn btn-default" role="button" ng-click="submitCharacter(character.name, character.race, character.storyline, characters.id)">Save</a>
 </div>
 <div id="apiInfoForEdit">
 	<h1>ADD INFO</h1>
@@ -36,12 +31,6 @@
 					<li ng-click="addClass(item)">{{item.name}}</li>
 				</ul>
 			</div>
-		<!-- LEVELS -->
-			<!-- <div id="levels" class="createBox" ng-model="level">
-				<h3 id="levels">levels</h3>
-				<ul id="levelsList">
-				</ul>
-			</div> -->
 			<!-- SKILLS -->
 				<h3>Skills</h3>
 			<div id="skills" class="createBox" ng-model="skills">
@@ -49,15 +38,8 @@
 					<li ng-click="addSkill(item)">{{item.name}}</li>
 				</ul>
 			</div>
-			<!-- PROFICIENCIES -->
-				<h3>Proficiencies</h3>
-			<div id="proficiencies" class="createBox" ng-model="proficiencies">
-				<ul id="proficienciesList" ng-repeat="item in proficiencies">
-					<li ng-click="addproficiency(item)">{{item.name}}</li>
-				</ul>
-			</div>
 			<!-- FEATS -->
-				<h3>Features</h3>
+				<h3>Feats</h3>
 			<div id="features" class="createBox" ng-model="features">
 				<ul id="featuresList" ng-repeat="item in feats">
 					<li ng-click="addFeat(item)">{{item.name}}</li>

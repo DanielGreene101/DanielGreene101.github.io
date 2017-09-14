@@ -12,7 +12,7 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 			.then((data) => {
 				console.log("data", data);
 				$scope.characterData = data;
-				console.log("final data", $scope.characterData);
+				console.log("$scope.characterData", $scope.characterData);
 			});
 	};
 

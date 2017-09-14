@@ -1,0 +1,10 @@
+<h1>REGIONS EDITOR</h1>
+<div class="row">
+  <div class="col-lg-6">
+  	<input type="text" class="form-control" placeholder="Name of Region" ng-model="regions.name"><br>
+    <div class="input-group">
+      <textarea rows="30" cols="70" type="text" class="form-control" placeholder="Region Info" ng-model="regions.info"></textarea>
+    </div><!-- /input-group -->
+        <button class="btn btn-default" type="button" ng-click="submitRegion(regions.id)">SAVE</button>
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->

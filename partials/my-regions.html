@@ -1,1 +1,7 @@
 <h1>YOUR REGIONS</h1>
+<div onload="showMyRegions()" class="jumbotron" ng-repeat="regions in regionData track by $index">
+  <h1>{{regions.name}}</h1> <!-- Name of your region -->
+  <p>{{regions.info}}</p> <!-- Region Info -->
+  <a class="btn btn-primary" role="button" ng-href="#!/EditRegion/{{regions.id}}">Edit</a> 
+  <a class="btn btn-primary" role="button" ng-click="regDeleteBtn(regions.id)">Delete</a>
+</div>

@@ -2,7 +2,7 @@
 
 const app = angular.module('CharacterBuilds', ['ngRoute']);
 
-let isAuth = (userFactory) => new Promise((resolve, reject) => {
+let isAuth = (userFactory, $window) => new Promise((resolve, reject) => {
 	console.log( "userFactory is", userFactory );
 	userFactory.isAuthenticated()
 	.then((userExists) => {
@@ -11,6 +11,7 @@ let isAuth = (userFactory) => new Promise((resolve, reject) => {
 			resolve();
 		}  else  {
 			console.log( "YOU ARE NOT AUTHORIZED" );
+			$window.alert("NOT LOGGED IN!!!");
 			reject();
 		}
 	});
@@ -28,7 +29,7 @@ app.config(($routeProvider) => {
 		controller: 'myProfileCtrl',
 		resolve: {isAuth}
 	})
-	.when('/MyMaps', {
+	.when('/MyRegions', {
 		templateUrl: 'partials/my-regions.html',
 		controller: 'MyMapsCtrl',
 		resolve: {isAuth}
@@ -53,6 +54,12 @@ app.config(($routeProvider) => {
 		//the first view when the user logs in
 		templateUrl: 'partials/edit-character.html',
 		controller: 'EditCtrl',
+		resolve: {isAuth}
+	})
+	.when('/EditRegion/:id', {
+		//the first view when the user logs in
+		templateUrl: 'partials/edit-region.html',
+		controller: 'EditRegionCtrl',
 		resolve: {isAuth}
 	})
 	.otherwise('/');
