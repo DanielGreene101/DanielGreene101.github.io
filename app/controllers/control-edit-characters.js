@@ -13,7 +13,6 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		skills: [],
 		storyline: "",
 		feats: [],
-		proficiencies: [],
 		spells: [],
 		magicschools: [],
 		equipment: []
@@ -29,13 +28,16 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		});
 	};
 //SUBMIT NEW/EDITED CHARACTER TO FIREBASE
-	$scope.submitCharacter = () => {
+	$scope.submitCharacter = (name, race, notes) => {
 		// let obj = $scope.character;
 		// console.log( "HELLO", obj, currrentUser );
+		$scope.character.name = name;
+		$scope.character.race = race; 
+		$scope.character.storyline = notes;
 		console.log("test", $routeParams.id, $scope.character);
 		postFactory.editChar($routeParams.id, $scope.character)
 		.then((data) => {
-			$location.path('/');
+			$location.path('/MyCharacters');
 			// $scope.$apply();
 		});
 	};
@@ -49,7 +51,6 @@ $scope.subraces = [];
 $scope.classes = [];
 $scope.subclasses = [];
 $scope.skills = [];
-$scope.proficiencies = [];
 $scope.feats = [];
 $scope.equipment = [];
 $scope.magicSchools = [];
@@ -106,19 +107,6 @@ function callSubClasses(){
 }
 callSubClasses();
 
-// function callLevels(){
-// 	$http({ method : 'GET',
-// 		url : 'http://www.dnd5eapi.co/api/{class name}/level/'})
-// 		.then(function(data){
-// 			$scope.races = data.data.results;
-// 		})
-// 		.catch(function(){
-// 			console.log("ERROR");
-// 		});
-
-// }
-// callLevels();
-
 function callSkills(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/skills/'})
@@ -131,20 +119,6 @@ function callSkills(){
 
 }
 callSkills();
-
-function callproficiencies(){
-	$http({ method : 'GET',
-		url : 'http://www.dnd5eapi.co/api/proficiencies/'})
-		.then(function(data){
-			$scope.proficiencies = data.data.results;
-		})
-		.catch(function(){
-			console.log("ERROR");
-		});
-
-}
-callproficiencies();
-
 
 function callFeats(){
 	$http({ method : 'GET',
@@ -213,11 +187,6 @@ callSpells();
 		$scope.character.feats.push(item.name);
 		console.log("added to form");
 	};
-	$scope.addproficiency = (item) => {
-		console.log("item", item, item.name);
-		$scope.character.proficiencies.push(item.name);
-		console.log("added to form");
-	};
 	$scope.addEquipment = (item) => {
 		console.log("item", item, item.name);
 		$scope.character.equipment.push(item.name);
@@ -232,27 +201,6 @@ callSpells();
 		console.log("item", item, item.name);
 		$scope.character.spells.push(item.name);
 		console.log("added to form");
-	};
-
-	$scope.submitNotes = (notes) => {
-		console.log("hello");
-		console.log("notes", notes);
-		$scope.character.storyline = notes;
-		console.log("New SL", $scope.character.storyline);
-
-	};
-	$scope.submitName = (name) => {
-		console.log("hello");
-		console.log("yourName", name);
-		$scope.character.name = name; 
-		console.log("New Name", $scope.character.name);
-	};
-
-	$scope.submitRace = (race) => {
-		console.log("hello");
-		console.log("yourRame", race);
-		$scope.character.race = race; 
-		console.log("New Name", $scope.character.race);
 	};
 
 });

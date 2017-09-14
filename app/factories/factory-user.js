@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory('userFactory', function($q, $http, FBCreds) {
+app.factory('userFactory', function($q, $http, FBCreds, $location) {
 	let currentUser = null;
 	let googleProvider = new firebase.auth.GoogleAuthProvider();
 	let userEmailFromFB = {};
@@ -58,6 +58,6 @@ app.factory('userFactory', function($q, $http, FBCreds) {
 		return firebase.auth().signInWithPopup(googleProvider);
 	};
 
-	return {getCurrentUser, isAuthenticated, getUserObj, postUserObj, authWithProvider};
+	return {getCurrentUser, isAuthenticated, getUserObj, postUserObj, authWithProvider, logOut};
 
 });

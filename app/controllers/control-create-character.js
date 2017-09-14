@@ -7,7 +7,6 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory
 	$scope.yourRace = "";
 	$scope.yourClass = [];
 	$scope.yourSkills = [];
-	$scope.yourProficiencies = [];
 	$scope.yourFeats = [];
 	$scope.yourEquipment = [];
 	$scope.yourMagicSchools = [];
@@ -37,7 +36,6 @@ let newCharacter = {
 		race: $scope.yourRace,
 		class: $scope.yourClass,
 		skills: $scope.yourSkills,
-		proficiencies: $scope.yourProficiencies,
 		feats: $scope.yourFeats,
 		equipment: $scope.yourEquipment,
 		magicschools: $scope.yourMagicSchools,
@@ -67,7 +65,6 @@ $scope.subraces = [];
 $scope.classes = [];
 $scope.subclasses = [];
 $scope.skills = [];
-$scope.proficiencies = [];
 $scope.feats = [];
 $scope.equipment = [];
 $scope.magicSchools = [];
@@ -125,19 +122,6 @@ function callSubClasses(){
 }
 callSubClasses();
 
-// function callLevels(){
-// 	$http({ method : 'GET',
-// 		url : 'http://www.dnd5eapi.co/api/{class name}/level/'})
-// 		.then(function(data){
-// 			$scope.races = data.data.results;
-// 		})
-// 		.catch(function(){
-// 			console.log("ERROR");
-// 		});
-
-// }
-// callLevels();
-
 function callSkills(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/skills/'})
@@ -150,20 +134,6 @@ function callSkills(){
 
 }
 callSkills();
-
-function callproficiencies(){
-	$http({ method : 'GET',
-		url : 'http://www.dnd5eapi.co/api/proficiencies/'})
-		.then(function(data){
-			$scope.proficiencies = data.data.results;
-		})
-		.catch(function(){
-			console.log("ERROR");
-		});
-
-}
-callproficiencies();
-
 
 function callFeats(){
 	$http({ method : 'GET',
@@ -240,11 +210,6 @@ callSpells();
 		$scope.yourFeats.push(item.name);
 		console.log("added to form");
 	};
-	$scope.addproficiency = (item) => {
-		console.log("item", item, item.name);
-		$scope.yourProficiencies.push(item.name);
-		console.log("added to form");
-	};
 	$scope.addEquipment = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourEquipment.push(item.name);
@@ -262,32 +227,8 @@ callSpells();
 		console.log("New Character", newCharacter);
 	};
 
-
-
-//////connect new char notes to form notes and name////////
-// 	$scope.submitNotes = (notes) => {
-// 		console.log("hello");
-// 		console.log("notes", notes);
-// 		$scope.yourNotes =notes;
-// 		newCharacter.storyline = $scope.yourNotes;
-// 	};
-// $scope.submitName = (yourName) => {
-// 		console.log("hello");
-// 		console.log("yourName", yourName);
-// 		$scope.yourName = yourName; 
-// 		newCharacter.name = $scope.yourName;
-// 		console.log("yourName", $scope.yourName);
-// 	};
-///////submit new character function/////////
-// $scope.sumbitNewCharacter = () => {
-// 	console.log("function fired");
-// 	var newCharToAdd = newCharacter;
-// 	console.log("newCharToAdd", newCharToAdd);
-// 	postFactory.addCharacter(newCharToAdd);
-// };
-
-$scope.saveInfo = (notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE) => {
-		console.log("notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE", notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE);
+$scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE) => {
+		console.log("charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE", notes, charName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE);
 		$scope.yourHP = HP;
 		$scope.yourINITIATIVE = INITIATIVE;
 		$scope.yourAC = AC;
@@ -320,11 +261,12 @@ $scope.saveInfo = (notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 		newCharacter.GRAPPLE = $scope.yourGRAPPLE;
 		newCharacter.SPRES = $scope.yourSPRES;
 
-		$scope.yourName = yourName; 
+		$scope.yourName = charName; 
 		newCharacter.name = $scope.yourName;
 
-		$scope.yourName = yourName; 
-		newCharacter.name = $scope.yourName;
+		$scope.yourNotes = notes; 
+		newCharacter.storyline = $scope.yourNotes;
+
 		console.log("function fired");
 		var newCharToAdd = newCharacter;
 		console.log("newCharToAdd", newCharToAdd);
@@ -332,5 +274,16 @@ $scope.saveInfo = (notes, yourName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 	};
 
 
+	$scope.yourStat =[];
+	var counter = 1;
+	$scope.statNumber = () => {
+		if (counter < 7){
+			counter++;
+			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
+			console.log("stat", $scope.yourStat);
+
+			$scope.statNumber();
+	}
+	};
 
 });

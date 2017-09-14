@@ -29,15 +29,8 @@
 				<li ng-click="addSkill(item)">{{item.name}}</li>
 			</ul>
 		</div>
-		<!-- PROFICIENCIES -->
-			<h3>Proficiencies</h3>
-		<div id="proficiencies" class="createBox" ng-model="proficiencies">
-			<ul id="proficienciesList" ng-repeat="item in proficiencies">
-				<li ng-click="addproficiency(item)">{{item.name}}</li>
-			</ul>
-		</div>
 		<!-- FEATS -->
-			<h3>Features</h3>
+			<h3>Feats</h3>
 		<div id="features" class="createBox" ng-model="features">
 			<ul id="featuresList" ng-repeat="item in feats">
 				<li ng-click="addFeat(item)">{{item.name}}</li>
@@ -71,7 +64,7 @@
 	<div id="charForm">
 		<h1>CHARACTER FORM</h1>
 		<!--NAME-->
-		Name: <input type="text" name="Name" placeholder="Character Name" id="yourName" ng-model="charName">
+		Name: <input type="text" placeholder="Character Name" id="yourName" ng-model="charName">
 		<!-- RACE -->
 		<div id="race" class="formBox">
 			<h3>Race</h3>
@@ -92,18 +85,9 @@
 				<li>{{name}}</li>
 			</ul>
 		</div>
-
-		<!-- PROFICIENCIES -->
-		<div id="proficienciesForm" class="formBox" ng-model="proficiencies">
-			<h3>Proficiencies</h3>
-			<ul id="selectedProficiencies" ng-repeat="name in yourProficiencies track by $index">
-				<li>{{name}}</li>
-			</ul>
-		</div>
-
 		<!-- FEATS -->
 		<div id="featuresForm" class="formBox" ng-model="features">
-			<h3>Features</h3>
+			<h3>Feats</h3>
 			<ul id="selectedFeatures" ng-repeat="name in yourFeats track by $index">
 				<li>{{name}}</li>
 			</ul>
@@ -131,23 +115,18 @@
 				<li>{{name}}</li>
 			</ul>
 		</div>
-		<!-- REGION -->
-		<!-- <div id="regionForm" class="formBox" ng-model="region">
-			<h3>Region</h3>
-			<ul id="selectedRegion" ng-repeat="name in yourRegion">
-				<li>{{name}}</li>
-			</ul>
-		</div> -->
 		<!-- NOTES -->
 		<div>
 			<h3>Story Line</h3>
-			<textarea rows="10" cols="70" id="notes" ng-model="notes" placeholder="Quest involvement, backstory, personality, etc."></textarea><br><br>
-		</div>
+			<textarea rows="10" cols="70" id="notes" ng-model="notes" placeholder="Quest involvement, backstory, personality, etc."></textarea>
+		</div><br><br>
 		<!-- STATS -->
-		<input type="text" ng-model="HP"></input>:HP<br>
-		<input type="text" ng-model="INITIATIVE"></input>:INITIATIVE<br>
-		<input type="text" ng-model="AC"></input>:AC<br>
-		<br><br>
+		<button type="submit" ng-click="statNumber()">GENERATE STAT NUMBERS</button><br><br>
+		<ul ng-repeat="stats in yourStat track by $index">
+			<li>{{stats}}</li>
+		</ul>
+		<br>
+
 
 		<input type="text" ng-model="STR"></input>:STR<br>
 		<input type="text" ng-model="DEX"></input>:DEX<br>
@@ -156,6 +135,13 @@
 		<input type="text" ng-model="WIS"></input>:WIS<br>
 		<input type="text" ng-model="CHA"></input>:CHA<br>
 		<br><br>
+
+
+		<input type="text" ng-model="HP"></input>:HP<br>
+		<input type="text" ng-model="INITIATIVE"></input>:INITIATIVE<br>
+		<input type="text" ng-model="AC"></input>:AC<br>
+		<br><br>
+
 
 		<input type="text" ng-model="FORT"></input>:FORT<br>
 		<input type="text" ng-model="REF"></input>:REF<br>

@@ -11,32 +11,28 @@
         <h5>RACE</h5>
         <p>{{characters.race}}</p>
         <h5>CLASS</h5>
-        <ul>
-        	<li>{{characters.class}}</li>
+        <ul ng-repeat="class in characters.class track by $index">
+        	<li>{{class}}</li>
         </ul>
         <h5>SKILLS</h5>
-        <ul>
-        	<li>{{characters.skills}}</li>
-        </ul>
-        <h5>PROFICIENCIES</h5>
-        <ul>
-        	<li>{{characters.proficiencies}}</li>
+        <ul ng-repeat="skills in characters.skills track by $index">
+        	<li>{{skills}}</li>
         </ul>
         <h5>FEATS</h5>
-        <ul>
-        	<li>{{characters.feats}}</li>
+        <ul ng-repeat="feats in characters.feats track by $index">
+        	<li>{{feats}}</li>
         </ul>
-        <h5>EQUIPMENT</h5>
-        <ul>
-        	<li>{{characters.equipment}}</li>
+        <h5>INVENTORY</h5>
+        <ul ng-repeat="equipment in characters.equipment track by $index">
+        	<li>{{equipment}}</li>
         </ul>
         <h5>MAGIC SCHOOLS</h5>
-        <ul>
-        	<li>{{characters.magicschools}}</li>
+        <ul ng-repeat="magicschools in characters.magicschools track by $index">
+        	<li>{{magicschools}}</li>
         </ul>
         <h5>SPELLS</h5>
-        <ul>
-        	<li>{{characters.spells}}</li>
+        <ul ng-repeat="spells in characters.spells track by $index">
+        	<li>{{spells}}</li>
         </ul>
         <h5>STORY LINE</h5>
         <ul>
