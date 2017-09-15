@@ -6,6 +6,7 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 	$scope.regionData = [];
 	$scope.characterData = [];
 
+
 	//GET ALL REGIONS FOR USER 
 	$scope.showMyRegions = () => {
 		// console.log("showMyRegions firing");
@@ -13,7 +14,10 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 			.then((data) => {
 				// console.log("data", data);
 				$scope.regionData = data;
+				console.log("region data", $scope.regionData);
 				// console.log("$scope.regionData", $scope.regionData);
+			}).then(()=>{
+				$scope.showThisRegionsCharacters();
 			});
 	};
 
@@ -26,11 +30,13 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 					console.log("data", data);
 					$scope.characterData = data;
 					console.log("$scope.characterData", $scope.characterData);
+				}).then(()=>{
+					$scope.regionIdFunction($scope.characterData, $scope.regionData);
 				});
+			//filter by region.name within the character data
 
 
 	};
-	$scope.showThisRegionsCharacters();
 	$scope.showMyRegions();//CALLS ITSELF
 
 	//SCOPED DELETE BUTTON FIRING
@@ -42,5 +48,30 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 			};
 
 
+$scope.regionIdFunction = function(characterData, regionData) {
+    	// console.log(characterData, regionData);//THE DATA PULLED IN
+    		$scope.characterRegion = [];
 
+    		regionData.forEach(region => {
+    		// console.log("region", region);//OBJECTS IN THE REGION ARRAY
+    		console.log("first for each", region);
+    		let aRegionsCharacters = [];
+
+    		characterData.forEach(character => {
+    			console.log("second for each");
+    			if(character.regionId === region.id){
+    			// console.log("region - character", region, character);
+    			aRegionsCharacters.push(character);
+    			console.log("$scope.characterRegion", $scope.characterRegion);
+    		}else{
+    			console.log("region - character did not match");
+    		}
+    		});
+
+    		region.characters = aRegionsCharacters;
+    	});
+    		$scope.regionData = regionData;
+    		console.log("NEW REGIONS", $scope.regionData);
+
+    	};
 });

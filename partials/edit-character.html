@@ -4,17 +4,29 @@
 	<h3>RACE</h3>
 	<input type="textarea" class="form-control" ng-model="character.race"></input>
 	<h3>CLASS</h3>
-	<p ng-model="character.class">{{character.class}}</p>
+	<ul>
+		<li ng-repeat="name in character.class track by $index" ng-click="removeClass(item)">{{name}}</li>
+	</ul>
 	<h3>SKILL</h3>
-	<p ng-model="character.skills">{{character.skills}}</p>
+	<ul>
+		<li ng-repeat="name in character.skills track by $index" ng-click="removeSkill(item)">{{name}}</li>
+	</ul>
 	<h3>FEATS</h3>
-	<p ng-model="character.feats">{{character.feats}}</p>
+	<ul>
+		<li ng-repeat="name in character.feats track by $index" ng-click="removeFeat(item)">{{name}}</li>
+	</ul>
 	<h3>MAGIC SCHOOLS</h3>
-	<p ng-model="character.magicschools">{{character.magicschools}}</p>
+	<ul>
+		<li ng-repeat="name in character.magicschools track by $index" ng-click="removeMagicSchool(item)">{{name}}</li>
+	</ul>
 	<h3>SPELLS</h3>
-	<p ng-model="character.spells">{{character.spells}}</p>
+	<ul>
+		<li ng-repeat="name in character.spells track by $index" ng-click="removeSpell(item)">{{name}}</li>
+	</ul>
 	<h3>EQUIPMENT</h3>
-	<p ng-model="character.equipment">{{character.equipment}}</p>
+	<ul>
+		<li ng-repeat="name in character.equipment track by $index" ng-click="removeEquipment(item)">{{name}}</li>
+	</ul>
 	<h3>STORY LINE</h3>
 	<input type="textarea" class="form-control" ng-model="character.storyline">
 	<h3>REGION</h3>

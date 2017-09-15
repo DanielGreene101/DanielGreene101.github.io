@@ -6,10 +6,13 @@
   <a class="btn btn-primary" role="button" ng-click="regDeleteBtn(regions.id)">Delete</a>
   <!-- PULL IN CHARACTER CARDS WITH MATCHING REGION -->
   <br><br>
+  <div>
   <h3>Region Characters</h3>
-  <div ng-repeat="characters in characterData track by $index">
-  	<h3>{{characters.name}}</h3>
-  	<p>{{characters.storyline}}</p>
+  <div ng-repeat="character in regions.characters track by $index">
+  		<h3>{{character.name}}</h3>
+  	<p>{{character.storyline}}</p>
+  	
   </div>
+</div>
 
 </div>

@@ -178,9 +178,9 @@ function callRegions(){
 		console.log("showMyRegions firing");
 		postFactory.getUserRegions(userFactory.getCurrentUser())
 			.then((data) => {
-				console.log("data", data);
+				// console.log("data", data);
 				$scope.regions = data;
-				console.log("$scope.regionData", $scope.regionData);
+				// console.log("$scope.regionData", $scope.regionData);
 			}).catch(function(){
 			console.log("ERROR");
 		});
@@ -224,6 +224,39 @@ callRegions();
 	$scope.addSpell = (item) => {
 		console.log("item", item, item.name);
 		$scope.character.spells.push(item.name);
+		console.log("added to form");
+	};
+
+
+//REMOVE ITEMS 
+	$scope.removeClass = (item) => {
+		console.log("item", item);
+		$scope.character.class.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSkill = (item) => {
+		console.log("item", item);
+		$scope.character.skills.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeFeat = (item) => {
+		console.log("item", item);
+		$scope.character.feats.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeEquipment = (item) => {
+		console.log("item", item);
+		$scope.character.equipment.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeMagicSchool = (item) => {
+		console.log("item", item);
+		$scope.character.magicschools.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSpell = (item) => {
+		console.log("item", item);
+		$scope.character.spells.splice(item);
 		console.log("added to form");
 	};
 
