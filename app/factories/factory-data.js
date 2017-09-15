@@ -44,15 +44,15 @@ const getUserCharacters = (user) => {
 		return $q((resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/characters.json?orderBy="uid"&equalTo="${user}"`)
 			.then((userCharObj) => {
-				console.log( "user", user );
-				console.log( "userCharObj", userCharObj );
+				// console.log( "user", user );
+				// console.log( "userCharObj", userCharObj );
 				let userChar = userCharObj.data;
 				Object.keys(userChar)
 				.forEach((key) => {
 					userChar[key].id = key;
 					userCharArray.push(userChar[key]);
 				});
-				console.log( "userCharArray", userCharArray );
+				// console.log( "userCharArray", userCharArray );
 				resolve(userCharArray);
 			})
 			.catch((error) => {
@@ -68,19 +68,19 @@ const getUserRegions = (user) => {
 	return $q((resolve, reject) => {
 		$http.get(`${FBCreds.databaseURL}/regions.json?orderBy="uid"&equalTo="${user}"`)
 		.then((userRegObj) => {
-			console.log( "user", user );
-			console.log( "userRegObj", userRegObj );
+			// console.log( "user", user );
+			// console.log( "userRegObj", userRegObj );
 			let userReg = userRegObj.data;
 			Object.keys(userReg)
 			.forEach((key) => {
 				userReg[key].id = key;
 				userRegArray.push(userReg[key]);
 			});
-			console.log( "userRegArray", userRegArray );
+			// console.log( "userRegArray", userRegArray );
 			resolve(userRegArray);
 		})
 		.catch((error) => {
-			console.log( "error", error );
+			console.log( "error", error.message );
 			reject(error);
 		});
 	});

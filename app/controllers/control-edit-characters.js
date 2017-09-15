@@ -15,6 +15,8 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		feats: [],
 		spells: [],
 		magicschools: [],
+		region: [],
+		RegionId: [],
 		equipment: []
 	};
 
@@ -55,6 +57,8 @@ $scope.feats = [];
 $scope.equipment = [];
 $scope.magicSchools = [];
 $scope.spells = [];
+$scope.regions = [];
+$scope.yourRegionId = [];
 ////// pull in api /////////
 function callRaces(){
 	$http({ method : 'GET',
@@ -169,9 +173,29 @@ function callSpells(){
 		});
 }
 callSpells();
+//GET ALL REGIONS FOR USER 
+function callRegions(){
+		console.log("showMyRegions firing");
+		postFactory.getUserRegions(userFactory.getCurrentUser())
+			.then((data) => {
+				console.log("data", data);
+				$scope.regions = data;
+				console.log("$scope.regionData", $scope.regionData);
+			}).catch(function(){
+			console.log("ERROR");
+		});
+	}
+callRegions();
 
 // FUNCTION TO ADD PUSHED ITEMS TO ARRAY OF CHARACTER
 //handle pushing clicked item
+	$scope.addRegion = (item) => {
+		console.log("item", item.name);
+		// $scope.yourRace.pop();
+		$scope.character.region = item.name;
+		$scope.character.regionId = item.id;
+		console.log("added to form");
+	};
 	$scope.addClass = (item) => {
 		console.log("item", item, item.name);
 		$scope.character.class.push(item.name);

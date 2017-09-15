@@ -11,6 +11,8 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory
 	$scope.yourEquipment = [];
 	$scope.yourMagicSchools = [];
 	$scope.yourSpells = [];
+	$scope.yourRegion = [];
+	$scope.yourRegionId = [];
 	$scope.yourNotes = "";
 	$scope.yourHP = "";
 	$scope.yourINITIATIVE = "";
@@ -56,7 +58,9 @@ let newCharacter = {
 		WILL: $scope.yourWILL,
 		BAB: $scope.yourBAB,
 		GRAPPLE: $scope.yourGRAPPLE,
-		SPRES: $scope.yourSPRES
+		SPRES: $scope.yourSPRES,
+		region: $scope.yourRegion,
+		regionId: $scope.yourRegionId
 	};
 
 //Empty arrays for api calls
@@ -69,6 +73,8 @@ $scope.feats = [];
 $scope.equipment = [];
 $scope.magicSchools = [];
 $scope.spells = [];
+$scope.regions = [];
+$scope.regionId = [];
 ////// pull in api /////////
 function callRaces(){
 	$http({ method : 'GET',
@@ -184,9 +190,33 @@ function callSpells(){
 		});
 }
 callSpells();
+//GET ALL REGIONS FOR USER 
+function callRegions(){
+		console.log("showMyRegions firing");
+		postFactory.getUserRegions(userFactory.getCurrentUser())
+			.then((data) => {
+				console.log("data", data);
+				$scope.regions = data;
+				console.log("$scope.regionData", $scope.regionData);
+			}).catch(function(){
+			console.log("ERROR");
+		});
+	}
+callRegions();
 
 
 //handle pushing clicked item
+	$scope.addRegion = (item) => {
+		console.log("item", item.name);
+		// $scope.yourRace.pop();
+		$scope.yourRegion = item.name;
+		$scope.yourRegionId = item.id;
+		newCharacter.region = $scope.yourRegion;
+		newCharacter.regionId = $scope.yourRegionId;
+		console.log("$scope.yourRegion", $scope.yourRegion);
+		console.log("added to form");
+	};
+
 	$scope.addRace = (item) => {
 		console.log("item", item, item.name);
 		// $scope.yourRace.pop();

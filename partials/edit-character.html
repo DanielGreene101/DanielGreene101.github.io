@@ -16,7 +16,9 @@
 	<h3>EQUIPMENT</h3>
 	<p ng-model="character.equipment">{{character.equipment}}</p>
 	<h3>STORY LINE</h3>
-	<input type="textarea" class="form-control" ng-model="character.storyline"><br><br>
+	<input type="textarea" class="form-control" ng-model="character.storyline">
+	<h3>REGION</h3>
+	<p ng-model="character.region">{{character.region}}</p><br><br>
 	<a class="btn btn-default" role="button" ng-click="submitCharacter(character.name, character.race, character.storyline, characters.id)">Save</a>
 </div>
 <div id="apiInfoForEdit">
@@ -64,6 +66,13 @@
 			<div id="spells" class="createBox" ng-model="spells">
 				<ul id="spellList" ng-repeat="item in spells">
 					<li ng-click="addSpell(item)">{{item.name}}</li>
+				</ul>
+			</div>
+			<!-- REGIONS -->
+				<h3>REGIONS</h3>
+			<div id="region" class="createBox" ng-model="regions">
+				<ul id="regionList" ng-repeat="item in regions">
+					<input type="radio" name="regionButton" ng-click="addRegion(item)"></input>{{item.name}}
 				</ul>
 			</div>
 		</div>

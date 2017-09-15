@@ -27,9 +27,4 @@ console.log("user", user);
 		console.log("newRegionToAdd", newRegionToAdd);
 		postFactory.addRegion(newRegionToAdd);
 	};
-
-
-
-
-
 });

@@ -57,6 +57,14 @@
 				<li ng-click="addSpell(item)">{{item.name}}</li>
 			</ul>
 		</div>
+
+		<!-- REGION -->
+			<h3>REGIONS</h3>
+		<div id="region" class="createBox" ng-model="region">
+			<ul id="regionList" ng-repeat="item in regions">
+				<input type="radio" name="regionButton" ng-click="addRegion(item)"></input>{{item.name}}
+			</ul>
+		</div>
 	</div>
 
 	<!--*************************************************************************************************************************************************************************************-->
@@ -152,6 +160,14 @@
 		<input type="text" ng-model="SPRES"></input>:SPELL RESIST<br>
 		<input type="text" ng-model="GRAPPLE"></input>:GRAPPLE<br>
 		<br><br>
+
+		<!-- REGION -->
+		<div id="regionForm" class="formBox">
+			<h3>REGION</h3>
+			<p id="selectedRegions">{{yourRegion}}
+			</p>
+		</div>
+
 		<button type="submit" ng-click="saveInfo(charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE)">SAVE CHARACTER</button>
 	</div>
 </div>
