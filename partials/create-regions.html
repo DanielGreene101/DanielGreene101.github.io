@@ -1,9 +1,9 @@
 <h1>REGIONS CREATOR</h1>
-<div class="row">
-  <div class="col-lg-6">
+<div class="row createRegionContainer">
+  <div class="col-lg-6 regionCreator">
   	<input type="text" class="form-control" placeholder="Name of Region" ng-model="regName"><br>
     <div class="input-group">
-      <textarea rows="30" cols="70" type="text" class="form-control" placeholder="Region Info" ng-model="regInfo"></textarea>
+      <textarea rows="30" cols="70" type="text" class="form-control" placeholder="Region Info such as landscape, quests available, history, etc.." ng-model="regInfo"></textarea>
     </div><!-- /input-group -->
         <button class="btn btn-default" type="button" ng-click="saveRegion(regName, regInfo)">SAVE</button>
   </div><!-- /.col-lg-6 -->

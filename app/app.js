@@ -17,6 +17,7 @@ let isAuth = (userFactory, $window) => new Promise((resolve, reject) => {
 	});
 });
 
+
 app.config(($routeProvider) => {
 	$routeProvider
 	.when('/', {
@@ -42,12 +43,6 @@ app.config(($routeProvider) => {
 	.when('/CreateRegion', {
 		templateUrl: 'partials/create-regions.html',
 		controller: 'CreateMapCtrl',
-		resolve: {isAuth}
-	})
-	.when('/home', {
-		//the first view when the user logs in
-		templateUrl: 'partials/home-view.html',
-		controller: 'HomeCtrl',
 		resolve: {isAuth}
 	})
 	.when('/EditCharacter/:id', {

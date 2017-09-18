@@ -17,7 +17,22 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		magicschools: [],
 		region: [],
 		RegionId: [],
-		equipment: []
+		equipment: [],
+		HP: "",
+		INITIATIVE: "",
+		AC: "",
+		STR: "",
+		DEX: "",
+		CON: "",
+		INT: "",
+		WIS: "",
+		CHA: "",
+		FORT: "",
+		REF: "",
+		WILL: "",
+		BAB: "",
+		GRAPPLE: "",
+		SPRES: ""
 	};
 
 	const showEditChar = () => {
@@ -30,12 +45,27 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		});
 	};
 //SUBMIT NEW/EDITED CHARACTER TO FIREBASE
-	$scope.submitCharacter = (name, race, notes) => {
+	$scope.submitCharacter = (name, race, notes, STR, DEX, CON, INT, WIS, CHA, HP, INITIATIVE, AC, FORT, REF, WILL, BAB, SPRES, GRAPPLE, id) => {
 		// let obj = $scope.character;
 		// console.log( "HELLO", obj, currrentUser );
 		$scope.character.name = name;
 		$scope.character.race = race; 
 		$scope.character.storyline = notes;
+		$scope.character.STR = STR;
+		$scope.character.DEX = DEX;
+		$scope.character.CON = CON;
+		$scope.character.INT = INT;
+		$scope.character.WIS = WIS;
+		$scope.character.CHA = CHA;
+		$scope.character.HP = HP;
+		$scope.character.INITIATIVE = INITIATIVE;
+		$scope.character.AC = AC;
+		$scope.character.FORT = FORT;
+		$scope.character.REF = REF;
+		$scope.character.WILL = WILL;
+		$scope.character.BAB = BAB;
+		$scope.character.SPRES = SPRES;
+		$scope.character.GRAPPLE = GRAPPLE;
 		console.log("test", $routeParams.id, $scope.character);
 		postFactory.editChar($routeParams.id, $scope.character)
 		.then((data) => {
@@ -59,6 +89,7 @@ $scope.magicSchools = [];
 $scope.spells = [];
 $scope.regions = [];
 $scope.yourRegionId = [];
+
 ////// pull in api /////////
 function callRaces(){
 	$http({ method : 'GET',

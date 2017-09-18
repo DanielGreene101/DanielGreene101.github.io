@@ -159,7 +159,7 @@ function callEquipment(){
 		url : 'http://www.dnd5eapi.co/api/equipment/'})
 		.then(function(data){
 			$scope.equipment = data.data.results;
-		})
+		})//.then for additional info
 		.catch(function(){
 			console.log("ERROR");
 		});
@@ -184,7 +184,7 @@ function callSpells(){
 		url : 'http://www.dnd5eapi.co/api/spells/'})
 		.then(function(data){
 			$scope.spells = data.data.results;
-		})
+		})//.then for additional info
 		.catch(function(){
 			console.log("ERROR");
 		});
@@ -257,6 +257,38 @@ callRegions();
 		console.log("New Character", newCharacter);
 	};
 
+	//REMOVE ITEMS 
+	$scope.removeClass = (item) => {
+		console.log("item", item);
+		$scope.yourClass.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSkill = (item) => {
+		console.log("item", item);
+		$scope.yourSkills.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeFeat = (item) => {
+		console.log("item", item);
+		$scope.yourFeats.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeEquipment = (item) => {
+		console.log("item", item);
+		$scope.yourEquipment.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeMagicSchool = (item) => {
+		console.log("item", item);
+		$scope.yourMagicSchools.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSpell = (item) => {
+		console.log("item", item);
+		$scope.yourSpells.splice(item);
+		console.log("added to form");
+	};
+
 $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE) => {
 		console.log("charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE", notes, charName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE);
 		$scope.yourHP = HP;
@@ -304,16 +336,18 @@ $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 	};
 
 
-	$scope.yourStat =[];
-	var counter = 1;
+$scope.yourStat =[];
+var counter = 1;
 	$scope.statNumber = () => {
 		if (counter < 7){
 			counter++;
-			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
 			console.log("stat", $scope.yourStat);
-
 			$scope.statNumber();
-	}
+			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
+		}else{
+			counter = 1;
+			$scope.yourStat =[];
+		}
 	};
 
 });

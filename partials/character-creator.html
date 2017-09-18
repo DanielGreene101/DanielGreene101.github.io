@@ -1,6 +1,109 @@
 <div id=CharacterCreationPage>
-	<div id="charCreat">
-		<h1>CHARACTOR CREATOR</h1>
+	<!-- FORM TO BE FILLED OUT  -->
+	<div id="characterBeingCreated">
+		<h1>YOUR CHARACTOR</h1>
+		<!--NAME-->
+		Name: <input type="text" placeholder="Character Name" id="yourName" ng-model="charName">
+		<!-- RACE -->
+		<div id="race" class="formBox">
+			<h3>Race</h3>
+			<p id="selectedRace">{{yourRace}}
+			</p>
+		</div>
+		<!-- CLASS -->
+		<div id="class" class="formBox" ng-model="class">
+			<h3>Class</h3>
+			<ul id="selectedClass" ng-repeat="name in yourClass track by $index">
+				<li ng-click="removeClass(item)">{{name}}</li>
+			</ul>
+		</div>
+		<!-- SKILLS -->
+		<div id="skill" class="formBox" ng-model="skills">
+			<h3>Skills</h3>
+			<ul id="selectedSkill" ng-repeat="name in yourSkills track by $index">
+				<li ng-click="removeSkill(item)">{{name}}</li>
+			</ul>
+		</div>
+		<!-- FEATS -->
+		<div id="featuresForm" class="formBox" ng-model="features">
+			<h3>Feats</h3>
+			<ul id="selectedFeatures" ng-repeat="name in yourFeats track by $index">
+				<li ng-click="removeFeat(item)">{{name}}</li>
+			</ul>
+		</div>
+
+		<!-- EQUIPMENT -->
+		<div id="equipmentForm" class="formBox" ng-model="equipment">
+			<h3>Equipment</h3>
+			<ul id="Selectedequipment" ng-repeat="name in yourEquipment track by $index">
+				<li ng-click="removeEquipment(item)">{{name}}</li>
+			</ul>
+		</div>
+
+		<!-- MAGIC SCHOOLS -->
+		<div id="magicSchoolsForm" class="formBox" ng-model="magicSchools">
+			<h3>Magic-Schools</h3>
+			<ul id="selectedMagicSchools" ng-repeat="name in yourMagicSchools track by $index">
+				<li ng-click="removeMagicSchool(item)">{{name}}</li>
+			</ul>
+		</div>
+		<!-- SPELLS -->
+		<div id="spellsForm" class="formBox" ng-model="spells">
+			<h3>Spells</h3>
+			<ul id="selectedSpells" ng-repeat="name in yourSpells track by $index">
+				<li ng-click="removeSpell(item)">{{name}}</li>
+			</ul>
+		</div>
+		<!-- NOTES -->
+		<div>
+			<h3>Story Line</h3>
+			<textarea rows="10" cols="70" id="notes" ng-model="notes" placeholder="Quest involvement, backstory, personality, etc."></textarea>
+		</div><br><br>
+		<!-- STATS -->
+		<button type="submit" ng-click="statNumber()">GENERATE STAT NUMBERS</button><br><br>
+		<ul ng-repeat="stats in yourStat track by $index">
+			<li>{{stats}}</li>
+		</ul>
+		<br>
+
+		<form>
+			<input type="text" ng-model="STR"></input>:STR<br>
+			<input type="text" ng-model="DEX"></input>:DEX<br>
+			<input type="text" ng-model="CON"></input>:CON<br>
+			<input type="text" ng-model="INT"></input>:INT<br>
+			<input type="text" ng-model="WIS"></input>:WIS<br>
+			<input type="text" ng-model="CHA"></input>:CHA<br>
+			<br><br>
+			<p>NOTE: To properly fill out stats below, look up race and class modifiers.</p><br>
+
+			<input type="text" ng-model="HP"></input>:HP<br>
+			<input type="text" ng-model="INITIATIVE"></input>:INITIATIVE<br>
+			<input type="text" ng-model="AC"></input>:AC<br>
+			<br><br>
+
+
+			<input type="text" ng-model="FORT"></input>:FORT<br>
+			<input type="text" ng-model="REF"></input>:REF<br>
+			<input type="text" ng-model="WILL"></input>:WILL<br>
+			<br><br>
+
+			<input type="text" ng-model="BAB"></input>:BAB<br>
+			<input type="text" ng-model="SPRES"></input>:SPELL RESIST<br>
+			<input type="text" ng-model="GRAPPLE"></input>:GRAPPLE<br>
+		</form>
+
+		<!-- REGION -->
+		<div id="regionForm" class="formBox">
+			<h3>REGION</h3>
+			<p id="selectedRegions">{{yourRegion}}
+			</p>
+		</div>
+
+		<button type="submit" ng-click="saveInfo(charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE)">SAVE CHARACTER</button>
+	</div>
+	<!--*************************************************************************************************************************************************************************************-->
+	<div id="apiInfoCharacterCreater">
+		<h1>ADD INFO</h1>
 
 		<!-- RACE -->
 			<h3>Races</h3>
@@ -67,107 +170,4 @@
 		</div>
 	</div>
 
-	<!--*************************************************************************************************************************************************************************************-->
-	<!-- FORM TO BE FILLED OUT  -->
-	<div id="charForm">
-		<h1>CHARACTER FORM</h1>
-		<!--NAME-->
-		Name: <input type="text" placeholder="Character Name" id="yourName" ng-model="charName">
-		<!-- RACE -->
-		<div id="race" class="formBox">
-			<h3>Race</h3>
-			<p id="selectedRace">{{yourRace}}
-			</p>
-		</div>
-		<!-- CLASS -->
-		<div id="class" class="formBox" ng-model="class">
-			<h3>Class</h3>
-			<ul id="selectedClass" ng-repeat="name in yourClass track by $index">
-				<li>{{name}}</li>
-			</ul>
-		</div>
-		<!-- SKILLS -->
-		<div id="skill" class="formBox" ng-model="skills">
-			<h3>Skills</h3>
-			<ul id="selectedSkill" ng-repeat="name in yourSkills track by $index">
-				<li>{{name}}</li>
-			</ul>
-		</div>
-		<!-- FEATS -->
-		<div id="featuresForm" class="formBox" ng-model="features">
-			<h3>Feats</h3>
-			<ul id="selectedFeatures" ng-repeat="name in yourFeats track by $index">
-				<li>{{name}}</li>
-			</ul>
-		</div>
-
-		<!-- EQUIPMENT -->
-		<div id="equipmentForm" class="formBox" ng-model="equipment">
-			<h3>Equipment</h3>
-			<ul id="Selectedequipment" ng-repeat="name in yourEquipment track by $index">
-				<li>{{name}}</li>
-			</ul>
-		</div>
-
-		<!-- MAGIC SCHOOLS -->
-		<div id="magicSchoolsForm" class="formBox" ng-model="magicSchools">
-			<h3>Magic-Schools</h3>
-			<ul id="selectedMagicSchools" ng-repeat="name in yourMagicSchools track by $index">
-				<li>{{name}}</li>
-			</ul>
-		</div>
-		<!-- SPELLS -->
-		<div id="spellsForm" class="formBox" ng-model="spells">
-			<h3>Spells</h3>
-			<ul id="selectedSpells" ng-repeat="name in yourSpells track by $index">
-				<li>{{name}}</li>
-			</ul>
-		</div>
-		<!-- NOTES -->
-		<div>
-			<h3>Story Line</h3>
-			<textarea rows="10" cols="70" id="notes" ng-model="notes" placeholder="Quest involvement, backstory, personality, etc."></textarea>
-		</div><br><br>
-		<!-- STATS -->
-		<button type="submit" ng-click="statNumber()">GENERATE STAT NUMBERS</button><br><br>
-		<ul ng-repeat="stats in yourStat track by $index">
-			<li>{{stats}}</li>
-		</ul>
-		<br>
-
-
-		<input type="text" ng-model="STR"></input>:STR<br>
-		<input type="text" ng-model="DEX"></input>:DEX<br>
-		<input type="text" ng-model="CON"></input>:CON<br>
-		<input type="text" ng-model="INT"></input>:INT<br>
-		<input type="text" ng-model="WIS"></input>:WIS<br>
-		<input type="text" ng-model="CHA"></input>:CHA<br>
-		<br><br>
-
-
-		<input type="text" ng-model="HP"></input>:HP<br>
-		<input type="text" ng-model="INITIATIVE"></input>:INITIATIVE<br>
-		<input type="text" ng-model="AC"></input>:AC<br>
-		<br><br>
-
-
-		<input type="text" ng-model="FORT"></input>:FORT<br>
-		<input type="text" ng-model="REF"></input>:REF<br>
-		<input type="text" ng-model="WILL"></input>:WILL<br>
-		<br><br>
-
-		<input type="text" ng-model="BAB"></input>:BAB<br>
-		<input type="text" ng-model="SPRES"></input>:SPELL RESIST<br>
-		<input type="text" ng-model="GRAPPLE"></input>:GRAPPLE<br>
-		<br><br>
-
-		<!-- REGION -->
-		<div id="regionForm" class="formBox">
-			<h3>REGION</h3>
-			<p id="selectedRegions">{{yourRegion}}
-			</p>
-		</div>
-
-		<button type="submit" ng-click="saveInfo(charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE)">SAVE CHARACTER</button>
-	</div>
 </div>
