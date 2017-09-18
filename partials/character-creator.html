@@ -13,45 +13,45 @@
 		<!-- CLASS -->
 		<div id="class" class="formBox" ng-model="class">
 			<h3>Class</h3>
-			<ul id="selectedClass" ng-repeat="name in yourClass track by $index">
-				<li ng-click="removeClass(item)">{{name}}</li>
+			<ul id="selectedClass">
+				<li ng-repeat="name in yourClass track by $index" ng-click="removeClass(item)">{{name}}</li>
 			</ul>
 		</div>
 		<!-- SKILLS -->
 		<div id="skill" class="formBox" ng-model="skills">
 			<h3>Skills</h3>
-			<ul id="selectedSkill" ng-repeat="name in yourSkills track by $index">
-				<li ng-click="removeSkill(item)">{{name}}</li>
+			<ul id="selectedSkill">
+				<li ng-repeat="name in yourSkills track by $index" ng-click="removeSkill(item)">{{name}}</li>
 			</ul>
 		</div>
 		<!-- FEATS -->
 		<div id="featuresForm" class="formBox" ng-model="features">
 			<h3>Feats</h3>
-			<ul id="selectedFeatures" ng-repeat="name in yourFeats track by $index">
-				<li ng-click="removeFeat(item)">{{name}}</li>
+			<ul id="selectedFeatures">
+				<li ng-repeat="name in yourFeats track by $index" ng-click="removeFeat(item)">{{name}}</li>
 			</ul>
 		</div>
 
 		<!-- EQUIPMENT -->
 		<div id="equipmentForm" class="formBox" ng-model="equipment">
 			<h3>Equipment</h3>
-			<ul id="Selectedequipment" ng-repeat="name in yourEquipment track by $index">
-				<li ng-click="removeEquipment(item)">{{name}}</li>
+			<ul id="Selectedequipment">
+				<li ng-repeat="name in yourEquipment track by $index" ng-click="removeEquipment(item)">{{name}}</li>
 			</ul>
 		</div>
 
 		<!-- MAGIC SCHOOLS -->
 		<div id="magicSchoolsForm" class="formBox" ng-model="magicSchools">
 			<h3>Magic-Schools</h3>
-			<ul id="selectedMagicSchools" ng-repeat="name in yourMagicSchools track by $index">
-				<li ng-click="removeMagicSchool(item)">{{name}}</li>
+			<ul id="selectedMagicSchools">
+				<li ng-repeat="name in yourMagicSchools track by $index" ng-click="removeMagicSchool(item)">{{name}}</li>
 			</ul>
 		</div>
 		<!-- SPELLS -->
 		<div id="spellsForm" class="formBox" ng-model="spells">
 			<h3>Spells</h3>
-			<ul id="selectedSpells" ng-repeat="name in yourSpells track by $index">
-				<li ng-click="removeSpell(item)">{{name}}</li>
+			<ul id="selectedSpells">
+				<li ng-repeat="name in yourSpells track by $index" ng-click="removeSpell(item)">{{name}}</li>
 			</ul>
 		</div>
 		<!-- NOTES -->

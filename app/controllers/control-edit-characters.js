@@ -262,32 +262,38 @@ callRegions();
 //REMOVE ITEMS 
 	$scope.removeClass = (item) => {
 		console.log("item", item);
-		$scope.character.class.splice(item);
+		var index = $scope.character.class.indexOf(item);
+		$scope.character.class.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeSkill = (item) => {
 		console.log("item", item);
-		$scope.character.skills.splice(item);
+		var index = $scope.character.skills.indexOf(item);
+		$scope.character.skills.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeFeat = (item) => {
 		console.log("item", item);
-		$scope.character.feats.splice(item);
+		var index = $scope.character.feats.indexOf(item);
+		$scope.character.feats.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeEquipment = (item) => {
 		console.log("item", item);
-		$scope.character.equipment.splice(item);
+		var index = $scope.character.equipment.indexOf(item);
+		$scope.character.equipment.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeMagicSchool = (item) => {
 		console.log("item", item);
-		$scope.character.magicschools.splice(item);
+		var index = $scope.character.magicschools.indexOf(item);
+		$scope.character.magicschools.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeSpell = (item) => {
 		console.log("item", item);
-		$scope.character.spells.splice(item);
+		var index = $scope.character.spells.indexOf(item);
+		$scope.character.spells.splice(index);
 		console.log("added to form");
 	};
 
