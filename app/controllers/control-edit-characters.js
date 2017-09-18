@@ -15,7 +15,24 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		feats: [],
 		spells: [],
 		magicschools: [],
-		equipment: []
+		region: [],
+		RegionId: [],
+		equipment: [],
+		HP: "",
+		INITIATIVE: "",
+		AC: "",
+		STR: "",
+		DEX: "",
+		CON: "",
+		INT: "",
+		WIS: "",
+		CHA: "",
+		FORT: "",
+		REF: "",
+		WILL: "",
+		BAB: "",
+		GRAPPLE: "",
+		SPRES: ""
 	};
 
 	const showEditChar = () => {
@@ -28,12 +45,27 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		});
 	};
 //SUBMIT NEW/EDITED CHARACTER TO FIREBASE
-	$scope.submitCharacter = (name, race, notes) => {
+	$scope.submitCharacter = (name, race, notes, STR, DEX, CON, INT, WIS, CHA, HP, INITIATIVE, AC, FORT, REF, WILL, BAB, SPRES, GRAPPLE, id) => {
 		// let obj = $scope.character;
 		// console.log( "HELLO", obj, currrentUser );
 		$scope.character.name = name;
 		$scope.character.race = race; 
 		$scope.character.storyline = notes;
+		$scope.character.STR = STR;
+		$scope.character.DEX = DEX;
+		$scope.character.CON = CON;
+		$scope.character.INT = INT;
+		$scope.character.WIS = WIS;
+		$scope.character.CHA = CHA;
+		$scope.character.HP = HP;
+		$scope.character.INITIATIVE = INITIATIVE;
+		$scope.character.AC = AC;
+		$scope.character.FORT = FORT;
+		$scope.character.REF = REF;
+		$scope.character.WILL = WILL;
+		$scope.character.BAB = BAB;
+		$scope.character.SPRES = SPRES;
+		$scope.character.GRAPPLE = GRAPPLE;
 		console.log("test", $routeParams.id, $scope.character);
 		postFactory.editChar($routeParams.id, $scope.character)
 		.then((data) => {
@@ -55,6 +87,9 @@ $scope.feats = [];
 $scope.equipment = [];
 $scope.magicSchools = [];
 $scope.spells = [];
+$scope.regions = [];
+$scope.yourRegionId = [];
+
 ////// pull in api /////////
 function callRaces(){
 	$http({ method : 'GET',
@@ -169,9 +204,29 @@ function callSpells(){
 		});
 }
 callSpells();
+//GET ALL REGIONS FOR USER 
+function callRegions(){
+		console.log("showMyRegions firing");
+		postFactory.getUserRegions(userFactory.getCurrentUser())
+			.then((data) => {
+				// console.log("data", data);
+				$scope.regions = data;
+				// console.log("$scope.regionData", $scope.regionData);
+			}).catch(function(){
+			console.log("ERROR");
+		});
+	}
+callRegions();
 
 // FUNCTION TO ADD PUSHED ITEMS TO ARRAY OF CHARACTER
 //handle pushing clicked item
+	$scope.addRegion = (item) => {
+		console.log("item", item.name);
+		// $scope.yourRace.pop();
+		$scope.character.region = item.name;
+		$scope.character.regionId = item.id;
+		console.log("added to form");
+	};
 	$scope.addClass = (item) => {
 		console.log("item", item, item.name);
 		$scope.character.class.push(item.name);
@@ -200,6 +255,39 @@ callSpells();
 	$scope.addSpell = (item) => {
 		console.log("item", item, item.name);
 		$scope.character.spells.push(item.name);
+		console.log("added to form");
+	};
+
+
+//REMOVE ITEMS 
+	$scope.removeClass = (item) => {
+		console.log("item", item);
+		$scope.character.class.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSkill = (item) => {
+		console.log("item", item);
+		$scope.character.skills.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeFeat = (item) => {
+		console.log("item", item);
+		$scope.character.feats.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeEquipment = (item) => {
+		console.log("item", item);
+		$scope.character.equipment.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeMagicSchool = (item) => {
+		console.log("item", item);
+		$scope.character.magicschools.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSpell = (item) => {
+		console.log("item", item);
+		$scope.character.spells.splice(item);
 		console.log("added to form");
 	};
 

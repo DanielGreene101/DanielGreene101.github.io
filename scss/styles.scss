@@ -1,11 +1,57 @@
+/*
+FONTS
+font-family: 'Poppins', sans-serif;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Cinzel', serif;
+font-family: 'Poiret One', cursive;
+*/
+
+/*
+COLORS
+#5E412F BROWN   
+#FCEBB6 TAN   
+#78C0A8 LIGHT BLUE
+#FF534B TOMATOISH
+*/
+
+
+/*****GENERAL******/
 body{
-  background-color: #7f8c8d;
+  background-color: #BFE1BF;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-/*NAV BAR*/
+li {
+   list-style-type: circle; 
+   font-size: 1.3em; 
+}
+
+p {
+  font-size: 1.3em;
+}
+
+input {
+  font-size: 1.3em;
+}
+
+h1 {
+  border-bottom: 1px solid black;
+  padding: 1vh;
+}
+
+h3{
+  border-bottom: 1px solid black;
+}
+.container{
+  margin:0 !important;
+  padding:0 !important;
+  width: 100%;
+}
+
+/********NAV BAR********/
 #profile-image-anchor {
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border: none !important;
   border-radius: 50%;
   background-color: transparent !important;
@@ -27,77 +73,270 @@ body{
 #profile-image-anchor {
   margin-right: 3%; }
 
+#logo{
+  border-right: 1px solid grey;
+  font-family: 'Cinzel', serif;
+  font-size: 2em;
+}
+
+.navbar{
+  height: 7.3vh;
+}
+
+/*****************************CREATION PAGES*****************************/
+
+/******REGION CREATOR*******/
+
+.regionCreator{
+  padding-left: 5vh; 
+}
+.regionCreator input{
+  width: 80%;
+}
+
+.createRegionContainer{
+  width: 90%;
+}
+
 /******CHARACTER CREATOR*******/
 #CharacterCreationPage{
-  width: 100%;
-  height: 100%;
-  color: #FFFFFF;
+  width: 90%;
+  flex-direction: column;
+  color: grey;
 }
-#charCreat input{
-  color: black;
+
+#CharacterCreationPage h1{
+  color: white;
 }
-#charCreat{
-  width: 45%;
+
+#characterBeingCreated{
+  width: 60%;
   display: inline-block;
   float: left;
-  background-color: #DFD297;
-}
-#charCreat div{
-  display: flex;
+  background-color: #5E412F;
   flex-direction: column;
+  margin-right: 2vh;
+  border:1px solid black;
+}
+
+#characterBeingCreated input{
+  color: black;
+}
+
+#characterBeingCreated textarea{
+  color: black;
+}
+
+#characterBeingCreated div{
+  display: flex;
   max-height: 1000px;
   overflow: scroll;
-  background-color: #AC2832;
+  background-color: #78C0A8;
   margin: 2vh;
   border: solid black 3px;
+  flex-direction: column;
+  color:black;
+}
+#characterBeingCreated form{
+  padding: 2vh;
 }
 
-/*CHAR FORM*/
-#charForm{
-  width: 45%;
+
+
+#apiInfoCharacterCreater{
   display: inline-block;
   float: right;
-  background-color: tomato;
+  background-color: #78C0A8;
   position: fixed;
-  padding: 3vh;
+  padding: 0vh;
   height: 100vh;
   overflow: scroll;
   padding-bottom: 12vh;
   color: black;
+  flex-direction: column;
+  min-width: 40%;
+}
+#apiInfoCharacterCreater div {
+  display: flex;
+  flex-direction: column;
+  max-height: 700px;
+  overflow: scroll;
+  background-color: #5E412F;
+  margin: 2vh;
+  border: solid black 3px;
+  flex-direction: column;
+  color: #78C0A8;
+}
+
+/***************************** YOUR PAGES *****************************/
+/********** MY CHARACTERS **********/
+
+.myCharactersDisplay{
+  display: block;
+  float: left;
+  background-color: white;
+  padding: 3vh;
+  padding-bottom: 5vh;
+  margin: 1vh;
+  flex-wrap: wrap !important;
+  flex-direction: column;
+  width: 61vh;
+  height: 100vh;
+  overflow: scroll;
+  border-radius: 20px;
+}
+.myCharactersDisplay div {
+  border: 2px solid black;
+}
+
+.CharacterName {
+  border-bottom: 1px solid black;
+}
+
+.myCharacterContainer{
+  width: 100%;
+}
+.ngViewContainer{
+  margin-left: 5vh;
+  width:100%;
+}
+
+/****** MY REGION PAGE *****/
+.myRegionContainer{
+  width: 90%;
+}
+#characterInRegion{
+  background-color: #78C0A8;
+  display: flex; 
+  flex-direction: column;
+  margin-bottom: 1vh;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+#characterInRegion h4{
+  font-size: 1.5em;
+}
+
+#characterInRegion p {
+  margin-left: 2vh;
+}
+
+#myCharacterStoryline{
+  flex-wrap: wrap;
 }
 
 
-/*EDIT PAGE*/
+/***************************** EDITING PAGES *****************************/
+/*******EDIT REGION PAGE**********/
 
+/*******EDIT CHARACTER PAGE********/
+#editCharacterPage{
+  width:90%;
+}
 #characterToEdit{
-  width: 45%;
+  width: 60%;
   display: inline-block;
   float: left;
-  background-color: #dddddd;
-  position: fixed;
-  padding: 3vh;
-  height: 100vh;
+  background-color: #5E412F;
+  flex-direction: column;
+  margin-right: 2vh;
+}
+#characterToEdit div{
+  display: flex;
+  max-height: 1000px;
   overflow: scroll;
-  padding-bottom: 12vh;
+  background-color: #78C0A8;
+  margin: 2vh;
+  border: solid black 3px;
+  flex-direction: column;
+}
+#characterToEdit form{
+  padding: 2vh;
 }
 
 #apiInfoForEdit{
-  width: 45%;
   display: inline-block;
   float: right;
-  background-color: #DFD297;
+  background-color: #78C0A8;
+  position: fixed;
+  padding: 0vh;
+  height: 100vh;
+  overflow: scroll;
+  padding-bottom: 12vh;
+  color: black;
+  flex-direction: column;
+  min-width: 40%;
 }
 
 #apiInfoForEdit div{
   display: flex;
   flex-direction: column;
-  max-height: 1000px;
+  max-height: 700px;
   overflow: scroll;
-  background-color: #AC2832;
+  background-color: #5E412F;
   margin: 2vh;
   border: solid black 3px;
+  flex-direction: column;
 }
 
 #apiInfoForEdit input{
   color: black;
 }
+
+
+/******************************* LOG IN PAGE/HOME PAGE*******************************/
+#homePageContainer{
+  width: 90%;
+}
+
+#login-google{
+  margin: 0 auto;
+}
+
+#introduction{
+  background-color: #E7E7E7;
+}
+
+
+/*************************************** MEDIA RESIZING ***************************************/
+@media screen and (max-width: 1130px){
+  #characterToEdit{
+    display:block; 
+    position:relative;
+    margin:0 auto;
+    right:0;
+    width: 100%;
+
+  }
+  #apiInfoForEdit{
+    display:block; 
+    position:relative;
+    margin:0 auto;
+    right:0;
+    width: 100%;
+  }
+  #characterBeingCreated{
+    display:block; 
+    position:relative;
+    margin:0 auto;
+    right:0;
+    width: 100%;
+  }
+  #apiInfoCharacterCreater{
+    display:block; 
+    position:relative;
+    margin:0 auto;
+    right:0;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+

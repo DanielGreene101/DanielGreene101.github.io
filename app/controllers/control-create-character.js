@@ -11,6 +11,8 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory
 	$scope.yourEquipment = [];
 	$scope.yourMagicSchools = [];
 	$scope.yourSpells = [];
+	$scope.yourRegion = [];
+	$scope.yourRegionId = [];
 	$scope.yourNotes = "";
 	$scope.yourHP = "";
 	$scope.yourINITIATIVE = "";
@@ -56,7 +58,9 @@ let newCharacter = {
 		WILL: $scope.yourWILL,
 		BAB: $scope.yourBAB,
 		GRAPPLE: $scope.yourGRAPPLE,
-		SPRES: $scope.yourSPRES
+		SPRES: $scope.yourSPRES,
+		region: $scope.yourRegion,
+		regionId: $scope.yourRegionId
 	};
 
 //Empty arrays for api calls
@@ -69,6 +73,8 @@ $scope.feats = [];
 $scope.equipment = [];
 $scope.magicSchools = [];
 $scope.spells = [];
+$scope.regions = [];
+$scope.regionId = [];
 ////// pull in api /////////
 function callRaces(){
 	$http({ method : 'GET',
@@ -153,7 +159,7 @@ function callEquipment(){
 		url : 'http://www.dnd5eapi.co/api/equipment/'})
 		.then(function(data){
 			$scope.equipment = data.data.results;
-		})
+		})//.then for additional info
 		.catch(function(){
 			console.log("ERROR");
 		});
@@ -178,15 +184,39 @@ function callSpells(){
 		url : 'http://www.dnd5eapi.co/api/spells/'})
 		.then(function(data){
 			$scope.spells = data.data.results;
-		})
+		})//.then for additional info
 		.catch(function(){
 			console.log("ERROR");
 		});
 }
 callSpells();
+//GET ALL REGIONS FOR USER 
+function callRegions(){
+		console.log("showMyRegions firing");
+		postFactory.getUserRegions(userFactory.getCurrentUser())
+			.then((data) => {
+				console.log("data", data);
+				$scope.regions = data;
+				console.log("$scope.regionData", $scope.regionData);
+			}).catch(function(){
+			console.log("ERROR");
+		});
+	}
+callRegions();
 
 
 //handle pushing clicked item
+	$scope.addRegion = (item) => {
+		console.log("item", item.name);
+		// $scope.yourRace.pop();
+		$scope.yourRegion = item.name;
+		$scope.yourRegionId = item.id;
+		newCharacter.region = $scope.yourRegion;
+		newCharacter.regionId = $scope.yourRegionId;
+		console.log("$scope.yourRegion", $scope.yourRegion);
+		console.log("added to form");
+	};
+
 	$scope.addRace = (item) => {
 		console.log("item", item, item.name);
 		// $scope.yourRace.pop();
@@ -225,6 +255,38 @@ callSpells();
 		$scope.yourSpells.push(item.name);
 		console.log("added to form");
 		console.log("New Character", newCharacter);
+	};
+
+	//REMOVE ITEMS 
+	$scope.removeClass = (item) => {
+		console.log("item", item);
+		$scope.yourClass.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSkill = (item) => {
+		console.log("item", item);
+		$scope.yourSkills.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeFeat = (item) => {
+		console.log("item", item);
+		$scope.yourFeats.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeEquipment = (item) => {
+		console.log("item", item);
+		$scope.yourEquipment.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeMagicSchool = (item) => {
+		console.log("item", item);
+		$scope.yourMagicSchools.splice(item);
+		console.log("added to form");
+	};
+	$scope.removeSpell = (item) => {
+		console.log("item", item);
+		$scope.yourSpells.splice(item);
+		console.log("added to form");
 	};
 
 $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE) => {
@@ -274,16 +336,18 @@ $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 	};
 
 
-	$scope.yourStat =[];
-	var counter = 1;
+$scope.yourStat =[];
+var counter = 1;
 	$scope.statNumber = () => {
 		if (counter < 7){
 			counter++;
-			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
 			console.log("stat", $scope.yourStat);
-
 			$scope.statNumber();
-	}
+			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
+		}else{
+			counter = 1;
+			$scope.yourStat =[];
+		}
 	};
 
 });

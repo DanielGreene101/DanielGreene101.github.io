@@ -1,26 +1,87 @@
-<div id="characterToEdit">
-	<h1>CHARACTER TO EDIT</h1>
-	<input type="textarea" class="form-control" ng-model="character.name"></input>
-	<h3>RACE</h3>
-	<input type="textarea" class="form-control" ng-model="character.race"></input>
-	<h3>CLASS</h3>
-	<p ng-model="character.class">{{character.class}}</p>
-	<h3>SKILL</h3>
-	<p ng-model="character.skills">{{character.skills}}</p>
-	<h3>FEATS</h3>
-	<p ng-model="character.feats">{{character.feats}}</p>
-	<h3>MAGIC SCHOOLS</h3>
-	<p ng-model="character.magicschools">{{character.magicschools}}</p>
-	<h3>SPELLS</h3>
-	<p ng-model="character.spells">{{character.spells}}</p>
-	<h3>EQUIPMENT</h3>
-	<p ng-model="character.equipment">{{character.equipment}}</p>
-	<h3>STORY LINE</h3>
-	<input type="textarea" class="form-control" ng-model="character.storyline"><br><br>
-	<a class="btn btn-default" role="button" ng-click="submitCharacter(character.name, character.race, character.storyline, characters.id)">Save</a>
-</div>
-<div id="apiInfoForEdit">
-	<h1>ADD INFO</h1>
+<div id="editCharacterPage">
+	<div id="characterToEdit">
+			<h1>CHARACTER TO EDIT</h1>
+		<div>
+			<h3>NAME</h3>
+			<input type="textarea" class="form-control" ng-model="character.name"></input>
+		</div>
+		<div>
+			<h3>RACE</h3>
+			<input type="textarea" class="form-control" ng-model="character.race"></input>
+		</div>
+		<div>
+			<h3>CLASS</h3>
+			<ul>
+				<li ng-repeat="name in character.class track by $index" ng-click="removeClass(item)">{{name}}</li>
+			</ul>
+		</div>
+		<div>
+			<h3>SKILL</h3>
+			<ul>
+				<li ng-repeat="name in character.skills track by $index" ng-click="removeSkill(item)">{{name}}</li>
+			</ul>
+		</div>
+		<div>
+			<h3>FEATS</h3>
+			<ul>
+				<li ng-repeat="name in character.feats track by $index" ng-click="removeFeat(item)">{{name}}</li>
+			</ul>
+		</div>
+		<div>
+		<h3>MAGIC SCHOOLS</h3>
+			<ul>
+				<li ng-repeat="name in character.magicschools track by $index" ng-click="removeMagicSchool(item)">{{name}}</li>
+			</ul>
+		</div>
+		<div>
+		<h3>SPELLS</h3>
+			<ul>
+				<li ng-repeat="name in character.spells track by $index" ng-click="removeSpell(item)">{{name}}</li>
+			</ul>
+		</div>
+		<div>
+			<h3>EQUIPMENT</h3>
+			<ul>
+				<li ng-repeat="name in character.equipment track by $index" ng-click="removeEquipment(item)">{{name}}</li>
+			</ul>
+		</div>
+		<div>
+			<h3>STORY LINE</h3>
+			<textarea row="20" col="20" class="form-control" ng-model="character.storyline"></textarea>
+		</div>
+		<form class="stats">
+			<input type="text" ng-model="character.STR"></input>:STR<br>
+			<input type="text" ng-model="character.DEX"></input>:DEX<br>
+			<input type="text" ng-model="character.CON"></input>:CON<br>
+			<input type="text" ng-model="character.INT"></input>:INT<br>
+			<input type="text" ng-model="character.WIS"></input>:WIS<br>
+			<input type="text" ng-model="character.CHA"></input>:CHA<br>
+			<br><br>
+
+
+			<input type="text" ng-model="character.HP"></input>:HP<br>
+			<input type="text" ng-model="character.INITIATIVE"></input>:INITIATIVE<br>
+			<input type="text" ng-model="character.AC"></input>:AC<br>
+			<br><br>
+
+
+			<input type="text" ng-model="character.FORT"></input>:FORT<br>
+			<input type="text" ng-model="character.REF"></input>:REF<br>
+			<input type="text" ng-model="character.WILL"></input>:WILL<br>
+			<br><br>
+
+			<input type="text" ng-model="character.BAB"></input>:BAB<br>
+			<input type="text" ng-model="character.SPRES"></input>:SPELL RESIST<br>
+			<input type="text" ng-model="character.GRAPPLE"></input>:GRAPPLE<br>
+		</form>
+		<div>
+			<h3>REGION</h3>
+			<p ng-model="character.region">{{character.region}}</p><br><br>
+		</div>
+		<a class="btn btn-default" role="button" ng-click="submitCharacter(character.name, character.race, character.storyline, character.STR, character.DEX, character.CON, character.INT, character.WIS, character.CHA, character.HP, character.INITIATIVE, character.AC, character.FORT, character.REF, character.WILL, character.BAB, character.SPRES, character.GRAPPLE, characters.id)">Save</a>
+	</div>
+	<div id="apiInfoForEdit">
+		<h1>ADD INFO</h1>
 		<!-- CLASS -->
 				<h3>Classes</h3>
 			<div id="classes" class="createBox" ng-model="class">
@@ -64,6 +125,13 @@
 			<div id="spells" class="createBox" ng-model="spells">
 				<ul id="spellList" ng-repeat="item in spells">
 					<li ng-click="addSpell(item)">{{item.name}}</li>
+				</ul>
+			</div>
+			<!-- REGIONS -->
+				<h3>REGIONS</h3>
+			<div id="region" class="createBox" ng-model="regions">
+				<ul id="regionList" ng-repeat="item in regions">
+					<input type="radio" name="regionButton" ng-click="addRegion(item)"></input>{{item.name}}
 				</ul>
 			</div>
 		</div>
