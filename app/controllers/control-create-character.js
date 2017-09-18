@@ -260,32 +260,38 @@ callRegions();
 	//REMOVE ITEMS 
 	$scope.removeClass = (item) => {
 		console.log("item", item);
-		$scope.yourClass.splice(item);
+		var index = $scope.yourClass.indexOf(item);
+		$scope.yourClass.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeSkill = (item) => {
 		console.log("item", item);
-		$scope.yourSkills.splice(item);
+		var index = $scope.yourSkills.indexOf(item);
+		$scope.yourSkills.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeFeat = (item) => {
 		console.log("item", item);
-		$scope.yourFeats.splice(item);
+		var index = $scope.yourFeats.indexOf(item);
+		$scope.yourFeats.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeEquipment = (item) => {
 		console.log("item", item);
-		$scope.yourEquipment.splice(item);
+		var index = $scope.yourEquipment.indexOf(item);
+		$scope.yourEquipment.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeMagicSchool = (item) => {
 		console.log("item", item);
-		$scope.yourMagicSchools.splice(item);
+		var index = $scope.yourMagicSchools.indexOf(item);
+		$scope.yourMagicSchools.splice(index);
 		console.log("added to form");
 	};
 	$scope.removeSpell = (item) => {
 		console.log("item", item);
-		$scope.yourSpells.splice(item);
+		var index = $scope.yourSpells.indexOf(item);
+		$scope.yourSpells.splice(index);
 		console.log("added to form");
 	};
 
