@@ -373,4 +373,18 @@ callRegions();
 		console.log("added to form");
 	};
 
+	$scope.yourStat =[];
+var counter = 1;
+	$scope.statNumber = () => {
+		if (counter < 7){
+			counter++;
+			console.log("stat", $scope.yourStat);
+			$scope.statNumber();
+			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
+		}else{
+			counter = 1;
+			$scope.yourStat =[];
+		}
+	};
+
 });

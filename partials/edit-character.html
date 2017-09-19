@@ -49,6 +49,12 @@
 			<h3>STORY LINE</h3>
 			<textarea row="20" col="20" class="form-control" ng-model="character.storyline"></textarea>
 		</div>
+		<!-- STATS -->
+		<button type="submit" ng-click="statNumber()">GENERATE STAT NUMBERS</button><br><br>
+		<ul ng-repeat="stats in yourStat track by $index">
+			<li>{{stats}}</li>
+		</ul>
+		<br>
 		<form class="stats">
 			<input type="text" ng-model="character.STR"></input>:STR<br>
 			<input type="text" ng-model="character.DEX"></input>:DEX<br>
@@ -142,7 +148,6 @@
 					<li ng-click="addMagicSchools(item)">{{item.name}}</li>
 				</ul>
 			</div>
-			<!-- SPELLS -->
 			<!-- SPELLS -->
 			<h3>Spells</h3>
 			<div class="checkbox">

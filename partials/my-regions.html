@@ -10,7 +10,7 @@
   <div>
   <h3>Region Characters</h3>
   <div id="characterInRegion" ng-repeat="character in regions.characters track by $index">
-  	<h4>{{character.name}}</h4>
+    <h3 class="CharacterName"><a ng-href="#!/singleCharacter/{{character.id}}">{{character.name}}</a></h3>
   	<p>{{character.storyline}}</p>
   	
   </div>

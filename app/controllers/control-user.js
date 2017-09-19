@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('userCtrl', function($scope, userFactory, $location) {
+app.controller('userCtrl', function($scope, userFactory, $location, $window) {
 	//RTN OBJ W/ USER COLLRCTION
 	let createUserObj = (loginObj) => {
 		return {
@@ -47,6 +47,7 @@ app.controller('userCtrl', function($scope, userFactory, $location) {
 			clearUserPhoto();
 			let user = userFactory.getCurrentUser();
 			console.log("logOut successful", user);
+			$window.alert("LOGGED OUT!");
 		})
 		.catch((error) => {
 			console.log("logout error", error.message);
