@@ -90,26 +90,39 @@
 				</ul>
 			</div>
 			<!-- SKILLS -->
-				<h3>Skills</h3>
-			<div id="skills" class="createBox" ng-model="skills">
-				<ul id="skillList" ng-repeat="item in skills | orderBy: 'name'| filter:searchText">
-					<li ng-click="addSkill(item)">{{item.name}}</li>
+			<h3>Skills</h3>
+		<div id="skills" class="createBox" ng-model="skills">
+			<ul id="skillList" ng-repeat="item in finalSkills | orderBy: 'name' | filter:searchText">
+				<li ng-click="addSkill(item)">{{item.data.name}}</li>
+				<ul>
+					<li>{{item.data.desc[0]}}</li>
 				</ul>
-			</div>
+			</ul>
+		</div>
 			<!-- FEATS -->
-				<h3>Feats</h3>
-			<div id="features" class="createBox" ng-model="features">
-				<ul id="featuresList" ng-repeat="item in feats | orderBy: 'name'| filter:searchText">
-					<li ng-click="addFeat(item)">{{item.name}}</li>
+			<h3>Feats</h3>
+		<div id="features" class="createBox" ng-model="features">
+			<ul id="featuresList" ng-repeat="item in finalFeats | orderBy: 'name'| filter:searchText">
+				<li ng-click="addFeat(item)">{{item.data.name}}</li>
+				<ul>
+					<li>{{item.data.class.name}}</li>
+					<li>{{item.data.desc[0]}}</li>
 				</ul>
-			</div>
+			</ul>
+		</div>
 			<!-- EQUIPMENT -->
-				<h3>Equipment</h3>
-			<div id="equipment" class="createBox" ng-model="equipment">
-				<ul id="equipmentList" ng-repeat="item in equipment | orderBy: 'name'| filter:searchText">
-					<li ng-click="addEquipment(item)">{{item.name}}</li>
+			<h3>Equipment</h3>
+		<div id="equipment" class="createBox" ng-model="equipment">
+			<ul id="equipmentList" ng-repeat="item in finalEquipment | orderBy:[ 'name',  'equipment_category']| filter:searchText">
+				<li ng-click="addEquipment(item)">{{item.data.name}}</li>
+				<ul>
+					<li>{{item.data.equipment_category}}</li>
+					<li>{{item.data.armor_category}}{{item.data.gear_category}} {{item.data.weapon_range}}{{item.data.vehicle_category}}{{item.data.tool_category}}</li>
+					<li>{{item.data.desc[0]}}</li>
+					<li>{{item.data.damage.dice_count}} D:{{item.data.damage.dice_value}}{{item.data.armor_class.base}}</li>
 				</ul>
-			</div>
+			</ul>
+		</div>
 			<!-- MAGIC SCHOOLS -->
 				<h3>Magic-Schools</h3>
 			<div id="magicSchools" class="createBox" ng-model="magicSchools">
@@ -118,12 +131,19 @@
 				</ul>
 			</div>
 			<!-- SPELLS -->
-				<h3>Spells</h3>
-			<div id="spells" class="createBox" ng-model="spells">
-				<ul id="spellList" ng-repeat="item in spells | orderBy: 'name'| filter:searchText">
-					<li ng-click="addSpell(item)">{{item.name}}</li>
+			<!-- SPELLS -->
+			<h3>Spells</h3>
+		<div id="spells" class="createBox" ng-model="spells">
+			<ul id="spellList" ng-repeat="item in finalSpells | orderBy: 'name'| filter:searchText">
+				<li ng-click="addSpell(item)">{{item.data.name}}</li>
+				<ul>
+					<il>{{item.data.classes.name}}</il>
+					<li>{{item.data.school.name}}</li>
+					<li>{{item.data.desc[0]}}</li>
 				</ul>
-			</div>
+			</ul>
+		</div>
+
 			<!-- REGIONS -->
 				<h3>REGIONS</h3>
 			<div id="region" class="createBox" ng-model="regions">
