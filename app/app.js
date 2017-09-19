@@ -57,6 +57,12 @@ app.config(($routeProvider) => {
 		controller: 'EditRegionCtrl',
 		resolve: {isAuth}
 	})
+	.when('/singleCharacter/:id', {
+		//the first view when the user logs in
+		templateUrl: 'partials/single-character.html',
+		controller: 'SingleCtrl',
+		resolve: {isAuth}
+	})
 	.otherwise('/');
 });
 

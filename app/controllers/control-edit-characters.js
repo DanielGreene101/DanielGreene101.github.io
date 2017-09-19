@@ -83,10 +83,14 @@ $scope.subraces = [];
 $scope.classes = [];
 $scope.subclasses = [];
 $scope.skills = [];
+$scope.finalSkills = [];
 $scope.feats = [];
+$scope.finalFeats = [];
 $scope.equipment = [];
+$scope.finalEquipment = [];
 $scope.magicSchools = [];
 $scope.spells = [];
+$scope.finalSpells = [];
 $scope.regions = [];
 $scope.yourRegionId = [];
 
@@ -147,11 +151,29 @@ function callSkills(){
 		url : 'http://www.dnd5eapi.co/api/skills/'})
 		.then(function(data){
 			$scope.skills = data.data.results;
+			console.log("scope skills",$scope.skills);
+			for (let i = 0; i < data.data.results.length; i++) {
+				// console.log("for loop", data.data.results[i].url);
+  				finalSkills(i);
+			}
 		})
 		.catch(function(){
 			console.log("ERROR");
 		});
 
+}
+
+function finalSkills (i){
+	// console.log("THE URL", $scope.equipment[i].url);
+	$http({ method : 'GET', 
+			url: $scope.skills[i].url})
+	.then(function(data){
+		// console.log("FINAL EQUIPMENT", data);
+		$scope.finalSkills.push(data);
+		console.log("FINAL EQUIPMENT ARRAY", $scope.finalSkills);
+	}).catch(function(error){
+		console.log("ERROR NUMBER 2", error);
+	});
 }
 callSkills();
 
@@ -160,25 +182,63 @@ function callFeats(){
 		url : 'http://www.dnd5eapi.co/api/features/'})
 		.then(function(data){
 			$scope.feats = data.data.results;
+			for (let i = 0; i < data.data.results.length; i++) {
+				// console.log("for loop", data.data.results[i].url);
+  				finalFeats(i);
+			}
 		})
 		.catch(function(){
 			console.log("ERROR");
 		});
 
 }
+
+function finalFeats (i){
+	// console.log("THE URL", $scope.equipment[i].url);
+	$http({ method : 'GET', 
+			url: $scope.feats[i].url})
+	.then(function(data){
+		// console.log("FINAL EQUIPMENT", data);
+		$scope.finalFeats.push(data);
+		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalFeats);
+	}).catch(function(error){
+		console.log("ERROR NUMBER 2", error);
+	});
+}
 callFeats();
+
 
 function callEquipment(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/equipment/'})
 		.then(function(data){
 			$scope.equipment = data.data.results;
-		})
+			// console.log("first call", data.data.results.length);
+			for (let i = 0; i < data.data.results.length; i++) {
+				// console.log("for loop", data.data.results[i].url);
+  				finalEquipment(i);
+			}
+		})//.then for additional info
 		.catch(function(){
 			console.log("ERROR");
 		});
 
 }
+
+
+function finalEquipment (i){
+	// console.log("THE URL", $scope.equipment[i].url);
+	$http({ method : 'GET', 
+			url: $scope.equipment[i].url})
+	.then(function(data){
+		// console.log("FINAL EQUIPMENT", data);
+		$scope.finalEquipment.push(data);
+		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalEquipment);
+	}).catch(function(error){
+		console.log("ERROR NUMBER 2", error);
+	});
+}
+
 callEquipment();
 
 function callmagicSchools(){
@@ -198,10 +258,26 @@ function callSpells(){
 		url : 'http://www.dnd5eapi.co/api/spells/'})
 		.then(function(data){
 			$scope.spells = data.data.results;
-		})
+			for (let i = 0; i < data.data.results.length; i++) {
+				// console.log("for loop", data.data.results[i].url);
+  				finalSpells(i);
+			}
+		})//.then for additional info
 		.catch(function(){
 			console.log("ERROR");
 		});
+}
+function finalSpells (i){
+	// console.log("THE URL", $scope.equipment[i].url);
+	$http({ method : 'GET', 
+			url: $scope.spells[i].url})
+	.then(function(data){
+		// console.log("FINAL EQUIPMENT", data);
+		$scope.finalSpells.push(data);
+		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalSpells);
+	}).catch(function(error){
+		console.log("ERROR NUMBER 2", error);
+	});
 }
 callSpells();
 //GET ALL REGIONS FOR USER 
@@ -234,17 +310,17 @@ callRegions();
 	};
 	$scope.addSkill = (item) => {
 		console.log("item", item, item.name);
-		$scope.character.skills.push(item.name);
+		$scope.character.skills.push(item.data.name);
 		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
 		console.log("item", item, item.name);
-		$scope.character.feats.push(item.name);
+		$scope.character.feats.push(item.data.name);
 		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
 		console.log("item", item, item.name);
-		$scope.character.equipment.push(item.name);
+		$scope.character.equipment.push(item.data.name);
 		console.log("added to form");
 	};
 	$scope.addMagicSchools = (item) => {
@@ -254,7 +330,7 @@ callRegions();
 	};
 	$scope.addSpell = (item) => {
 		console.log("item", item, item.name);
-		$scope.character.spells.push(item.name);
+		$scope.character.spells.push(item.data.name);
 		console.log("added to form");
 	};
 
