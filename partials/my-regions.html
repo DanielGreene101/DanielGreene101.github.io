@@ -1,6 +1,6 @@
 <div class="myRegionContainer">
-<h1>YOUR REGIONS</h1>
-<div class="jumbotron" ng-repeat="regions in regionData track by $index">
+<h1>YOUR REGIONS</h1><label>Find Region: <input ng-model="searchText"></label>
+<div class="jumbotron" ng-repeat="regions in regionData | orderBy: 'name'| filter:searchText">
   <h1>{{regions.name}}</h1> <!-- Name of your region -->
   <p>{{regions.info}}</p> <!-- Region Info -->
   <a class="btn btn-primary" role="button" ng-href="#!/EditRegion/{{regions.id}}">Edit</a> 

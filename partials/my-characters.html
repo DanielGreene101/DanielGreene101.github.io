@@ -1,9 +1,9 @@
 <div class="cards-title" onload="showMyCharacters()">
-<h1>YOUR CHARACTERS</h1>
+<h1>YOUR CHARACTERS</h1><label>Find Character: <input ng-model="searchText"></label>
 </div>
 
 <div class="row myCharacterContainer">
-  <div class="col-sm-6 col-md-4 myCharactersDisplay" ng-repeat="characters in characterData track by $index"> 
+  <div class="col-sm-6 col-md-4 myCharactersDisplay" ng-repeat="characters in characterData | orderBy: 'name'| filter:searchText">
   <!-- CHARACTER DATA COMING FROM showMyCharacters in control-my-characters -->
     <div class="thumbnail">
       <div class="caption">
