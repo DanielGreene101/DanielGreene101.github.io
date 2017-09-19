@@ -103,7 +103,7 @@
 	</div>
 	<!--*************************************************************************************************************************************************************************************-->
 	<div id="apiInfoCharacterCreater">
-		<h1>ADD INFO</h1>
+		<h1>ADD INFO</h1><label>Filter Search: <input ng-model="searchText"></label>
 
 		<!-- RACE -->
 			<h3>Races</h3>
@@ -118,45 +118,42 @@
 		<!-- CLASS -->
 			<h3>Classes</h3>
 		<div id="classes" class="createBox" ng-model="class">
-			<ul id="classList" ng-repeat="item in classes">
-				<li ng-click="addClass(item)">{{item.name}}</li>
-			</ul>
-			<ul id="classList" ng-repeat="item in subclasses">
+			<ul id="classList" ng-repeat="item in classes | orderBy: 'name'">
 				<li ng-click="addClass(item)">{{item.name}}</li>
 			</ul>
 		</div>
 		<!-- SKILLS -->
 			<h3>Skills</h3>
 		<div id="skills" class="createBox" ng-model="skills">
-			<ul id="skillList" ng-repeat="item in skills">
+			<ul id="skillList" ng-repeat="item in skills | orderBy: 'name' | filter:searchText">
 				<li ng-click="addSkill(item)">{{item.name}}</li>
 			</ul>
 		</div>
 		<!-- FEATS -->
 			<h3>Feats</h3>
 		<div id="features" class="createBox" ng-model="features">
-			<ul id="featuresList" ng-repeat="item in feats">
+			<ul id="featuresList" ng-repeat="item in feats | orderBy: 'name'| filter:searchText">
 				<li ng-click="addFeat(item)">{{item.name}}</li>
 			</ul>
 		</div>
 		<!-- EQUIPMENT -->
 			<h3>Equipment</h3>
 		<div id="equipment" class="createBox" ng-model="equipment">
-			<ul id="equipmentList" ng-repeat="item in equipment">
+			<ul id="equipmentList" ng-repeat="item in equipment | orderBy: 'name'| filter:searchText">
 				<li ng-click="addEquipment(item)">{{item.name}}</li>
 			</ul>
 		</div>
 		<!-- MAGIC SCHOOLS -->
 			<h3>Magic-Schools</h3>
 		<div id="magicSchools" class="createBox" ng-model="magicSchools">
-			<ul id="magicSchoolsList" ng-repeat="item in magicSchools">
+			<ul id="magicSchoolsList" ng-repeat="item in magicSchools | orderBy: 'name'">
 				<li ng-click="addMagicSchools(item)">{{item.name}}</li>
 			</ul>
 		</div>
 		<!-- SPELLS -->
 			<h3>Spells</h3>
 		<div id="spells" class="createBox" ng-model="spells">
-			<ul id="spellList" ng-repeat="item in spells">
+			<ul id="spellList" ng-repeat="item in spells | orderBy: 'name'| filter:searchText">
 				<li ng-click="addSpell(item)">{{item.name}}</li>
 			</ul>
 		</div>
@@ -164,7 +161,7 @@
 		<!-- REGION -->
 			<h3>REGIONS</h3>
 		<div id="region" class="createBox" ng-model="region">
-			<ul id="regionList" ng-repeat="item in regions">
+			<ul id="regionList" ng-repeat="item in regions | orderBy: 'name'">
 				<input type="radio" name="regionButton" ng-click="addRegion(item)"></input>{{item.name}}
 			</ul>
 		</div>
