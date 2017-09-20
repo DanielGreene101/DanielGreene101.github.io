@@ -1,6 +1,0 @@
-app/values/
-css/
-lib/node_modules/
-lib/.sass-cache/
-dist/
-generic-test-controller.js

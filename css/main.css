@@ -1,0 +1,404 @@
+/*****GENERAL******/
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  /*background: url("../images/human-front-page.jpg") no-repeat fixed center;*/ }
+
+li {
+  list-style-type: circle;
+  font-size: 1.3em; }
+
+p {
+  font-size: 1.3em; }
+
+input {
+  font-size: 1.3em; }
+
+h1 {
+  border-bottom: 1px solid black;
+  padding: 1vh; }
+
+h3 {
+  border-bottom: 1px solid black; }
+
+.container {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%; }
+
+button {
+  background-color: #78C0A8 !important;
+  border-color: #78C0A8 !important;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  color: white !important;
+  font-size: 1.3em; }
+
+.btn {
+  background-color: #78C0A8 !important;
+  border-color: #78C0A8 !important;
+  font-size: 1.5em;
+  margin: 1.3vh; }
+
+/********NAV BAR********/
+#profile-image-anchor {
+  width: 60px;
+  height: 60px;
+  border: none !important;
+  border-radius: 50%;
+  background-color: transparent !important;
+  z-index: 999;
+  display: inline-flex;
+  float: right;
+  margin-right: 0 !important;
+  margin-left: 10px !important;
+  margin-bottom: 5px !important; }
+
+#profile-image-anchor img {
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+  display: block;
+  position: relative;
+  z-index: 998; }
+
+#profile-image-anchor {
+  margin-right: 3%; }
+
+#logo {
+  border-right: 1px solid grey;
+  font-family: 'Cinzel', serif;
+  font-size: 2em; }
+
+.navbar {
+  height: 7.3vh; }
+
+.ngViewContainer {
+  width: 100%; }
+
+/*****************************CREATION PAGES*****************************/
+/******REGION CREATOR*******/
+.regionCreator {
+  padding-left: 5vh;
+  font-size: 2em; }
+
+.regionCreator input {
+  width: 80%; }
+
+.createRegionContainer {
+  width: 90%; }
+
+/******CHARACTER CREATOR*******/
+#CharacterCreationPage {
+  width: 90%;
+  flex-direction: column;
+  height: 250vh;
+  background: url("../images/elf-front-page.jpg") no-repeat fixed center;
+  background-size: contain; }
+
+#characterBeingCreated {
+  width: 60%;
+  display: inline-block;
+  float: left;
+  flex-direction: column;
+  margin-right: 2vh;
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  background: rgba(173, 192, 192, 0.5); }
+
+#characterBeingCreated input {
+  color: black; }
+
+#characterBeingCreated textarea {
+  color: black; }
+
+#characterBeingCreated div {
+  display: flex;
+  max-height: 1000px;
+  overflow: scroll;
+  background: rgba(173, 216, 230, 0.5);
+  margin: 2vh;
+  border: solid black 3px;
+  flex-direction: column;
+  color: black;
+  font-size: 1.2em; }
+
+#characterBeingCreated form {
+  padding: 2vh; }
+
+#selectedRegions {
+  margin-left: 2%; }
+
+#selectedRace {
+  margin-left: 2%; }
+
+#apiInfoCharacterCreater {
+  display: inline-block;
+  float: right;
+  position: fixed;
+  padding: 0vh;
+  height: 85vh;
+  overflow: scroll;
+  padding-bottom: 12vh;
+  color: black;
+  flex-direction: column;
+  min-width: 40%;
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  background: rgba(173, 192, 192, 0.5); }
+
+#apiInfoCharacterCreater div {
+  display: flex;
+  flex-direction: column;
+  background: rgba(173, 216, 230, 0.5);
+  margin: 2vh;
+  border: solid black 3px;
+  flex-direction: column;
+  color: black;
+  font-size: 1.2em; }
+
+/***************************** YOUR PAGES *****************************/
+/********** SINGLE CHARACTER **********/
+#characterToDisplay {
+  max-width: 50%;
+  border: 2px solid black;
+  float: left;
+  background: rgba(173, 192, 192, 0.5);
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0; }
+
+#characterToDisplay div {
+  border: 1px solid black; }
+
+#characterToDisplay div h3 {
+  background: rgba(173, 216, 230, 0.5); }
+
+#notesArea {
+  float: right;
+  padding-right: 10%; }
+
+#singleCharacterPage {
+  width: 90%;
+  background: url("../images/dwarf-front.png") no-repeat fixed center;
+  background-size: contain;
+  height: 210vh; }
+
+/********** MY CHARACTERS **********/
+.cards-title {
+  background: rgba(0, 0, 0, 0); }
+
+#myCharacterPageContainer {
+  width: 100%;
+  background: url("../images/orc-front.png") no-repeat fixed right top;
+  background-size: 50%; }
+
+.myCharactersDisplay {
+  display: block;
+  float: left;
+  background: transparent;
+  padding: 3vh;
+  padding-bottom: 5vh;
+  margin: 4vh;
+  flex-wrap: wrap !important;
+  flex-direction: column;
+  width: 85vh;
+  height: 100vh;
+  overflow: scroll;
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0; }
+
+.myCharactersDisplay div {
+  border: 2px solid black; }
+
+.CharacterName {
+  border-bottom: 1px solid black; }
+
+.thumbnail {
+  background: rgba(173, 216, 230, 0.5); }
+
+/*.myCharacterContainer{
+  width: 100%;
+  background: url("../images/orc-front.png") no-repeat fixed right top;
+  background-size: 50%;
+}*/
+.ngViewContainer {
+  margin-left: 5vh;
+  width: 100%; }
+
+/*********** MY REGION PAGE **********/
+.myRegionContainer {
+  width: 90%; }
+
+#characterInRegion {
+  background-color: #78C0A8;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 1vh;
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  width: 60vh;
+  height: 30vh;
+  overflow: scroll; }
+
+#characterInRegion h4 {
+  font-size: 1.5em; }
+
+#characterInRegion p {
+  margin-left: 2vh;
+  padding: 5px; }
+
+#myCharacterStoryline {
+  flex-wrap: wrap; }
+
+/***************************** EDITING PAGES *****************************/
+/*******EDIT REGION PAGE**********/
+/*******EDIT CHARACTER PAGE********/
+.checkbox {
+  width: 50px;
+  height: 10px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2); }
+  .checkbox label {
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    cursor: pointer;
+    background: #fcfff4;
+    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 50px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease; }
+  .checkbox input[type=checkbox] {
+    visibility: hidden; }
+    .checkbox input[type=checkbox]:checked + label {
+      left: 37px; }
+
+#editCharacterPage {
+  width: 90%;
+  background: url("../images/dwarf-front.png") no-repeat fixed center;
+  background-size: contain;
+  height: 260vh; }
+
+#characterToEdit {
+  width: 60%;
+  display: inline-block;
+  float: left;
+  background: rgba(173, 192, 192, 0.5);
+  flex-direction: column;
+  margin-right: 2vh;
+  border: 1px solid black; }
+
+#characterToEdit div {
+  display: flex;
+  max-height: 1000px;
+  overflow: scroll;
+  margin: 2vh;
+  border: solid black 3px;
+  flex-direction: column;
+  font-size: 1.2em; }
+
+#characterToEdit div h3 {
+  background: rgba(173, 216, 230, 0.5);
+  margin-top: 0;
+  padding-top: 5px; }
+
+#characterToEdit form {
+  padding: 2vh; }
+
+#apiInfoForEdit {
+  display: inline-block;
+  float: right;
+  background: rgba(173, 192, 192, 0.5);
+  position: fixed;
+  padding: 0vh;
+  height: 85vh;
+  overflow: scroll;
+  padding-bottom: 12vh;
+  color: black;
+  flex-direction: column;
+  min-width: 40%;
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0; }
+
+#apiInfoForEdit div {
+  display: flex;
+  flex-direction: column;
+  background-color: #78C0A8;
+  margin: 2vh;
+  border: solid black 3px;
+  flex-direction: column;
+  font-size: 1.2em; }
+
+#apiInfoForEdit input {
+  color: black; }
+
+/******************************* LOG IN PAGE/HOME PAGE*******************************/
+#homePageContainer {
+  background-image: url("../images/elf-back.png"), url("../images/elf-front-page.jpg");
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+  width: 90%;
+  font-size: 1.2em; }
+
+#login-google {
+  margin: 0 auto; }
+
+#introduction {
+  background: rgba(173, 216, 230, 0.3); }
+
+/*************************************** MEDIA RESIZING ***************************************/
+@media screen and (max-width: 1130px) {
+  #characterToEdit {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    right: 0;
+    width: 100%; }
+
+  #apiInfoForEdit {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    right: 0;
+    width: 100%; }
+
+  #characterBeingCreated {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    right: 0;
+    width: 100%; }
+
+  #apiInfoCharacterCreater {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    right: 0;
+    width: 100%; } }
+
+/*# sourceMappingURL=main.css.map */
