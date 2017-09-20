@@ -87,7 +87,7 @@
 		<a class="btn btn-default" role="button" ng-click="submitCharacter(character.name, character.race, character.storyline, character.STR, character.DEX, character.CON, character.INT, character.WIS, character.CHA, character.HP, character.INITIATIVE, character.AC, character.FORT, character.REF, character.WILL, character.BAB, character.SPRES, character.GRAPPLE, characters.id)">Save</a>
 	</div>
 	<div id="apiInfoForEdit">
-		<h1>ADD INFO</h1><label>Filter Search: <input ng-model="searchText"></label>
+		<h1>ADD INFO</h1><label>Filter Search: <input ng-model="searchText"><p>Search through equipment, skills, feats, and spells</p></label>
 		<!-- CLASS -->
 				<h3>Classes</h3>
 			<div id="classes" class="createBox" ng-model="class">
@@ -97,7 +97,7 @@
 			</div>
 			<!-- SKILLS -->
 			<h3>Skills</h3>
-			<div class="checkbox">
+			<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=skillscollapse value="None" id="slideOne" name="check"></td>
 				<label for="slideOne"></label>
 			</div>
@@ -111,7 +111,7 @@
 		</div>
 			<!-- FEATS -->
 			<h3>Feats</h3>
-			<div class="checkbox">
+			<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=featscollapse value="None" id="slideTwo" name="check"></td>
 				<label for="slideTwo"></label>
 				</div>
@@ -126,7 +126,7 @@
 		</div>
 			<!-- EQUIPMENT -->
 			<h3>Equipment</h3>
-			<div class="checkbox">
+			<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=equipmentcollapse value="None" id="slideThree" name="check"></td>
 				<label for="slideThree"></label>
 			</div>
@@ -150,7 +150,7 @@
 			</div>
 			<!-- SPELLS -->
 			<h3>Spells</h3>
-			<div class="checkbox">
+			<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=spellscollapse value="None" id="slideFour" name="check"></td>
 				<label for="slideFour"></label>
 			</div>
