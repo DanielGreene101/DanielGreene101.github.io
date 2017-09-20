@@ -48,6 +48,22 @@ h3{
   width: 100%;
 }
 
+
+button{
+  background-color: #5E412F !important;
+  border-color: black !important;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  color:white !important;
+}
+
+.btn{
+  background-color: #5E412F !important;
+  border-color: black !important;
+}
+
 /********NAV BAR********/
 #profile-image-anchor {
   width: 60px;
@@ -102,7 +118,6 @@ h3{
 #CharacterCreationPage{
   width: 90%;
   flex-direction: column;
-  color: grey;
 }
 
 #CharacterCreationPage h1{
@@ -142,6 +157,12 @@ h3{
   padding: 2vh;
 }
 
+#selectedRegions {
+  margin-left: 2%;
+}
+#selectedRace{
+  margin-left: 2%;
+}
 
 
 #apiInfoCharacterCreater{
