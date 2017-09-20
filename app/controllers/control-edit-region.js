@@ -11,8 +11,7 @@ app.controller('EditRegionCtrl', function($scope, userFactory, $location, postFa
 		info: ""
 	};
 
-	const showEditRegion = () => {
-		console.log("$routeParams.id", $routeParams.id);
+	const showEditRegion = () => {//SET UP EDIT PAGE WITH INFO
 		postFactory.getSingleRegion($routeParams.id)
 		.then((data) => {
 			$scope.regions = data;
@@ -22,13 +21,9 @@ app.controller('EditRegionCtrl', function($scope, userFactory, $location, postFa
 	};
 //SUBMIT NEW/EDITED CHARACTER TO FIREBASE
 	$scope.submitRegion = () => {
-		// let obj = $scope.character;
-		// console.log( "HELLO", obj, currrentUser );
-		console.log("test", $routeParams.id, $scope.regions);
 		postFactory.editRegion($routeParams.id, $scope.regions)
 		.then((data) => {
 			$location.path('/MyRegions');
-			// $scope.$apply();
 		});
 	};
 

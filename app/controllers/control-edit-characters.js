@@ -6,6 +6,7 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 
 	let currrentUser = userFactory.getCurrentUser();
 
+//EMPTRY CHARACTER TO BE FILLED FOR PUSH
 	$scope.character = {
 		name: "",
 		race: "",
@@ -34,9 +35,8 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		GRAPPLE: "",
 		SPRES: ""
 	};
-
+//PULLS IN INFO FOR EDIT
 	const showEditChar = () => {
-		console.log("$routeParams.id", $routeParams.id);
 		postFactory.getSingleChar($routeParams.id)
 		.then((data) => {
 			$scope.character = data;
@@ -46,8 +46,6 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 	};
 //SUBMIT NEW/EDITED CHARACTER TO FIREBASE
 	$scope.submitCharacter = (name, race, notes, STR, DEX, CON, INT, WIS, CHA, HP, INITIATIVE, AC, FORT, REF, WILL, BAB, SPRES, GRAPPLE, id) => {
-		// let obj = $scope.character;
-		// console.log( "HELLO", obj, currrentUser );
 		$scope.character.name = name;
 		$scope.character.race = race; 
 		$scope.character.storyline = notes;
@@ -66,7 +64,6 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 		$scope.character.BAB = BAB;
 		$scope.character.SPRES = SPRES;
 		$scope.character.GRAPPLE = GRAPPLE;
-		console.log("test", $routeParams.id, $scope.character);
 		postFactory.editChar($routeParams.id, $scope.character)
 		.then((data) => {
 			$location.path('/MyCharacters');
@@ -97,7 +94,7 @@ $scope.yourRegionId = [];
 ////// pull in api /////////
 function callRaces(){
 	$http({ method : 'GET',
-		url : 'http://www.dnd5eapi.co/api/races/',})
+		url : 'http://www.dnd5eapi.co/api/races/',})//PULL IN DATA FROM API
 		.then(function(data){
 			$scope.races = data.data.results;
 		})
@@ -151,9 +148,7 @@ function callSkills(){
 		url : 'http://www.dnd5eapi.co/api/skills/'})
 		.then(function(data){
 			$scope.skills = data.data.results;
-			console.log("scope skills",$scope.skills);
 			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
   				finalSkills(i);
 			}
 		})
@@ -164,13 +159,10 @@ function callSkills(){
 }
 
 function finalSkills (i){
-	// console.log("THE URL", $scope.equipment[i].url);
 	$http({ method : 'GET', 
 			url: $scope.skills[i].url})
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
 		$scope.finalSkills.push(data);
-		console.log("FINAL EQUIPMENT ARRAY", $scope.finalSkills);
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
@@ -182,8 +174,7 @@ function callFeats(){
 		url : 'http://www.dnd5eapi.co/api/features/'})
 		.then(function(data){
 			$scope.feats = data.data.results;
-			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
+			for (let i = 0; i < data.data.results.length; i++) {//FIRE SECOND API CALL WITH LOOP THIS IS DONE BY PULLING URL FROM FIRST CALL
   				finalFeats(i);
 			}
 		})
@@ -194,13 +185,10 @@ function callFeats(){
 }
 
 function finalFeats (i){
-	// console.log("THE URL", $scope.equipment[i].url);
 	$http({ method : 'GET', 
-			url: $scope.feats[i].url})
+			url: $scope.feats[i].url})//SECDOND API CALL FOR ADDITIONAL INFO 
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
 		$scope.finalFeats.push(data);
-		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalFeats);
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
@@ -213,12 +201,10 @@ function callEquipment(){
 		url : 'http://www.dnd5eapi.co/api/equipment/'})
 		.then(function(data){
 			$scope.equipment = data.data.results;
-			// console.log("first call", data.data.results.length);
 			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
   				finalEquipment(i);
 			}
-		})//.then for additional info
+		})
 		.catch(function(){
 			console.log("ERROR");
 		});
@@ -227,13 +213,10 @@ function callEquipment(){
 
 
 function finalEquipment (i){
-	// console.log("THE URL", $scope.equipment[i].url);
 	$http({ method : 'GET', 
 			url: $scope.equipment[i].url})
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
 		$scope.finalEquipment.push(data);
-		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalEquipment);
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
@@ -259,35 +242,30 @@ function callSpells(){
 		.then(function(data){
 			$scope.spells = data.data.results;
 			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
   				finalSpells(i);
 			}
-		})//.then for additional info
+		})
 		.catch(function(){
 			console.log("ERROR");
 		});
 }
 function finalSpells (i){
-	// console.log("THE URL", $scope.equipment[i].url);
 	$http({ method : 'GET', 
 			url: $scope.spells[i].url})
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
 		$scope.finalSpells.push(data);
-		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalSpells);
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
 }
 callSpells();
+
 //GET ALL REGIONS FOR USER 
 function callRegions(){
 		console.log("showMyRegions firing");
-		postFactory.getUserRegions(userFactory.getCurrentUser())
+		postFactory.getUserRegions(userFactory.getCurrentUser())//PULL IN USERS CREATED REGIONS USING USER ID
 			.then((data) => {
-				// console.log("data", data);
 				$scope.regions = data;
-				// console.log("$scope.regionData", $scope.regionData);
 			}).catch(function(){
 			console.log("ERROR");
 		});
@@ -297,73 +275,67 @@ callRegions();
 // FUNCTION TO ADD PUSHED ITEMS TO ARRAY OF CHARACTER
 //handle pushing clicked item
 	$scope.addRegion = (item) => {
-		console.log("item", item.name);
-		// $scope.yourRace.pop();
 		$scope.character.region = item.name;
 		$scope.character.regionId = item.id;
 		console.log("added to form");
 	};
 	$scope.addClass = (item) => {
-		console.log("item", item, item.name);
 		$scope.character.class.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addSkill = (item) => {
-		console.log("item", item, item.name);
 		$scope.character.skills.push(item.data.name);
 		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
-		console.log("item", item, item.name);
 		$scope.character.feats.push(item.data.name);
 		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
-		console.log("item", item, item.name);
 		$scope.character.equipment.push(item.data.name);
 		console.log("added to form");
 	};
 	$scope.addMagicSchools = (item) => {
-		console.log("item", item, item.name);
 		$scope.character.magicschools.push(item.name);
 		console.log("added to form");
 	};
 	$scope.addSpell = (item) => {
-		console.log("item", item, item.name);
 		$scope.character.spells.push(item.data.name);
 		console.log("added to form");
 	};
 
 
 //REMOVE ITEMS 
+
+//functions removing selected items from their prospective divs
 	$scope.removeClass = (index) => {
 		$scope.character.class.splice(index, 1);
-		console.log("added to form");
+		console.log("Removed from form");
 	};
 	$scope.removeSkill = (index) => {
 		$scope.character.skills.splice(index, 1);
-		console.log("added to form");
+		console.log("Removed from form");
 	};
 	$scope.removeFeat = (index) => {
 		$scope.character.feats.splice(index, 1);
-		console.log("added to form");
+		console.log("Removed from form");
 	};
 	$scope.removeEquipment = (index) => {
 		$scope.character.equipment.splice(index, 1);
-		console.log("added to form");
+		console.log("Removed from form");
 	};
 	$scope.removeMagicSchool = (index) => {
 		$scope.character.magicschools.splice(index, 1);
-		console.log("added to form");
+		console.log("Removed from form");
 	};
 	$scope.removeSpell = (index) => {
 		$scope.character.spells.splice(index, 1);
-		console.log("added to form");
+		console.log("Removed from form");
 	};
 
-	$scope.yourStat =[];
+$scope.yourStat =[];
 var counter = 1;
-	$scope.statNumber = () => {
+	$scope.statNumber = () => {//GENERATE RANDOM NUMBERS FOR STATS
 		if (counter < 7){
 			counter++;
 			console.log("stat", $scope.yourStat);

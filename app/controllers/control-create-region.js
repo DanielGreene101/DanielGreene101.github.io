@@ -1,7 +1,7 @@
 "use strict";
 app.controller('CreateMapCtrl', function ($scope, postFactory, userFactory) {
 
-let user = userFactory.getCurrentUser();
+let user = userFactory.getCurrentUser();//SET UP USER REGION CREATION
 console.log("user", user);
 	$scope.regName = "";
 	$scope.regInfo = "";
@@ -15,7 +15,7 @@ console.log("user", user);
 
 
 
-	$scope.saveRegion = (regName, regInfo) => {
+	$scope.saveRegion = (regName, regInfo) => {//SAVE CREATED REGION
 
 		$scope.regName = regName; 
 		newRegion.name = $scope.regName;
@@ -24,7 +24,6 @@ console.log("user", user);
 		newRegion.info = $scope.regInfo;
 
 		var newRegionToAdd = newRegion;
-		console.log("newRegionToAdd", newRegionToAdd);
 		postFactory.addRegion(newRegionToAdd);
 	};
 });

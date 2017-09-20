@@ -113,7 +113,7 @@ h3{
   width: 60%;
   display: inline-block;
   float: left;
-  background-color: #5E412F;
+  background-color: #78C0A8;
   flex-direction: column;
   margin-right: 2vh;
   border:1px solid black;
@@ -131,7 +131,7 @@ h3{
   display: flex;
   max-height: 1000px;
   overflow: scroll;
-  background-color: #78C0A8;
+  background-color: tan;
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
@@ -160,11 +160,11 @@ h3{
 #apiInfoCharacterCreater div {
   display: flex;
   flex-direction: column;
-  background-color: #5E412F;
+  background-color: tan;
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
-  color: #78C0A8;
+  color: black;
   font-size: 1.2em;
 }
 
@@ -218,14 +218,14 @@ h3{
   width: 90%;
 }
 #characterInRegion{
-  background-color: #78C0A8;
+  background-color: tan;
   display: inline-flex; 
   flex-direction: column;
   margin-bottom: 1vh;
   border: 3px solid black;
   border-radius: 5px;
-  width: 40vh;
-  height: 20vh;
+  width: 60vh;
+  height: 30vh;
   overflow: scroll;
 }
 
@@ -285,7 +285,7 @@ h3{
   width: 60%;
   display: inline-block;
   float: left;
-  background-color: #5E412F;
+  background-color: #78C0A8;
   flex-direction: column;
   margin-right: 2vh;
 }
@@ -293,7 +293,7 @@ h3{
   display: flex;
   max-height: 1000px;
   overflow: scroll;
-  background-color: #78C0A8;
+  background-color: tan;
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
@@ -320,7 +320,7 @@ h3{
 #apiInfoForEdit div{
   display: flex;
   flex-direction: column;
-  background-color: #5E412F;
+  background-color: tan;
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
@@ -342,7 +342,7 @@ h3{
 }
 
 #introduction{
-  background-color: #E7E7E7;
+  background-color: tan;
 }
 
 

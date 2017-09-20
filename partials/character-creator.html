@@ -117,8 +117,12 @@
 		</div>
 		<!-- CLASS -->
 			<h3>Classes</h3>
+			<p>CLICK TO OPEN:</p><div class="checkbox">
+				<td><input type=checkbox ng-model=classescollapse value="None" id="slideFive" name="check"></td>
+				<label for="slideFive"></label>
+			</div>
 		<div id="classes" class="createBox" ng-model="class">
-			<ul id="classList" ng-repeat="item in classes | orderBy: 'name'">
+			<ul id="classList" ng-show=classescollapse ng-repeat="item in classes | orderBy: 'name'">
 				<li ng-click="addClass(item)">{{item.name}}</li>
 			</ul>
 		</div>
@@ -170,7 +174,11 @@
 		</div>
 		<!-- MAGIC SCHOOLS -->
 			<h3>Magic-Schools</h3>
-		<div id="magicSchools" class="createBox" ng-model="magicSchools">
+			<p>CLICK TO OPEN:</p><div class="checkbox">
+				<td><input type=checkbox ng-model=magicschoolscollapse value="None" id="slideSix" name="check"></td>
+				<label for="slideSix"></label>
+			</div>
+		<div id="magicSchools" ng-show="magicschoolscollapse" class="createBox" ng-model="magicSchools">
 			<ul id="magicSchoolsList" ng-repeat="item in magicSchools | orderBy: 'name'">
 				<li ng-click="addMagicSchools(item)">{{item.name}}</li>
 			</ul>

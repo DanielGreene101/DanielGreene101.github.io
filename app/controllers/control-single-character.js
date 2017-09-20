@@ -34,8 +34,7 @@ app.controller('SingleCtrl', function($scope, userFactory, $location, postFactor
 		GRAPPLE: "",
 		SPRES: ""
 	};
-	const showSingleChar = () => {
-		console.log("$routeParams.id", $routeParams.id);
+	const showSingleChar = () => {//GET SINGLE CHARACTER TO SHOW ON PAGE 
 		postFactory.getSingleChar($routeParams.id)
 		.then((data) => {
 			$scope.character = data;
