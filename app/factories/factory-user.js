@@ -42,7 +42,6 @@ app.factory('userFactory', function($q, $http, FBCreds, $location) {
 		let newUserObj = JSON.stringify(userObj);
 		$http.post(`${FBCreds.databaseURL}/users.json`, userObj)
 		.then((data) => {
-            console.log( "data", data );
             return (data);
         }, (error) => {
             let errorCode = error.code;

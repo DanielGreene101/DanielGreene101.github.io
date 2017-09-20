@@ -31,7 +31,7 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory
 	$scope.yourSPRES = "";
 //DEFINE USER 
 let user = userFactory.getCurrentUser();
-console.log("user", user);
+console.log("user", user.email);
 
 let newCharacter = {
 		name: $scope.yourName,
@@ -80,16 +80,15 @@ $scope.finalSpells = [];
 $scope.regions = [];
 $scope.regionId = [];
 ////// pull in api /////////
-function callRaces(){
+function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/races/',})
 		.then(function(data){
-			$scope.races = data.data.results;
+			$scope.races = data.data.results; //DATA SCOPED FOR DOM ARRAY
 		})
 		.catch(function(){
 			console.log("ERROR");
 		});
-
 }
 callRaces();
 
@@ -137,10 +136,8 @@ function callSkills(){
 		url : 'http://www.dnd5eapi.co/api/skills/'})
 		.then(function(data){
 			$scope.skills = data.data.results;
-			console.log("scope skills",$scope.skills);
-			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
-  				finalSkills(i);
+			for (let i = 0; i < data.data.results.length; i++) {//call additional API for additional info
+  				finalSkills(i); //CALLING SECOND FUNCTION. THIS AVOIDS FUNCTION WITHIN A LOOP
 			}
 		})
 		.catch(function(){
@@ -149,14 +146,11 @@ function callSkills(){
 
 }
 
-function finalSkills (i){
-	// console.log("THE URL", $scope.equipment[i].url);
+function finalSkills (i){//SECONG API CALL FOR MORE INFO 
 	$http({ method : 'GET', 
 			url: $scope.skills[i].url})
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
-		$scope.finalSkills.push(data);
-		console.log("FINAL EQUIPMENT ARRAY", $scope.finalSkills);
+		$scope.finalSkills.push(data);//PUSHED FOR DOM AVAILABILITY 
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
@@ -169,7 +163,6 @@ function callFeats(){
 		.then(function(data){
 			$scope.feats = data.data.results;
 			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
   				finalFeats(i);
 			}
 		})
@@ -180,13 +173,10 @@ function callFeats(){
 }
 
 function finalFeats (i){
-	// console.log("THE URL", $scope.equipment[i].url);
 	$http({ method : 'GET', 
 			url: $scope.feats[i].url})
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
 		$scope.finalFeats.push(data);
-		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalFeats);
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
@@ -198,12 +188,10 @@ function callEquipment(){
 		url : 'http://www.dnd5eapi.co/api/equipment/'})
 		.then(function(data){
 			$scope.equipment = data.data.results;
-			// console.log("first call", data.data.results.length);
 			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
   				finalEquipment(i);
 			}
-		})//.then for additional info
+		})
 		.catch(function(){
 			console.log("ERROR");
 		});
@@ -212,13 +200,10 @@ function callEquipment(){
 
 
 function finalEquipment (i){
-	// console.log("THE URL", $scope.equipment[i].url);
 	$http({ method : 'GET', 
 			url: $scope.equipment[i].url})
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
 		$scope.finalEquipment.push(data);
-		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalEquipment);
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
@@ -244,63 +229,51 @@ function callSpells(){
 		.then(function(data){
 			$scope.spells = data.data.results;
 			for (let i = 0; i < data.data.results.length; i++) {
-				// console.log("for loop", data.data.results[i].url);
   				finalSpells(i);
 			}
-		})//.then for additional info
+		})
 		.catch(function(){
 			console.log("ERROR");
 		});
 }
 function finalSpells (i){
-	// console.log("THE URL", $scope.equipment[i].url);
 	$http({ method : 'GET', 
 			url: $scope.spells[i].url})
 	.then(function(data){
-		// console.log("FINAL EQUIPMENT", data);
 		$scope.finalSpells.push(data);
-		// console.log("FINAL EQUIPMENT ARRAY", $scope.finalSpells);
 	}).catch(function(error){
 		console.log("ERROR NUMBER 2", error);
 	});
 }
-
-
-
 callSpells();
+
+
 //GET ALL REGIONS FOR USER 
 function callRegions(){
 		console.log("showMyRegions firing");
-		postFactory.getUserRegions(userFactory.getCurrentUser())
+		postFactory.getUserRegions(userFactory.getCurrentUser())//GET USERS REGIONS
 			.then((data) => {
-				console.log("data", data);
-				$scope.regions = data;
-				console.log("$scope.regionData", $scope.regionData);
+				$scope.regions = data;//IN ARRAY FOR DOM
 			}).catch(function(){
 			console.log("ERROR");
 		});
 	}
 callRegions();
 
-
 //handle pushing clicked item
 	$scope.addRegion = (item) => {
 		console.log("item", item.name);
-		// $scope.yourRace.pop();
 		$scope.yourRegion = item.name;
 		$scope.yourRegionId = item.id;
 		newCharacter.region = $scope.yourRegion;
-		newCharacter.regionId = $scope.yourRegionId;
-		console.log("$scope.yourRegion", $scope.yourRegion);
+		newCharacter.regionId = $scope.yourRegionId;//ASSEMBLED FOR FIREBASE PUSH
 		console.log("added to form");
 	};
 
 	$scope.addRace = (item) => {
 		console.log("item", item, item.name);
-		// $scope.yourRace.pop();
 		$scope.yourRace = item.name;
 		newCharacter.race = $scope.yourRace;
-		console.log("$scope.yourRace", $scope.yourRace);
 		console.log("added to form");
 	};
 	$scope.addClass = (item) => {
@@ -336,7 +309,7 @@ callRegions();
 	};
 
 	//REMOVE ITEMS 
-	$scope.removeClass = (index) => {
+	$scope.removeClass = (index) => {//PULL INDEX OF SELECTEM ITEM AND DELETES FORM ARRAY 
 		$scope.yourClass.splice(index, 1);
 		console.log("removed from form");
 	};
@@ -361,8 +334,8 @@ callRegions();
 		console.log("removed from form");
 	};
 
+//SAVE ALL INFO TO BE PUSHED UP
 $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE) => {
-		console.log("charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE", notes, charName, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS, CHA, FORT, REF, WILL, BAB, SPRES, GRAPPLE);
 		$scope.yourHP = HP;
 		$scope.yourINITIATIVE = INITIATIVE;
 		$scope.yourAC = AC;
@@ -401,19 +374,17 @@ $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 		$scope.yourNotes = notes; 
 		newCharacter.storyline = $scope.yourNotes;
 
-		console.log("function fired");
 		var newCharToAdd = newCharacter;
-		console.log("newCharToAdd", newCharToAdd);
 		postFactory.addCharacter(newCharToAdd);
+		console.log("INFO SAVED");
 	};
 
 
-$scope.yourStat =[];
+$scope.yourStat =[];//GENERATE RANDOM NUMBERS FOR STATS 
 var counter = 1;
 	$scope.statNumber = () => {
 		if (counter < 7){
 			counter++;
-			console.log("stat", $scope.yourStat);
 			$scope.statNumber();
 			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
 		}else{

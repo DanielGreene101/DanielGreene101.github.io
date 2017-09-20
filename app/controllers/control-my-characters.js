@@ -10,9 +10,7 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 		console.log("showMyCharacters firing");
 		postFactory.getUserCharacters(userFactory.getCurrentUser())
 			.then((data) => {
-				console.log("data", data);
 				$scope.characterData = data;
-				console.log("$scope.characterData", $scope.characterData);
 			});
 	};
 

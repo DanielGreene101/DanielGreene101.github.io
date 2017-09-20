@@ -3,7 +3,6 @@
 const app = angular.module('CharacterBuilds', ['ngRoute']);
 
 let isAuth = (userFactory, $window) => new Promise((resolve, reject) => {
-	console.log( "userFactory is", userFactory );
 	userFactory.isAuthenticated()
 	.then((userExists) => {
 		if(userExists) {

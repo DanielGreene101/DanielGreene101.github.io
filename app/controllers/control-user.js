@@ -46,7 +46,6 @@ app.controller('userCtrl', function($scope, userFactory, $location, $window) {
 		.then(() => {
 			clearUserPhoto();
 			let user = userFactory.getCurrentUser();
-			console.log("logOut successful", user);
 			$window.alert("LOGGED OUT!");
 		})
 		.catch((error) => {
@@ -56,7 +55,6 @@ app.controller('userCtrl', function($scope, userFactory, $location, $window) {
 
 });
 function addPhotoAfterLogin (userObj) {
-  console.log("userObj photo", userObj.photoURL);
   $("#profile-image-anchor").append(
     `<img src="${userObj.user.photoURL}" id="profile-img" class="flex-sm-fill">`
   );

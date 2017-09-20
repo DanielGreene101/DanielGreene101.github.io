@@ -1,24 +1,8 @@
-/*
-FONTS
-font-family: 'Poppins', sans-serif;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Cinzel', serif;
-font-family: 'Poiret One', cursive;
-*/
-
-/*
-COLORS
-#5E412F BROWN   
-#FCEBB6 TAN   
-#78C0A8 LIGHT BLUE
-#FF534B TOMATOISH
-*/
-
 
 /*****GENERAL******/
 body{
-  background-color: #BFE1BF;
   font-family: 'Josefin Sans', sans-serif;
+  /*background: url("../images/human-front-page.jpg") no-repeat fixed center;*/
 }
 
 li {
@@ -46,6 +30,24 @@ h3{
   margin:0 !important;
   padding:0 !important;
   width: 100%;
+}
+
+
+button{
+  background-color: #78C0A8 !important;
+  border-color: #78C0A8 !important;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  color:white !important;
+  font-size: 1.3em;
+}
+
+.btn{
+  background-color: #78C0A8 !important;
+  border-color: #78C0A8 !important;
+  font-size: 1.5em;
+  margin: 1.3vh;
 }
 
 /********NAV BAR********/
@@ -83,12 +85,17 @@ h3{
   height: 7.3vh;
 }
 
+.ngViewContainer{
+  width: 100%;
+}
+
 /*****************************CREATION PAGES*****************************/
 
 /******REGION CREATOR*******/
 
 .regionCreator{
   padding-left: 5vh; 
+  font-size: 2em;
 }
 .regionCreator input{
   width: 80%;
@@ -102,21 +109,25 @@ h3{
 #CharacterCreationPage{
   width: 90%;
   flex-direction: column;
-  color: grey;
+  height: 250vh;
+  background: url("../images/elf-front-page.jpg") no-repeat fixed center;
+  background-size: contain;
 }
 
-#CharacterCreationPage h1{
-  color: white;
-}
 
 #characterBeingCreated{
   width: 60%;
   display: inline-block;
   float: left;
-  background-color: #5E412F;
   flex-direction: column;
   margin-right: 2vh;
-  border:1px solid black;
+
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  background:rgba(173,192,192,0.5);
 }
 
 #characterBeingCreated input{
@@ -131,7 +142,7 @@ h3{
   display: flex;
   max-height: 1000px;
   overflow: scroll;
-  background-color: #78C0A8;
+  background:rgba(173,216,230,0.5);
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
@@ -142,51 +153,90 @@ h3{
   padding: 2vh;
 }
 
+#selectedRegions {
+  margin-left: 2%;
+}
+#selectedRace{
+  margin-left: 2%;
+}
 
 
 #apiInfoCharacterCreater{
   display: inline-block;
   float: right;
-  background-color: #78C0A8;
   position: fixed;
   padding: 0vh;
-  height: 100vh;
+  height: 85vh;
   overflow: scroll;
   padding-bottom: 12vh;
   color: black;
   flex-direction: column;
   min-width: 40%;
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  background:rgba(173,192,192,0.5);
 }
 #apiInfoCharacterCreater div {
   display: flex;
   flex-direction: column;
-  background-color: #5E412F;
+  background:rgba(173,216,230,0.5);
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
-  color: #78C0A8;
+  color: black;
   font-size: 1.2em;
 }
 
+
 /***************************** YOUR PAGES *****************************/
 /********** SINGLE CHARACTER **********/
+
+
 #characterToDisplay{
   max-width:50%;
   border: 2px solid black;
   float: left;
+  background:rgba(173,192,192,0.5);
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
 }
+#characterToDisplay div{
+  border: 1px solid black;
+}
+#characterToDisplay div h3{
+background:rgba(173,216,230,0.5);
+}
+
 #notesArea{
   float: right;
+  padding-right: 10%;
 }
 #singleCharacterPage{
   width: 90%;
+  background: url("../images/dwarf-front.png") no-repeat fixed center;
+  background-size: contain;
+  height: 210vh;
 }
 /********** MY CHARACTERS **********/
 
+.cards-title{
+  background:rgba(0,0,0,0.0);
+}
+#myCharacterPageContainer{
+  width: 100%;
+  background: url("../images/orc-front.png") no-repeat fixed right top;
+  background-size: 50%;
+}
 .myCharactersDisplay{
   display: block;
   float: left;
-  background-color: white;
+  background: transparent;
   padding: 3vh;
   padding-bottom: 5vh;
   margin: 4vh;
@@ -195,7 +245,11 @@ h3{
   width: 85vh;
   height: 100vh;
   overflow: scroll;
-  border-radius: 20px;
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
 }
 .myCharactersDisplay div {
   border: 2px solid black;
@@ -205,9 +259,16 @@ h3{
   border-bottom: 1px solid black;
 }
 
-.myCharacterContainer{
-  width: 100%;
+.thumbnail{
+  background:rgba(173,216,230,0.5);
 }
+
+/*.myCharacterContainer{
+  width: 100%;
+  background: url("../images/orc-front.png") no-repeat fixed right top;
+  background-size: 50%;
+}*/
+
 .ngViewContainer{
   margin-left: 5vh;
   width:100%;
@@ -221,11 +282,16 @@ h3{
   background-color: #78C0A8;
   display: inline-flex; 
   flex-direction: column;
-  margin-bottom: 1vh;
+  margin: 1vh;
+
   border: 3px solid black;
-  border-radius: 5px;
-  width: 40vh;
-  height: 20vh;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
+
+  width: 60vh;
+  height: 30vh;
   overflow: scroll;
 }
 
@@ -280,25 +346,36 @@ h3{
 
 #editCharacterPage{
   width:90%;
+  background: url("../images/dwarf-front.png") no-repeat fixed center;
+  background-size: contain;
+  height: 260vh;
 }
 #characterToEdit{
   width: 60%;
   display: inline-block;
   float: left;
-  background-color: #5E412F;
+  background:rgba(173,192,192,0.5);
   flex-direction: column;
   margin-right: 2vh;
+  border:1px solid black;
+
 }
 #characterToEdit div{
   display: flex;
   max-height: 1000px;
   overflow: scroll;
-  background-color: #78C0A8;
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
   font-size: 1.2em;
 }
+#characterToEdit div h3{
+  background:rgba(173,216,230,0.5);
+  margin-top: 0;
+  padding-top: 5px;
+}
+
+
 #characterToEdit form{
   padding: 2vh;
 }
@@ -306,21 +383,27 @@ h3{
 #apiInfoForEdit{
   display: inline-block;
   float: right;
-  background-color: #78C0A8;
+  background:rgba(173,192,192,0.5);
   position: fixed;
   padding: 0vh;
-  height: 100vh;
+  height: 85vh;
   overflow: scroll;
   padding-bottom: 12vh;
   color: black;
   flex-direction: column;
   min-width: 40%;
+  
+  border: 3px solid black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
 }
 
 #apiInfoForEdit div{
   display: flex;
   flex-direction: column;
-  background-color: #5E412F;
+  background-color: #78C0A8;
   margin: 2vh;
   border: solid black 3px;
   flex-direction: column;
@@ -334,7 +417,12 @@ h3{
 
 /******************************* LOG IN PAGE/HOME PAGE*******************************/
 #homePageContainer{
+  background-image: url("../images/elf-back.png"), url("../images/elf-front-page.jpg");
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
   width: 90%;
+  font-size: 1.2em;
 }
 
 #login-google{
@@ -342,7 +430,7 @@ h3{
 }
 
 #introduction{
-  background-color: #E7E7E7;
+  background:rgba(173,216,230,0.3);
 }
 
 

@@ -1,70 +1,72 @@
-<div class="cards-title" onload="showMyCharacters()">
-<h1>YOUR CHARACTERS</h1><label>Find Character: <input ng-model="searchText"></label>
-</div>
-
-<div class="row myCharacterContainer">
-  <div class="col-sm-6 col-md-4 myCharactersDisplay" ng-repeat="characters in characterData | orderBy: 'name'| filter:searchText">
-  <!-- CHARACTER DATA COMING FROM showMyCharacters in control-my-characters -->
-    <div class="thumbnail">
-      <div class="caption">
-        <h2 class="CharacterName"><a ng-href="#!/singleCharacter/{{characters.id}}">{{characters.name}}</a></h2>
-        <h4>RACE</h4>
-        <p>{{characters.race}}</p>
-        <h4>CLASS</h4>
-        <ul ng-repeat="class in characters.class track by $index">
-        	<li>{{class}}</li>
-        </ul>
-        <h4>SKILLS</h4>
-        <ul ng-repeat="skills in characters.skills track by $index">
-        	<li>{{skills}}</li>
-        </ul>
-        <h4>FEATS</h4>
-        <ul ng-repeat="feats in characters.feats track by $index">
-        	<li>{{feats}}</li>
-        </ul>
-        <h4>INVENTORY</h4>
-        <ul ng-repeat="equipment in characters.equipment track by $index">
-        	<li>{{equipment}}</li>
-        </ul>
-        <h4>MAGIC SCHOOLS</h4>
-        <ul ng-repeat="magicschools in characters.magicschools track by $index">
-        	<li>{{magicschools}}</li>
-        </ul>
-        <h4>SPELLS</h4>
-        <ul ng-repeat="spells in characters.spells track by $index">
-        	<li>{{spells}}</li>
-        </ul>
-        <h4>STORY LINE</h4>
-        <p id="myCharacterStoryline">{{characters.storyline}}</p>
-        <h4>STATS</h4>
-        <ul>
-        <li>HP: {{characters.HP}}</li>
-        <li>AC: {{characters.AC}}</li>
-        <li>BAB: {{characters.BAB}}</li><br>
-        <li>INITIATIVE: {{characters.INITIATIVE}}</li>
-        <li>SPELL RESIST: {{characters.SPRES}}</li>
-        <li>REFLEX: {{characters.REF}}</li>
-        <li>GRAPPLE: {{characters.GRAPPLE}}</li>
-        <li>FORT: {{characters.FORT}}</li><br>
-        <li>STR: {{characters.STR}}</li>
-        <li>DEX: {{characters.DEX}}</li>
-        <li>CON: {{characters.CON}}</li>
-        <li>CHA: {{characters.CHA}}</li>
-        <li>WIS: {{characters.WIS}}</li>
-        <li>INT: {{characters.INT}}</li>
-        <li>WILL: {{characters.WILL}}</li>
- 
-        </ul><br>
-
-        <h4>REGION</h4>
-        <p>{{characters.region}}</p><br>
-
-        <a class="btn btn-primary" role="button" ng-href="#!/EditCharacter/{{characters.id}}">Edit</a>
-        <!-- SENT TO EDIT PARTIAL PAGE NO FUNCTIONS FIRED JUST ng-models TAKEN -->
-        <a class="btn btn-primary" role="button" ng-click="deleteBtn(characters.id)">Delete</a> 
-        <!-- SENT TO FACTORY.DATA WITH ID FROM THIS CHARACTER -->
-        </p>
-      </div>
+<div id="myCharacterPageContainer">
+    <div class="cards-title" onload="showMyCharacters()">
+    <h1>YOUR CHARACTERS</h1><label>Find Character: <input ng-model="searchText"></label>
     </div>
+
+    <div class="row myCharacterContainer">
+      <div class="col-sm-6 col-md-4 myCharactersDisplay" ng-repeat="characters in characterData | orderBy: 'name'| filter:searchText">
+      <!-- CHARACTER DATA COMING FROM showMyCharacters in control-my-characters -->
+        <div class="thumbnail">
+          <div class="caption">
+            <h2 class="CharacterName"><a ng-href="#!/singleCharacter/{{characters.id}}">{{characters.name}}</a></h2>
+            <h4>RACE</h4>
+            <p>{{characters.race}}</p>
+            <h4>CLASS</h4>
+            <ul ng-repeat="class in characters.class track by $index">
+            	<li>{{class}}</li>
+            </ul>
+            <h4>SKILLS</h4>
+            <ul ng-repeat="skills in characters.skills track by $index">
+            	<li>{{skills}}</li>
+            </ul>
+            <h4>FEATS</h4>
+            <ul ng-repeat="feats in characters.feats track by $index">
+            	<li>{{feats}}</li>
+            </ul>
+            <h4>INVENTORY</h4>
+            <ul ng-repeat="equipment in characters.equipment track by $index">
+            	<li>{{equipment}}</li>
+            </ul>
+            <h4>MAGIC SCHOOLS</h4>
+            <ul ng-repeat="magicschools in characters.magicschools track by $index">
+            	<li>{{magicschools}}</li>
+            </ul>
+            <h4>SPELLS</h4>
+            <ul ng-repeat="spells in characters.spells track by $index">
+            	<li>{{spells}}</li>
+            </ul>
+            <h4>STORY LINE</h4>
+            <p id="myCharacterStoryline">{{characters.storyline}}</p>
+            <h4>STATS</h4>
+            <ul>
+            <li>HP: {{characters.HP}}</li>
+            <li>AC: {{characters.AC}}</li>
+            <li>BAB: {{characters.BAB}}</li><br>
+            <li>INITIATIVE: {{characters.INITIATIVE}}</li>
+            <li>SPELL RESIST: {{characters.SPRES}}</li>
+            <li>REFLEX: {{characters.REF}}</li>
+            <li>GRAPPLE: {{characters.GRAPPLE}}</li>
+            <li>FORT: {{characters.FORT}}</li><br>
+            <li>STR: {{characters.STR}}</li>
+            <li>DEX: {{characters.DEX}}</li>
+            <li>CON: {{characters.CON}}</li>
+            <li>CHA: {{characters.CHA}}</li>
+            <li>WIS: {{characters.WIS}}</li>
+            <li>INT: {{characters.INT}}</li>
+            <li>WILL: {{characters.WILL}}</li>
+     
+            </ul><br>
+
+            <h4>REGION</h4>
+            <p>{{characters.region}}</p><br>
+
+            <a class="btn btn-primary" role="button" ng-href="#!/EditCharacter/{{characters.id}}">Edit</a>
+            <!-- SENT TO EDIT PARTIAL PAGE NO FUNCTIONS FIRED JUST ng-models TAKEN -->
+            <a class="btn btn-primary" role="button" ng-click="deleteBtn(characters.id)">Delete</a> 
+            <!-- SENT TO FACTORY.DATA WITH ID FROM THIS CHARACTER -->
+            </p>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
