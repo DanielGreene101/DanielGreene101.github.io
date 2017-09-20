@@ -213,17 +213,20 @@ h3{
   width:100%;
 }
 
-/****** MY REGION PAGE *****/
+/*********** MY REGION PAGE **********/
 .myRegionContainer{
   width: 90%;
 }
 #characterInRegion{
   background-color: #78C0A8;
-  display: flex; 
+  display: inline-flex; 
   flex-direction: column;
   margin-bottom: 1vh;
   border: 3px solid black;
   border-radius: 5px;
+  width: 40vh;
+  height: 20vh;
+  overflow: scroll;
 }
 
 #characterInRegion h4{
@@ -232,11 +235,13 @@ h3{
 
 #characterInRegion p {
   margin-left: 2vh;
+  padding: 5px;
 }
 
 #myCharacterStoryline{
   flex-wrap: wrap;
 }
+
 
 
 /***************************** EDITING PAGES *****************************/
