@@ -12,37 +12,37 @@
 		<div>
 			<h3>CLASS</h3>
 			<ul>
-				<li ng-repeat="name in character.class track by $index" ng-click="removeClass(item)">{{name}}</li>
+				<li ng-repeat="name in character.class track by $index" ng-click="removeClass($index)">{{name}}</li>
 			</ul>
 		</div>
 		<div>
 			<h3>SKILL</h3>
 			<ul>
-				<li ng-repeat="name in character.skills track by $index" ng-click="removeSkill(item)">{{name}}</li>
+				<li ng-repeat="name in character.skills track by $index" ng-click="removeSkill($index)">{{name}}</li>
 			</ul>
 		</div>
 		<div>
 			<h3>FEATS</h3>
 			<ul>
-				<li ng-repeat="name in character.feats track by $index" ng-click="removeFeat(item)">{{name}}</li>
+				<li ng-repeat="name in character.feats track by $index" ng-click="removeFeat($index)">{{name}}</li>
 			</ul>
 		</div>
 		<div>
 		<h3>MAGIC SCHOOLS</h3>
 			<ul>
-				<li ng-repeat="name in character.magicschools track by $index" ng-click="removeMagicSchool(item)">{{name}}</li>
+				<li ng-repeat="name in character.magicschools track by $index" ng-click="removeMagicSchool($index)">{{name}}</li>
 			</ul>
 		</div>
 		<div>
 		<h3>SPELLS</h3>
 			<ul>
-				<li ng-repeat="name in character.spells track by $index" ng-click="removeSpell(item)">{{name}}</li>
+				<li ng-repeat="name in character.spells track by $index" ng-click="removeSpell($index)">{{name}}</li>
 			</ul>
 		</div>
 		<div>
 			<h3>EQUIPMENT</h3>
 			<ul>
-				<li ng-repeat="name in character.equipment track by $index" ng-click="removeEquipment(item)">{{name}}</li>
+				<li ng-repeat="name in character.equipment track by $index" ng-click="removeEquipment($index)">{{name}}</li>
 			</ul>
 		</div>
 		<div>
@@ -137,7 +137,6 @@
 					<li>{{item.data.equipment_category}}</li>
 					<li>{{item.data.armor_category}}{{item.data.gear_category}} {{item.data.weapon_range}}{{item.data.vehicle_category}}{{item.data.tool_category}}</li>
 					<li>{{item.data.desc[0]}}</li>
-					<li>{{item.data.damage.dice_count}} D:{{item.data.damage.dice_value}}{{item.data.armor_class.base}}</li>
 				</ul>
 			</ul>
 		</div>
