@@ -82,7 +82,7 @@ $scope.regionId = [];
 ////// pull in api /////////
 function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
-		url : 'http://www.dnd5eapi.co/api/races/',})
+		url : 'https://www.dnd5eapi.co/api/races/',})
 		.then(function(data){
 			$scope.races = data.data.results; //DATA SCOPED FOR DOM ARRAY
 		})
@@ -94,7 +94,7 @@ callRaces();
 
 function callSubRaces(){
 	$http({ method : 'GET',
-		url : 'http://www.dnd5eapi.co/api/subraces/'})
+		url : 'https://www.dnd5eapi.co/api/subraces/'})
 		.then(function(data){
 			$scope.subraces = data.data.results;
 		})
