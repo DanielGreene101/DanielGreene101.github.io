@@ -163,7 +163,7 @@ function callRaces(){ //SINGLE API CALL
 		});
 }
 callRaces();
-
+  
 function callClasses(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/classes/'})
