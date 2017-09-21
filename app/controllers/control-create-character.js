@@ -82,28 +82,16 @@ $scope.regionId = [];
 ////// pull in api /////////
 function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
-		url : 'https://www.dnd5eapi.co/api/races/',})
+		url : 'http://www.5e-api.com/v1/race/',})
 		.then(function(data){
-			$scope.races = data.data.results; //DATA SCOPED FOR DOM ARRAY
+			console.log(data.data);
+			$scope.races = data.data; //DATA SCOPED FOR DOM ARRAY
 		})
 		.catch(function(){
 			console.log("ERROR");
 		});
 }
 callRaces();
-
-function callSubRaces(){
-	$http({ method : 'GET',
-		url : 'https://www.dnd5eapi.co/api/subraces/'})
-		.then(function(data){
-			$scope.subraces = data.data.results;
-		})
-		.catch(function(){
-			console.log("ERROR");
-		});
-
-}
-callSubRaces();
 
 function callClasses(){
 	$http({ method : 'GET',
@@ -272,7 +260,7 @@ callRegions();
 
 	$scope.addRace = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourRace = item.name;
+		$scope.yourRace = item.name + " " + item.subrace;
 		newCharacter.race = $scope.yourRace;
 		console.log("added to form");
 	};
