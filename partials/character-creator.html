@@ -109,10 +109,7 @@
 			<h3>Races</h3>
 		<div id="races" class="createBox" ng-model="race">
 			<ul id="raceList" ng-repeat="item in races">
-				<input type="radio" name="raceButton" ng-click="addRace(item)"></input>{{item.name}}
-			</ul>
-			<ul id="raceList" ng-repeat="item in subraces">
-				<input type="radio" name="raceButton" ng-click="addRace(item)"></input>{{item.name}}
+				<input type="radio" name="raceButton" ng-click="addRace(item)"></input>{{item.name}} - {{item.subrace}}
 			</ul>
 		</div>
 		<!-- CLASS -->
