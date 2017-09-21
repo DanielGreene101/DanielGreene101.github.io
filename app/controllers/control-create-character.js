@@ -260,7 +260,7 @@ callRegions();
 
 	$scope.addRace = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourRace = item.name;
+		$scope.yourRace = item.name + " " + item.subrace;
 		newCharacter.race = $scope.yourRace;
 		console.log("added to form");
 	};
