@@ -103,12 +103,16 @@
 	</div>
 	<!--*************************************************************************************************************************************************************************************-->
 	<div id="apiInfoCharacterCreater">
-		<h1>ADD INFO</h1><label>Filter Search: <input ng-model="searchText"><p>Search through equipment, skills, feats, and spells</p></label>
+		<h1>ADD INFO</h1>
 
 		<!-- RACE -->
 			<h3>Races</h3>
+			<p>CLICK TO OPEN:</p><div class="checkbox">
+				<td><input type=checkbox ng-model=racecollapse value="None" id="slideNine" name="check"></td>
+				<label for="slideNine"></label>
+			</div>
 		<div id="races" class="createBox" ng-model="race">
-			<ul id="raceList" ng-repeat="item in races">
+			<ul id="raceList" ng-show=racecollapse ng-repeat="item in races">
 				<input type="radio" name="raceButton" ng-click="addRace(item)"></input>{{item.name}} - {{item.subrace}}
 			</ul>
 		</div>
@@ -125,12 +129,13 @@
 		</div>
 		<!-- SKILLS -->
 			<h3>Skills</h3>
+			<label>Search Skills: <input ng-model="searchSkills"></label>
 		<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=skillscollapse value="None" id="slideOne" name="check"></td>
 				<label for="slideOne"></label>
 			</div>
 		<div id="skills" class="createBox" ng-model="skills">
-			<ul id="skillList" ng-show=skillscollapse ng-repeat="item in finalSkills | orderBy: 'name' | filter:searchText">
+			<ul id="skillList" ng-show=skillscollapse ng-repeat="item in finalSkills | orderBy: 'name' | filter:searchSkills">
 				<li ng-click="addSkill(item)">{{item.data.name}}</li>
 				<ul>
 					<li>{{item.data.desc[0]}}</li>
@@ -139,12 +144,13 @@
 		</div>
 		<!-- FEATS -->
 			<h3>Feats</h3>
+			<label>Search Feats: <input ng-model="searchFeats"></label>
 			<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=featscollapse value="None" id="slideTwo" name="check"></td>
 				<label for="slideTwo"></label>
 				</div>
 		<div id="features" ng-show=featscollapse class="createBox" ng-model="features">
-			<ul id="featuresList" ng-repeat="item in finalFeats | orderBy: 'name'| filter:searchText">
+			<ul id="featuresList" ng-repeat="item in finalFeats | orderBy: 'name'| filter:searchFeats">
 				<li ng-click="addFeat(item)">{{item.data.name}}</li>
 				<ul>
 					<li>{{item.data.class.name}}</li>
@@ -155,12 +161,13 @@
 		<!-- EQUIPMENT -->
 			<!-- EQUIPMENT -->
 			<h3>Equipment</h3>
+			<label>Search Equipment: <input ng-model="searchEquip"></label>
 			<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=equipmentcollapse value="None" id="slideThree" name="check"></td>
 				<label for="slideThree"></label>
 			</div>
 		<div id="equipment" ng-show=equipmentcollapse class="createBox" ng-model="equipment">
-			<ul id="equipmentList" ng-repeat="item in finalEquipment | orderBy:[ 'name',  'equipment_category']| filter:searchText">
+			<ul id="equipmentList" ng-repeat="item in finalEquipment | orderBy:[ 'name',  'equipment_category']| filter:searchEquip">
 				<li ng-click="addEquipment(item)">{{item.data.name}}</li>
 				<ul>
 					<li>{{item.data.equipment_category}}</li>
@@ -182,12 +189,13 @@
 		</div>
 		<!-- SPELLS -->
 			<h3>Spells</h3>
+			<label>Search Spells: <input ng-model="searchSpells"></label>
 			<p>CLICK TO OPEN:</p><div class="checkbox">
 				<td><input type=checkbox ng-model=spellscollapse value="None" id="slideFour" name="check"></td>
 				<label for="slideFour"></label>
 			</div>
 		<div id="spells" ng-show=spellscollapse class="createBox" ng-model="spells">
-			<ul id="spellList"  ng-repeat="item in finalSpells | orderBy: 'name'| filter:searchText">
+			<ul id="spellList"  ng-repeat="item in finalSpells | orderBy: 'name'| filter:searchSpells">
 				<li ng-click="addSpell(item)">{{item.data.name}}</li>
 				<ul>
 					<il>{{item.data.classes.name}}</il>
