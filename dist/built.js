@@ -155,7 +155,6 @@ function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
 		url : 'http://www.5e-api.com/v1/race/',})
 		.then(function(data){
-			console.log(data.data);
 			$scope.races = data.data; //DATA SCOPED FOR DOM ARRAY
 		})
 		.catch(function(){
@@ -163,7 +162,7 @@ function callRaces(){ //SINGLE API CALL
 		});
 }
 callRaces();
-  
+
 function callClasses(){
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/classes/'})
@@ -331,7 +330,9 @@ callRegions();
 
 	$scope.addRace = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourRace = item.name + " " + item.subrace;
+		var newRace = item.name + " " + item.subrace;
+		console.log("How its looking", newRace);
+		$scope.yourRace = newRace.replace("null", "");
 		newCharacter.race = $scope.yourRace;
 		console.log("added to form");
 	};
@@ -453,6 +454,7 @@ var counter = 1;
 	};
 
 });
+
 "use strict";
 app.controller('CreateMapCtrl', function ($scope, postFactory, userFactory) {
 
