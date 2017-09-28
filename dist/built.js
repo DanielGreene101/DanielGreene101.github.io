@@ -1067,6 +1067,8 @@ app.controller('userCtrl', function($scope, userFactory, $location, $window) {
 			console.log("login successful");
 		})
 		.then(() => {
+			document.getElementById("logInBtn").style.display = "none"; 
+			document.getElementById("logOutBtn").style.display = "block";
 			$location.path('/home');
 			$scope.$apply();
 		})
@@ -1080,6 +1082,8 @@ app.controller('userCtrl', function($scope, userFactory, $location, $window) {
 		.then(() => {
 			clearUserPhoto();
 			let user = userFactory.getCurrentUser();
+			document.getElementById("logInBtn").style.display = "block";
+			document.getElementById("logOutBtn").style.display = "none";
 			$window.alert("LOGGED OUT!");
 		})
 		.catch((error) => {

@@ -403,4 +403,7 @@ button {
 .loginP {
   padding: 2vh; }
 
+#logOutBtn {
+  display: none; }
+
 /*# sourceMappingURL=main.css.map */
