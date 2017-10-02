@@ -12,7 +12,11 @@ console.log("user", user);
 		info: $scope.regInfo,
 		uid: user,
 	};
-
+//SOUNDS
+	$scope.playCreated = function() {
+        var audio = new Audio('./sounds/CREATED.wav');
+        audio.play();
+    };
 
 
 	$scope.saveRegion = (regName, regInfo) => {//SAVE CREATED REGION
@@ -25,5 +29,6 @@ console.log("user", user);
 
 		var newRegionToAdd = newRegion;
 		postFactory.addRegion(newRegionToAdd);
+		$scope.playCreated();
 	};
 });

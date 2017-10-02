@@ -73,6 +73,23 @@ app.run(($location, FBCreds) => {
 
 app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory, postFactory, $q) {
 
+//SOUNDS
+$scope.playAdded = function() {
+        var audio = new Audio('./sounds/ADDED.wav');
+        audio.play();
+    };
+$scope.playRemoved = function() {
+        var audio = new Audio('./sounds/REMOVED.wav');
+        audio.play();
+    };
+$scope.playCreated = function() {
+        var audio = new Audio('./sounds/CREATED.wav');
+        audio.play();
+    };
+
+
+
+
 //Empty arrays for pushed items
 	$scope.yourName = "";
 	$scope.yourRace = "";
@@ -325,40 +342,45 @@ callRegions();
 		$scope.yourRegionId = item.id;
 		newCharacter.region = $scope.yourRegion;
 		newCharacter.regionId = $scope.yourRegionId;//ASSEMBLED FOR FIREBASE PUSH
+		$scope.playAdded();
 		console.log("added to form");
 	};
 
 	$scope.addRace = (item) => {
-		console.log("item", item, item.name);
 		var newRace = item.name + " " + item.subrace;
-		console.log("How its looking", newRace);
 		$scope.yourRace = newRace.replace("null", "");
 		newCharacter.race = $scope.yourRace;
+		$scope.playAdded();
 		console.log("added to form");
 	};
 	$scope.addClass = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourClass.push(item.name);
+		$scope.playAdded();
 		console.log("added to form");
 	};
 	$scope.addSkill = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourSkills.push(item.data.name);
+		$scope.playAdded();
 		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourFeats.push(item.data.name);
+		$scope.playAdded();
 		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourEquipment.push(item.data.name);
+		$scope.playAdded();
 		console.log("added to form", $scope.yourEquipment);
 	};
 	$scope.addMagicSchools = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourMagicSchools.push(item.name);
+		$scope.playAdded();
 		console.log("added to form");
 	};
 	$scope.addSpell = (item) => {
@@ -366,32 +388,39 @@ callRegions();
 		$scope.yourSpells.push(item.data.name);
 		console.log("added to form");
 		console.log("New Character", newCharacter);
+		$scope.playAdded();
 	};
 
 	//REMOVE ITEMS 
 	$scope.removeClass = (index) => {//PULL INDEX OF SELECTEM ITEM AND DELETES FORM ARRAY 
 		$scope.yourClass.splice(index, 1);
 		console.log("removed from form");
+		$scope.playRemoved();
 	};
 	$scope.removeSkill = (index) => {
 		$scope.yourSkills.splice(index, 1);
 		console.log("removed from form");
+		$scope.playRemoved();
 	};
 	$scope.removeFeat = (index) => {
 		$scope.yourFeats.splice(index, 1);
 		console.log("removed from form");
+		$scope.playRemoved();
 	};
 	$scope.removeEquipment = (index) => {
 		$scope.yourEquipment.splice(index, 1);
 		console.log("removed from form");
+		$scope.playRemoved();
 	};
 	$scope.removeMagicSchool = (index) => {
 		$scope.yourMagicSchools.splice(index, 1);
 		console.log("removed from form");
+		$scope.playRemoved();
 	};
 	$scope.removeSpell = (index) => {
 		$scope.yourSpells.splice(index, 1);
 		console.log("removed from form");
+		$scope.playRemoved();
 	};
 
 //SAVE ALL INFO TO BE PUSHED UP
@@ -437,6 +466,7 @@ $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 		var newCharToAdd = newCharacter;
 		postFactory.addCharacter(newCharToAdd);
 		console.log("INFO SAVED");
+		$scope.playCreated();
 	};
 
 
@@ -455,6 +485,7 @@ var counter = 1;
 
 });
 
+
 "use strict";
 app.controller('CreateMapCtrl', function ($scope, postFactory, userFactory) {
 
@@ -469,7 +500,11 @@ console.log("user", user);
 		info: $scope.regInfo,
 		uid: user,
 	};
-
+//SOUNDS
+	$scope.playCreated = function() {
+        var audio = new Audio('./sounds/CREATED.wav');
+        audio.play();
+    };
 
 
 	$scope.saveRegion = (regName, regInfo) => {//SAVE CREATED REGION
@@ -482,6 +517,7 @@ console.log("user", user);
 
 		var newRegionToAdd = newRegion;
 		postFactory.addRegion(newRegionToAdd);
+		$scope.playCreated();
 	};
 });
 "use strict";
@@ -491,6 +527,12 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 	$scope.title = "Add Character";
 
 	let currrentUser = userFactory.getCurrentUser();
+
+	$scope.playEdit = function() {
+        var audio = new Audio('./sounds/EDIT.wav');
+        audio.play();
+    };
+    $scope.playEdit();
 
 //EMPTRY CHARACTER TO BE FILLED FOR PUSH
 	$scope.character = {
@@ -842,6 +884,20 @@ app.controller('EditRegionCtrl', function($scope, userFactory, $location, postFa
 
 	let currrentUser = userFactory.getCurrentUser();
 
+	//SOUNDS
+	$scope.playCreated = function() {
+        var audio = new Audio('./sounds/CREATED.wav');
+        audio.play();
+    };
+	$scope.playEdit = function() {
+        var audio = new Audio('./sounds/EDIT.wav');
+        audio.play();
+    };
+    $scope.playEdit();
+
+
+    
+
 	$scope.regions = {
 		name: "",
 		info: ""
@@ -860,6 +916,7 @@ app.controller('EditRegionCtrl', function($scope, userFactory, $location, postFa
 		postFactory.editRegion($routeParams.id, $scope.regions)
 		.then((data) => {
 			$location.path('/MyRegions');
+			$scope.playCreated();
 		});
 	};
 
@@ -879,6 +936,11 @@ app.controller('HomeCtrl', function ($scope, $location, userFactory) {
 app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $location) {
 	let user = userFactory.getCurrentUser();
 
+	$scope.playDeleted = function() {
+        var audio = new Audio('./sounds/DELETED.wav');
+        audio.play();
+    };
+
 	$scope.characterData = [];
 
 //GET ALL CHARACTERS FOR USER 
@@ -897,6 +959,7 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 		postFactory.deleteChar(id)
 			.then(() => {
 	            $scope.showMyCharacters();//UPDATES PAGE
+	            $scope.playDeleted();
 	        });
 		};
 
@@ -908,6 +971,11 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 
 	$scope.regionData = [];
 	$scope.characterData = [];
+
+	$scope.playDeleted = function() {
+        var audio = new Audio('./sounds/DELETED.wav');
+        audio.play();
+    };
 
 
 	//GET ALL REGIONS FOR USER 
@@ -940,6 +1008,7 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 			postFactory.deleteReg(id)
 				.then(() => {
 		            $scope.showMyRegions();//UPDATES PAGE
+		            $scope.playDeleted();
 		        });
 			};
 
@@ -965,26 +1034,72 @@ $scope.regionIdFunction = function(characterData, regionData) {
 });
 "use strict";
 
-app.controller('NavCtrl', function ($scope, $location, userFactory) {
-// 	$scope.logOut = () => {
-// 		console.log("function fired");
-// 		userFactory.logOut()
-// 		.then(() => {
-// 			clearUserPhoto();
-// 			let user = userFactory.getCurrentUser();
-// 			console.log("logOut successful", user);
-// 		})
-// 		.catch((error) => {
-// 			console.log("logout error", error.message);
-// 		});
-// 	};
+app.controller('NavCtrl', function ($scope, $location, userFactory, $window) {
+	//RTN OBJ W/ USER COLLRCTION
+	let createUserObj = (loginObj) => {
+		return {
+			email: loginObj.user.email,
+			uid: loginObj.user.uid,
+			photoURL: loginObj.user.photoURL
+		};
+	};
+	let loginObjStorage = [];
+	//register/login W/ GOOGLE
+	$scope.logInGoogle = () => {
+		loginObjStorage.length = 0;
+		userFactory.authWithProvider()
+		.then((userObj) => {
+			let newUserObj = createUserObj(userObj);
+			addPhotoAfterLogin(userObj);
+			loginObjStorage.push(newUserObj);
+			return newUserObj;
+		})
+		.then((newUserObj) => {
+			let fbEmail = userFactory.getUserObj(newUserObj.email);
+			return fbEmail;
+		})
+		.then((fbEmail) => {
+			let fromFB = Object.keys(fbEmail.data);
+			if(fromFB.length === 0) {
+				userFactory.postUserObj(loginObjStorage[0]);
+			}
+			console.log("login successful");
+		})
+		.then(() => {
+			document.getElementById("logInBtn").style.display = "none"; 
+			document.getElementById("logOutBtn").style.display = "inline-block";
+			$location.path('/home');
+			$scope.$apply();
+		})
+		.catch((error) => {
+			console.log("error from $scope.logInGoogle", error.message);
+		});
+	};
+	//log out
+	$scope.logOut = () => {
+		userFactory.logOut()
+		.then(() => {
+			clearUserPhoto();
+			let user = userFactory.getCurrentUser();
+			document.getElementById("logInBtn").style.display = "inline-block";
+			document.getElementById("logOutBtn").style.display = "none";
+			$window.alert("LOGGED OUT!");
+			$location.path('/home');
+		})
+		.catch((error) => {
+			console.log("logout error", error.message);
+		});
+	};
 
-// function clearUserPhoto (){
-//   $("#profile-image-anchor").empty();
-// }
 });
-
-
+function addPhotoAfterLogin (userObj) {
+  $("#profile-image-anchor").append(
+    `<img src="${userObj.user.photoURL}" id="profile-img" class="flex-sm-fill">`
+  );
+}
+function clearUserPhoto (){
+  $("#profile-image-anchor").empty();
+}
 "use strict";
 
 app.controller('SingleCtrl', function($scope, userFactory, $location, postFactory, $routeParams, $http) {
