@@ -138,9 +138,15 @@
 			<ul id="equipmentList" ng-repeat="item in finalEquipment | orderBy:[ 'name',  'equipment_category']| filter:searchEquip">
 				<li ng-click="addEquipment(item)">{{item.data.name}}</li>
 				<ul>
-					<li>{{item.data.equipment_category}}</li>
-					<li>{{item.data.armor_category}}{{item.data.gear_category}} {{item.data.weapon_range}}{{item.data.vehicle_category}}{{item.data.tool_category}}</li>
-					<li>{{item.data.desc[0]}}</li>
+					<li ng-show="item.data.equipment_category">Equipment Category: {{item.data.equipment_category}}</li>
+					<li ng-show="item.data.armor_class.base">Defence: {{item.data.armor_class.base}}</li>
+					<li ng-show="item.data.gear_category">{{item.data.gear_category}}</li> 
+					<li ng-show="item.data.weapon_range">Weapon Type: {{item.data.weapon_range}}</li>
+					<li ng-show="item.data.vehicle_category">Vehicle Type: {{item.data.vehicle_category}}</li>
+					<li ng-show="item.data.tool_category">Tool Type: {{item.data.tool_category}}</li>
+					<li ng-show="item.data.damage">Damage: {{item.data.damage.dice_count}}D{{item.data.damage.dice_value}}</li>
+					<li ng-show="item.data.desc[0]">Desc: {{item.data.desc[0]}}</li>
+
 				</ul>
 			</ul>
 		</div>
@@ -164,8 +170,10 @@
 			<ul id="spellList"  ng-repeat="item in finalSpells | orderBy: 'name'| filter:searchSpells">
 				<li ng-click="addSpell(item)">{{item.data.name}}</li>
 				<ul>
-					<il>{{item.data.classes.name}}</il>
-					<li>{{item.data.school.name}}</li>
+					<il>Classes: {{item.data.classes.name}}</il>
+					<li>Schools: {{item.data.school.name}}</li>
+					<li>Level: {{item.data.level}}</li>
+					<li>Range: {{item.data.range}}</li>
 					<li>{{item.data.desc[0]}}</li>
 				</ul>
 			</ul>
