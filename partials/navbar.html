@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav ng-controller="NavCtrl" class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -18,10 +18,19 @@
         <li><a ng-href="#!/CreateRegion">Create Region</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+            <div class="login-google" id="logInBtn">
+                <button type="button" class="btn btn-default" ng-click="logInGoogle()">Log In</button>
+            </div>
+            <div class="logOut" id="logOutBtn">
+                <button type="button" class="btn btn-default" ng-click="logOut()">Log Out</button>
+            </div>
+          <li><div id="profile-image-anchor"></div></li>
+        <li><a href="#">Home</a></li>
         <li><a ng-href="#!/MyCharacters">My Characters</a></li>
         <li><a ng-href="#!/MyRegions">My Regions</a></li>
-        <li><a href="#">Home</a></li>
-        <li><div id="profile-image-anchor"></div></li>
+
+
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

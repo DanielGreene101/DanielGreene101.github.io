@@ -37,13 +37,18 @@ button {
 .btn {
   background-color: #78C0A8 !important;
   border-color: #78C0A8 !important;
-  font-size: 1em;
   margin: 1.3vh; }
+
+/******************************** HOME ***********************/
+.loginP {
+  padding: 2vh;
+  margin: 0 2vh 0 2vh;
+  font-size: 1.3em; }
 
 /********NAV BAR********/
 #profile-image-anchor {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border: none !important;
   border-radius: 50%;
   background-color: transparent !important;
@@ -68,13 +73,34 @@ button {
 #logo {
   border-right: 1px solid grey;
   font-family: 'Cinzel', serif;
-  font-size: 2em; }
+  font-size: 1.1em; }
 
+/*****************************NAV BAR*****************************/
 .navbar {
   height: 7.3vh; }
 
+.navbar-right {
+  float: right;
+  height: 7vh;
+  width: 50%;
+  margin-right: 0vh;
+  padding-right: 0vh; }
+
+.navbar-right li {
+  float: right; }
+
 .ngViewContainer {
   width: 100%; }
+
+#login-google {
+  margin: 0 auto; }
+
+.login-google {
+  float: right; }
+
+#logOutBtn {
+  display: none;
+  float: right; }
 
 /*****************************CREATION PAGES*****************************/
 /******REGION CREATOR*******/
@@ -102,6 +128,7 @@ button {
   float: left;
   flex-direction: column;
   margin-right: 2vh;
+  margin-left: 2vh;
   border: 3px solid black;
   border-top-left-radius: 20px;
   border-top-right-radius: 0;
@@ -174,7 +201,8 @@ button {
   border-top-left-radius: 20px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 0; }
+  border-bottom-left-radius: 0;
+  margin-left: 4vh; }
 
 #characterToDisplay div {
   border: 1px solid black; }
@@ -228,18 +256,24 @@ button {
 .thumbnail {
   background: rgba(173, 216, 230, 0.5); }
 
+#findChar {
+  margin-left: 2vh; }
+
 /*.myCharacterContainer{
   width: 100%;
   background: url("../images/orc-front.png") no-repeat fixed right top;
   background-size: 50%;
 }*/
 .ngViewContainer {
-  margin-left: 5vh;
   width: 100%; }
 
 /*********** MY REGION PAGE **********/
 .myRegionContainer {
-  width: 90%; }
+  width: 100%; }
+
+.jumbotron {
+  margin-left: 2vh;
+  margin-right: 2vh; }
 
 #characterInRegion {
   background-color: #78C0A8;
@@ -264,6 +298,9 @@ button {
 
 #myCharacterStoryline {
   flex-wrap: wrap; }
+
+#findReg {
+  margin-left: 2vh; }
 
 /***************************** EDITING PAGES *****************************/
 /*******EDIT REGION PAGE**********/
@@ -295,7 +332,7 @@ button {
       left: 37px; }
 
 #editCharacterPage {
-  width: 90%;
+  width: 100%;
   background: url("../images/dwarf-front.png") no-repeat fixed center;
   background-size: contain;
   height: 260vh; }
@@ -307,6 +344,7 @@ button {
   background: rgba(173, 192, 192, 0.5);
   flex-direction: column;
   margin-right: 2vh;
+  margin-left: 2vh;
   border: 1px solid black; }
 
 #characterToEdit div {
@@ -356,17 +394,14 @@ button {
 #apiInfoForEdit input {
   color: black; }
 
-/******************************* LOG IN PAGE/HOME PAGE*******************************/
+/*******************************HOME PAGE*******************************/
 #homePageContainer {
   background-image: url("../images/elf-back.png"), url("../images/elf-front-page.jpg");
   background-position: right bottom, left top;
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;
-  width: 90%;
+  width: 100%;
   font-size: 1em; }
-
-#login-google {
-  margin: 0 auto; }
 
 #introduction {
   background: rgba(173, 216, 230, 0.3); }
@@ -400,10 +435,5 @@ button {
     margin: 0 auto;
     right: 0;
     width: 100%; } }
-.loginP {
-  padding: 2vh; }
-
-#logOutBtn {
-  display: none; }
 
 /*# sourceMappingURL=main.css.map */
