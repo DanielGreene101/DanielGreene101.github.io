@@ -211,8 +211,7 @@ button {
   background: rgba(173, 216, 230, 0.5); }
 
 #notesArea {
-  float: right;
-  padding-right: 10%; }
+  margin-left: 5vh; }
 
 #singleCharacterPage {
   width: 90%;
