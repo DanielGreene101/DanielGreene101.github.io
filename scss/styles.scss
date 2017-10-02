@@ -218,7 +218,6 @@ button{
   flex-direction: column;
   background:rgba(173,216,230,0.5);
   margin: 2vh;
-  border: solid black 3px;
   flex-direction: column;
   color: black;
   font-size: 1.2em;
@@ -358,35 +357,6 @@ background:rgba(173,216,230,0.5);
 /*******EDIT REGION PAGE**********/
 
 /*******EDIT CHARACTER PAGE********/
-.checkbox {
-  width: 50px;
-  height: 10px;
-  background: #333;
-  margin: 20px auto;
-  position: relative;
-  border-radius: 50px;
-  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
-  label {
-    display: block;
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    cursor: pointer;
-    background: #fcfff4;
-    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    border-radius: 50px;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s ease;
-  }
-  input[type=checkbox] {
-    visibility: hidden;
-    &:checked + label {
-      left: 37px;
-    }  
-  }
-}
 
 #editCharacterPage{
   width:100%;
@@ -448,9 +418,8 @@ background:rgba(173,216,230,0.5);
 #apiInfoForEdit div{
   display: flex;
   flex-direction: column;
-  background-color: #78C0A8;
+  background-color: rgba(255,255,255,0.5);;
   margin: 2vh;
-  border: solid black 3px;
   flex-direction: column;
   font-size: 1.2em;
 }
@@ -510,7 +479,46 @@ background:rgba(173,216,230,0.5);
 }
 
 
-
+.squaredOne {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+  background: #fcfff4;
+  background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+  label {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    cursor: pointer;
+    background: linear-gradient(top, #222 0%, #45484d 100%);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+    &:after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background: #EBFCFE;
+      background: linear-gradient(top, white 0%, black 100%);
+      box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+      opacity: 0;
+    }
+    &:hover::after {
+      opacity: 0.3;
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      opacity: 1;
+    }   
+  } 
+}
 
 
 
