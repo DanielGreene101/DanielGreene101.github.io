@@ -1,4 +1,6 @@
 # CapStone-DnD-NPC
+
+Intro to site - 
 Hello! 
 
 		Welcome to this simple DnD character builder. 
@@ -25,3 +27,7 @@ Hello!
 		Thank you, and enjoy!
 
 		P.S. Please excuse gabs in equipment data. The API I am using has some errors. Version two will fix the problem. 
+		
+personal experiance - 
+
+For this project I wanted to get better at handeling passing data to and from a database, as well as API calls. I do feel I accomplished these goals and more. By the end of the project I was adding additional stretch goals and was able to meet those as well. 
