@@ -44,7 +44,8 @@ button {
   padding: 2vh;
   margin: 0 2vh 0 2vh;
   font-size: 1.3em;
-  color: navy; }
+  color: navy;
+  margin: 0% 30%; }
 
 /********NAV BAR********/
 #profile-image-anchor {
