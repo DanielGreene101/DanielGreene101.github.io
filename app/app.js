@@ -5,7 +5,7 @@ const app = angular.module('CharacterBuilds', ['ngRoute']);
 let isAuth = (userFactory, $window) => new Promise((resolve, reject) => {
 	userFactory.isAuthenticated()
 	.then((userExists) => {
-		if(userExists == true) {
+		if(userExists) {
 			console.log( "YOU GOOD" );
 			resolve();
 		}  else  {
