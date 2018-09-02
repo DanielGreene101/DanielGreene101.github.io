@@ -155,7 +155,7 @@ $scope.regionId = [];
 ////// pull in api /////////
 function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
-		url : 'http://www.5e-api.com/v1/races/',})
+		url : 'http://www.dnd5eapi.co/api/races/',})
 		.then(function(data){
 			$scope.races = data.data; //DATA SCOPED FOR DOM ARRAY
 		})
