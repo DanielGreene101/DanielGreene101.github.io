@@ -77,22 +77,6 @@ app.run(($location, FBCreds) => {
 
 app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory, postFactory, $q) {
 
-//SOUNDS
-$scope.playAdded = function() {
-        var audio = new Audio('./sounds/ADDED.wav');
-        audio.play();
-    };
-$scope.playRemoved = function() {
-        var audio = new Audio('./sounds/REMOVED.wav');
-        audio.play();
-    };
-$scope.playCreated = function() {
-        var audio = new Audio('./sounds/CREATED.wav');
-        audio.play();
-    };
-
-
-
 
 //Empty arrays for pushed items
 	$scope.yourName = "";
@@ -174,7 +158,7 @@ $scope.regionId = [];
 ////// pull in api /////////
 function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
-		url : 'http://www.5e-api.com/v1/race/',})
+		url : 'http://www.5e-api.com/v1/races/',})
 		.then(function(data){
 			$scope.races = data.data; //DATA SCOPED FOR DOM ARRAY
 		})
