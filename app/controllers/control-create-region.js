@@ -2,7 +2,6 @@
 app.controller('CreateMapCtrl', function ($scope, postFactory, userFactory) {
 
 let user = userFactory.getCurrentUser();//SET UP USER REGION CREATION
-console.log("user", user);
 	$scope.regName = "";
 	$scope.regInfo = "";
 

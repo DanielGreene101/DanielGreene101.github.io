@@ -19,7 +19,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 
 	//PULL IN CHARACTERS WITH MATCHING REGION
 		$scope.showThisRegionsCharacters = () =>{
-			console.log("showThisRegionsCharacters firing");
 			postFactory.getUserCharacters(userFactory.getCurrentUser())
 				.then((data) => {
 					$scope.characterData = data;
@@ -50,8 +49,6 @@ $scope.regionIdFunction = function(characterData, regionData) {
     		characterData.forEach(character => {
     			if(character.regionId === region.id){
     			aRegionsCharacters.push(character);
-    		}else{
-    			console.log("region - character did not match");
     		}
     		});
 

@@ -342,11 +342,9 @@ callRegions();
 		$scope.yourFeats.push(item.data.name);
 	};
 	$scope.addEquipment = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourEquipment.push(item.data.name);$scope.yourEquipment);
 	};
 	$scope.addMagicSchools = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourMagicSchools.push(item.name);
 	};
 	$scope.addSpell = (item) => {
@@ -843,7 +841,6 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 
 //GET ALL CHARACTERS FOR USER 
 	$scope.showMyCharacters = () => {
-		console.log("showMyCharacters firing");
 		postFactory.getUserCharacters(userFactory.getCurrentUser())
 			.then((data) => {
 				$scope.characterData = data;
@@ -879,7 +876,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 
 	//PULL IN CHARACTERS WITH MATCHING REGION
 		$scope.showThisRegionsCharacters = () =>{
-			console.log("showThisRegionsCharacters firing");
 			postFactory.getUserCharacters(userFactory.getCurrentUser())
 				.then((data) => {
 					$scope.characterData = data;
@@ -910,8 +906,6 @@ $scope.regionIdFunction = function(characterData, regionData) {
     		characterData.forEach(character => {
     			if(character.regionId === region.id){
     			aRegionsCharacters.push(character);
-    		}else{
-    			console.log("region - character did not match");
     		}
     		});
 
@@ -951,7 +945,6 @@ app.controller('NavCtrl', function ($scope, $location, userFactory, $window) {
 			if(fromFB.length === 0) {
 				userFactory.postUserObj(loginObjStorage[0]);
 			}
-			console.log("login successful");
 		})
 		.then(() => {
 			document.getElementById("logInBtn").style.display = "none"; 
@@ -1067,7 +1060,6 @@ app.controller('userCtrl', function($scope, userFactory, $location, $window) {
 			if(fromFB.length === 0) {
 				userFactory.postUserObj(loginObjStorage[0]);
 			}
-			console.log("login successful");
 		})
 		.then(() => {
 			document.getElementById("logInBtn").style.display = "none"; 
@@ -1320,7 +1312,6 @@ app.factory('userFactory', function($q, $http, FBCreds, $location) {
         });
 	};
 	let logOut = function() {
-		console.log("factoryLogOut firing");
 		return firebase.auth().signOut();
 	};
 	let authWithProvider = function() {

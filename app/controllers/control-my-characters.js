@@ -6,7 +6,6 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 
 //GET ALL CHARACTERS FOR USER 
 	$scope.showMyCharacters = () => {
-		console.log("showMyCharacters firing");
 		postFactory.getUserCharacters(userFactory.getCurrentUser())
 			.then((data) => {
 				$scope.characterData = data;

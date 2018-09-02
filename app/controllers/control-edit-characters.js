@@ -262,7 +262,6 @@ callSpells();
 
 //GET ALL REGIONS FOR USER 
 function callRegions(){
-		console.log("showMyRegions firing");
 		postFactory.getUserRegions(userFactory.getCurrentUser())//PULL IN USERS CREATED REGIONS USING USER ID
 			.then((data) => {
 				$scope.regions = data;
@@ -277,31 +276,24 @@ callRegions();
 	$scope.addRegion = (item) => {
 		$scope.character.region = item.name;
 		$scope.character.regionId = item.id;
-		console.log("added to form");
 	};
 	$scope.addClass = (item) => {
 		$scope.character.class.push(item.name);
-		console.log("added to form");
 	};
 	$scope.addSkill = (item) => {
 		$scope.character.skills.push(item.data.name);
-		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
 		$scope.character.feats.push(item.data.name);
-		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
 		$scope.character.equipment.push(item.data.name);
-		console.log("added to form");
 	};
 	$scope.addMagicSchools = (item) => {
 		$scope.character.magicschools.push(item.name);
-		console.log("added to form");
 	};
 	$scope.addSpell = (item) => {
 		$scope.character.spells.push(item.data.name);
-		console.log("added to form");
 	};
 
 
@@ -310,27 +302,21 @@ callRegions();
 //functions removing selected items from their prospective divs
 	$scope.removeClass = (index) => {
 		$scope.character.class.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeSkill = (index) => {
 		$scope.character.skills.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeFeat = (index) => {
 		$scope.character.feats.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeEquipment = (index) => {
 		$scope.character.equipment.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeMagicSchool = (index) => {
 		$scope.character.magicschools.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeSpell = (index) => {
 		$scope.character.spells.splice(index, 1);
-		console.log("Removed from form");
 	};
 
 $scope.yourStat =[];
@@ -338,7 +324,6 @@ var counter = 1;
 	$scope.statNumber = () => {//GENERATE RANDOM NUMBERS FOR STATS
 		if (counter < 7){
 			counter++;
-			console.log("stat", $scope.yourStat);
 			$scope.statNumber();
 			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
 		}else{

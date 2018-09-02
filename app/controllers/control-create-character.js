@@ -31,7 +31,6 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory
 	$scope.yourSPRES = "";
 //DEFINE USER 
 let user = userFactory.getCurrentUser();
-console.log("user", user.email);
 
 let newCharacter = {
 		name: $scope.yourName,
@@ -237,7 +236,6 @@ callSpells();
 
 //GET ALL REGIONS FOR USER 
 function callRegions(){
-		console.log("showMyRegions firing");
 		postFactory.getUserRegions(userFactory.getCurrentUser())//GET USERS REGIONS
 			.then((data) => {
 				$scope.regions = data;//IN ARRAY FOR DOM
@@ -249,7 +247,6 @@ callRegions();
 
 //handle pushing clicked item
 	$scope.addRegion = (item) => {
-		console.log("item", item.name);
 		$scope.yourRegion = item.name;
 		$scope.yourRegionId = item.id;
 		newCharacter.region = $scope.yourRegion;

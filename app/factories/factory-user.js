@@ -50,7 +50,6 @@ app.factory('userFactory', function($q, $http, FBCreds, $location) {
         });
 	};
 	let logOut = function() {
-		console.log("factoryLogOut firing");
 		return firebase.auth().signOut();
 	};
 	let authWithProvider = function() {
