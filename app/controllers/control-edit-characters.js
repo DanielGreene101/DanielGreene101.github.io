@@ -6,12 +6,6 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 
 	let currrentUser = userFactory.getCurrentUser();
 
-	$scope.playEdit = function() {
-        var audio = new Audio('./sounds/EDIT.wav');
-        audio.play();
-    };
-    $scope.playEdit();
-
 //EMPTRY CHARACTER TO BE FILLED FOR PUSH
 	$scope.character = {
 		name: "",

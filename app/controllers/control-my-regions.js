@@ -6,11 +6,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 	$scope.regionData = [];
 	$scope.characterData = [];
 
-	$scope.playDeleted = function() {
-        var audio = new Audio('./sounds/DELETED.wav');
-        audio.play();
-    };
-
 
 	//GET ALL REGIONS FOR USER 
 	$scope.showMyRegions = () => {
@@ -42,7 +37,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 			postFactory.deleteReg(id)
 				.then(() => {
 		            $scope.showMyRegions();//UPDATES PAGE
-		            $scope.playDeleted();
 		        });
 			};
 

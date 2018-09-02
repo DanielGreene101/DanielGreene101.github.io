@@ -254,85 +254,50 @@ callRegions();
 		$scope.yourRegionId = item.id;
 		newCharacter.region = $scope.yourRegion;
 		newCharacter.regionId = $scope.yourRegionId;//ASSEMBLED FOR FIREBASE PUSH
-		$scope.playAdded();
-		console.log("added to form");
 	};
 
 	$scope.addRace = (item) => {
 		var newRace = item.name + " " + item.subrace;
 		$scope.yourRace = newRace.replace("null", "");
 		newCharacter.race = $scope.yourRace;
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addClass = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourClass.push(item.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addSkill = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourSkills.push(item.data.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourFeats.push(item.data.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourEquipment.push(item.data.name);
-		$scope.playAdded();
-		console.log("added to form", $scope.yourEquipment);
 	};
 	$scope.addMagicSchools = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourMagicSchools.push(item.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addSpell = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourSpells.push(item.data.name);
-		console.log("added to form");
-		console.log("New Character", newCharacter);
-		$scope.playAdded();
 	};
 
 	//REMOVE ITEMS 
 	$scope.removeClass = (index) => {//PULL INDEX OF SELECTEM ITEM AND DELETES FORM ARRAY 
 		$scope.yourClass.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeSkill = (index) => {
 		$scope.yourSkills.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeFeat = (index) => {
 		$scope.yourFeats.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeEquipment = (index) => {
 		$scope.yourEquipment.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeMagicSchool = (index) => {
 		$scope.yourMagicSchools.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeSpell = (index) => {
 		$scope.yourSpells.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 
 //SAVE ALL INFO TO BE PUSHED UP
@@ -377,8 +342,6 @@ $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 
 		var newCharToAdd = newCharacter;
 		postFactory.addCharacter(newCharToAdd);
-		console.log("INFO SAVED");
-		$scope.playCreated();
 	};
 
 

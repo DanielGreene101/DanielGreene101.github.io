@@ -6,10 +6,8 @@ let isAuth = (userFactory, $window) => new Promise((resolve, reject) => {
 	userFactory.isAuthenticated()
 	.then((userExists) => {
 		if(userExists === true) {
-			console.log( "YOU GOOD" );
 			resolve();
 		}  else  {
-			console.log( "YOU ARE NOT AUTHORIZED" );
 			$window.alert("NOT LOGGED IN!!!");
 			reject();
 		}
@@ -107,7 +105,6 @@ app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory
 	$scope.yourSPRES = "";
 //DEFINE USER 
 let user = userFactory.getCurrentUser();
-console.log("user", user.email);
 
 let newCharacter = {
 		name: $scope.yourName,
@@ -313,7 +310,6 @@ callSpells();
 
 //GET ALL REGIONS FOR USER 
 function callRegions(){
-		console.log("showMyRegions firing");
 		postFactory.getUserRegions(userFactory.getCurrentUser())//GET USERS REGIONS
 			.then((data) => {
 				$scope.regions = data;//IN ARRAY FOR DOM
@@ -325,90 +321,56 @@ callRegions();
 
 //handle pushing clicked item
 	$scope.addRegion = (item) => {
-		console.log("item", item.name);
 		$scope.yourRegion = item.name;
 		$scope.yourRegionId = item.id;
 		newCharacter.region = $scope.yourRegion;
 		newCharacter.regionId = $scope.yourRegionId;//ASSEMBLED FOR FIREBASE PUSH
-		$scope.playAdded();
-		console.log("added to form");
 	};
 
 	$scope.addRace = (item) => {
 		var newRace = item.name + " " + item.subrace;
 		$scope.yourRace = newRace.replace("null", "");
 		newCharacter.race = $scope.yourRace;
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addClass = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourClass.push(item.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addSkill = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourSkills.push(item.data.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourFeats.push(item.data.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
 		console.log("item", item, item.name);
-		$scope.yourEquipment.push(item.data.name);
-		$scope.playAdded();
-		console.log("added to form", $scope.yourEquipment);
+		$scope.yourEquipment.push(item.data.name);$scope.yourEquipment);
 	};
 	$scope.addMagicSchools = (item) => {
 		console.log("item", item, item.name);
 		$scope.yourMagicSchools.push(item.name);
-		$scope.playAdded();
-		console.log("added to form");
 	};
 	$scope.addSpell = (item) => {
-		console.log("item", item, item.name);
 		$scope.yourSpells.push(item.data.name);
-		console.log("added to form");
-		console.log("New Character", newCharacter);
-		$scope.playAdded();
 	};
 
 	//REMOVE ITEMS 
 	$scope.removeClass = (index) => {//PULL INDEX OF SELECTEM ITEM AND DELETES FORM ARRAY 
 		$scope.yourClass.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeSkill = (index) => {
 		$scope.yourSkills.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeFeat = (index) => {
 		$scope.yourFeats.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeEquipment = (index) => {
 		$scope.yourEquipment.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeMagicSchool = (index) => {
 		$scope.yourMagicSchools.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 	$scope.removeSpell = (index) => {
 		$scope.yourSpells.splice(index, 1);
-		console.log("removed from form");
-		$scope.playRemoved();
 	};
 
 //SAVE ALL INFO TO BE PUSHED UP
@@ -453,8 +415,6 @@ $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 
 		var newCharToAdd = newCharacter;
 		postFactory.addCharacter(newCharToAdd);
-		console.log("INFO SAVED");
-		$scope.playCreated();
 	};
 
 
@@ -478,7 +438,6 @@ var counter = 1;
 app.controller('CreateMapCtrl', function ($scope, postFactory, userFactory) {
 
 let user = userFactory.getCurrentUser();//SET UP USER REGION CREATION
-console.log("user", user);
 	$scope.regName = "";
 	$scope.regInfo = "";
 
@@ -488,11 +447,6 @@ console.log("user", user);
 		info: $scope.regInfo,
 		uid: user,
 	};
-//SOUNDS
-	$scope.playCreated = function() {
-        var audio = new Audio('./sounds/CREATED.wav');
-        audio.play();
-    };
 
 
 	$scope.saveRegion = (regName, regInfo) => {//SAVE CREATED REGION
@@ -505,7 +459,6 @@ console.log("user", user);
 
 		var newRegionToAdd = newRegion;
 		postFactory.addRegion(newRegionToAdd);
-		$scope.playCreated();
 	};
 });
 "use strict";
@@ -515,12 +468,6 @@ app.controller('EditCtrl', function($scope, userFactory, $location, postFactory,
 	$scope.title = "Add Character";
 
 	let currrentUser = userFactory.getCurrentUser();
-
-	$scope.playEdit = function() {
-        var audio = new Audio('./sounds/EDIT.wav');
-        audio.play();
-    };
-    $scope.playEdit();
 
 //EMPTRY CHARACTER TO BE FILLED FOR PUSH
 	$scope.character = {
@@ -778,12 +725,10 @@ callSpells();
 
 //GET ALL REGIONS FOR USER 
 function callRegions(){
-		console.log("showMyRegions firing");
 		postFactory.getUserRegions(userFactory.getCurrentUser())//PULL IN USERS CREATED REGIONS USING USER ID
 			.then((data) => {
 				$scope.regions = data;
 			}).catch(function(){
-			console.log("ERROR");
 		});
 	}
 callRegions();
@@ -793,31 +738,24 @@ callRegions();
 	$scope.addRegion = (item) => {
 		$scope.character.region = item.name;
 		$scope.character.regionId = item.id;
-		console.log("added to form");
 	};
 	$scope.addClass = (item) => {
 		$scope.character.class.push(item.name);
-		console.log("added to form");
 	};
 	$scope.addSkill = (item) => {
 		$scope.character.skills.push(item.data.name);
-		console.log("added to form");
 	};
 	$scope.addFeat = (item) => {
 		$scope.character.feats.push(item.data.name);
-		console.log("added to form");
 	};
 	$scope.addEquipment = (item) => {
 		$scope.character.equipment.push(item.data.name);
-		console.log("added to form");
 	};
 	$scope.addMagicSchools = (item) => {
 		$scope.character.magicschools.push(item.name);
-		console.log("added to form");
 	};
 	$scope.addSpell = (item) => {
 		$scope.character.spells.push(item.data.name);
-		console.log("added to form");
 	};
 
 
@@ -826,27 +764,21 @@ callRegions();
 //functions removing selected items from their prospective divs
 	$scope.removeClass = (index) => {
 		$scope.character.class.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeSkill = (index) => {
 		$scope.character.skills.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeFeat = (index) => {
 		$scope.character.feats.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeEquipment = (index) => {
 		$scope.character.equipment.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeMagicSchool = (index) => {
 		$scope.character.magicschools.splice(index, 1);
-		console.log("Removed from form");
 	};
 	$scope.removeSpell = (index) => {
 		$scope.character.spells.splice(index, 1);
-		console.log("Removed from form");
 	};
 
 $scope.yourStat =[];
@@ -854,7 +786,6 @@ var counter = 1;
 	$scope.statNumber = () => {//GENERATE RANDOM NUMBERS FOR STATS
 		if (counter < 7){
 			counter++;
-			console.log("stat", $scope.yourStat);
 			$scope.statNumber();
 			$scope.yourStat.push(Math.floor(Math.random() * ((18 - 8) + 1 ) + 8));
 		}else{
@@ -871,20 +802,6 @@ app.controller('EditRegionCtrl', function($scope, userFactory, $location, postFa
 	$scope.title = "Edit Region";
 
 	let currrentUser = userFactory.getCurrentUser();
-
-	//SOUNDS
-	$scope.playCreated = function() {
-        var audio = new Audio('./sounds/CREATED.wav');
-        audio.play();
-    };
-	$scope.playEdit = function() {
-        var audio = new Audio('./sounds/EDIT.wav');
-        audio.play();
-    };
-    $scope.playEdit();
-
-
-    
 
 	$scope.regions = {
 		name: "",
@@ -904,7 +821,6 @@ app.controller('EditRegionCtrl', function($scope, userFactory, $location, postFa
 		postFactory.editRegion($routeParams.id, $scope.regions)
 		.then((data) => {
 			$location.path('/MyRegions');
-			$scope.playCreated();
 		});
 	};
 
@@ -923,12 +839,6 @@ app.controller('HomeCtrl', function ($scope, $location, userFactory) {
 
 app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $location) {
 	let user = userFactory.getCurrentUser();
-
-	$scope.playDeleted = function() {
-        var audio = new Audio('./sounds/DELETED.wav');
-        audio.play();
-    };
-
 	$scope.characterData = [];
 
 //GET ALL CHARACTERS FOR USER 
@@ -947,7 +857,6 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 		postFactory.deleteChar(id)
 			.then(() => {
 	            $scope.showMyCharacters();//UPDATES PAGE
-	            $scope.playDeleted();
 	        });
 		};
 
@@ -956,16 +865,8 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 
 app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $location) {
 
-
 	$scope.regionData = [];
 	$scope.characterData = [];
-
-	$scope.playDeleted = function() {
-        var audio = new Audio('./sounds/DELETED.wav');
-        audio.play();
-    };
-
-
 	//GET ALL REGIONS FOR USER 
 	$scope.showMyRegions = () => {
 		postFactory.getUserRegions(userFactory.getCurrentUser())
@@ -996,7 +897,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 			postFactory.deleteReg(id)
 				.then(() => {
 		            $scope.showMyRegions();//UPDATES PAGE
-		            $scope.playDeleted();
 		        });
 			};
 

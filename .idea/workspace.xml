@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7fbfa6a-da4f-46e7-8383-4c38068272f1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app/controllers/control-create-character.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-create-character.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/control-create-region.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-create-region.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/control-edit-characters.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-edit-characters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/control-edit-region.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-edit-region.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/control-my-characters.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-my-characters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/control-my-regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-my-regions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/built.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/built.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,11 +19,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="control-create-character.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="control-create-character.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/control-create-character.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="392">
-              <caret line="284" column="6" lean-forward="true" selection-start-line="284" selection-start-column="6" selection-end-line="284" selection-end-column="6" />
+              <caret line="271" column="6" lean-forward="true" selection-start-line="271" selection-start-column="6" selection-end-line="271" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="built.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dist/built.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="951" column="60" lean-forward="true" selection-start-line="951" selection-start-column="60" selection-end-line="951" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -80,6 +95,14 @@
     <findStrings>
       <find>img</find>
       <find>race</find>
+      <find>console</find>
+      <find>playAdded</find>
+      <find>added to form</find>
+      <find>Removed from form</find>
+      <find>playDeleted</find>
+      <find>playRe</find>
+      <find>playRemoved</find>
+      <find>play</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,6 +114,7 @@
         <option value="$PROJECT_DIR$/app/app.js" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/app/controllers/control-create-character.js" />
+        <option value="$PROJECT_DIR$/dist/built.js" />
       </list>
     </option>
   </component>
@@ -762,12 +786,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535916537752</updated>
-      <workItem from="1535916545443" duration="939000" />
+      <workItem from="1535916545443" duration="1662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="939000" />
+    <option name="totallyTimeSpent" value="1662000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="836" extended-state="0" />
@@ -855,7 +879,14 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/control-create-character.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
-          <caret line="284" column="6" lean-forward="true" selection-start-line="284" selection-start-column="6" selection-end-line="284" selection-end-column="6" />
+          <caret line="271" column="6" lean-forward="true" selection-start-line="271" selection-start-column="6" selection-end-line="271" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/built.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="951" column="60" lean-forward="true" selection-start-line="951" selection-start-column="60" selection-end-line="951" selection-end-column="60" />
         </state>
       </provider>
     </entry>

@@ -2,12 +2,6 @@
 
 app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $location) {
 	let user = userFactory.getCurrentUser();
-
-	$scope.playDeleted = function() {
-        var audio = new Audio('./sounds/DELETED.wav');
-        audio.play();
-    };
-
 	$scope.characterData = [];
 
 //GET ALL CHARACTERS FOR USER 
@@ -26,7 +20,6 @@ app.controller('myProfileCtrl', function ($scope, postFactory, userFactory, $loc
 		postFactory.deleteChar(id)
 			.then(() => {
 	            $scope.showMyCharacters();//UPDATES PAGE
-	            $scope.playDeleted();
 	        });
 		};
 
