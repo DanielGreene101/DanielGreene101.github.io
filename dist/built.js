@@ -157,7 +157,7 @@ function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
 		url : 'http://www.dnd5eapi.co/api/races/',})
 		.then(function(data){
-			$scope.races = data.data; //DATA SCOPED FOR DOM ARRAY
+			$scope.races = data.data.results; //DATA SCOPED FOR DOM ARRAY
 		})
 		.catch(function(){
 			console.log("ERROR");
