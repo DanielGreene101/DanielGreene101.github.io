@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a7fbfa6a-da4f-46e7-8383-4c38068272f1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/controllers/control-create-character.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-create-character.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/built.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/built.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="control-create-character.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/control-create-character.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="253" column="6" lean-forward="true" selection-start-line="253" selection-start-column="6" selection-end-line="253" selection-end-column="6" />
+            <state relative-caret-position="347">
+              <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
             </state>
           </provider>
         </entry>
@@ -820,12 +819,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535916537752</updated>
-      <workItem from="1535916545443" duration="4715000" />
+      <workItem from="1535916545443" duration="4866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4715000" />
+    <option name="totallyTimeSpent" value="4866000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="836" extended-state="0" />
@@ -958,8 +957,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/control-create-character.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="253" column="6" lean-forward="true" selection-start-line="253" selection-start-column="6" selection-end-line="253" selection-end-column="6" />
+        <state relative-caret-position="347">
+          <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
         </state>
       </provider>
     </entry>

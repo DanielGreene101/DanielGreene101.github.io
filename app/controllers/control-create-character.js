@@ -255,10 +255,8 @@ callRegions();
 
 	$scope.addRace = (item) => {
 		let newRace = item.name + " " + item.subrace;
-        if (!$scope.yourRace.includes(newRace)) {
-            $scope.yourRace = newRace.replace("null", "");
-            newCharacter.race = $scope.yourRace;
-        }
+		$scope.yourRace = newRace.replace("null", "");
+		newCharacter.race = $scope.yourRace;
 	};
 	$scope.addClass = (item) => {
 		$scope.yourClass.push(item.name);
