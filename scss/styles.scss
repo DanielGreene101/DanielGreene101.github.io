@@ -1,7 +1,6 @@
 /*****GENERAL******/
 body{
   font-family: 'Josefin Sans', sans-serif;
-  /*background: url("../images/human-front-page.jpg") no-repeat fixed center;*/
 }
 
 li {
@@ -145,7 +144,6 @@ button{
   width: 90%;
   flex-direction: column;
   height: 250vh;
-  background: url("../images/elf-front-page.jpg") no-repeat fixed center;
   background-size: contain;
 }
 
@@ -254,7 +252,6 @@ background:rgba(173,216,230,0.5);
 }
 #singleCharacterPage{
   width: 90%;
-  background: url("../images/dwarf-front.png") no-repeat fixed center;
   background-size: contain;
   height: 210vh;
 }
@@ -265,7 +262,6 @@ background:rgba(173,216,230,0.5);
 }
 #myCharacterPageContainer{
   width: 100%;
-  background: url("../images/orc-front.png") no-repeat fixed right top;
   background-size: 50%;
 }
 .myCharactersDisplay{
@@ -301,12 +297,6 @@ background:rgba(173,216,230,0.5);
 #findChar{
   margin-left: 2vh;
 }
-
-/*.myCharacterContainer{
-  width: 100%;
-  background: url("../images/orc-front.png") no-repeat fixed right top;
-  background-size: 50%;
-}*/
 
 .ngViewContainer{
   width:100%;
@@ -362,7 +352,6 @@ background:rgba(173,216,230,0.5);
 
 #editCharacterPage{
   width:100%;
-  background: url("../images/dwarf-front.png") no-repeat fixed center;
   background-size: contain;
   height: 260vh;
 }
@@ -433,7 +422,6 @@ background:rgba(173,216,230,0.5);
 
 /*******************************HOME PAGE*******************************/
 #homePageContainer{
-  background-image: url("../images/elf-back.png"), url("../images/elf-front-page.jpg");
   background-position: right bottom, left top;
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;
