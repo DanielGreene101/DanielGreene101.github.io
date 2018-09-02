@@ -83,7 +83,7 @@ function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
 		url : 'http://dnd5eapi.co/api/races/',})
 		.then(function(data){
-			$scope.races = data.data; //DATA SCOPED FOR DOM ARRAY
+			$scope.races = data.data.results; //DATA SCOPED FOR DOM ARRAY
 		})
 		.catch(function(){
 			console.log("ERROR");
@@ -254,9 +254,11 @@ callRegions();
 	};
 
 	$scope.addRace = (item) => {
-		var newRace = item.name + " " + item.subrace;
-		$scope.yourRace = newRace.replace("null", "");
-		newCharacter.race = $scope.yourRace;
+		let newRace = item.name;
+        if (!$scope.yourRace.includes(newRace)) {
+            $scope.yourRace = newRace.replace("null", "");
+            newCharacter.race = $scope.yourRace;
+        }
 	};
 	$scope.addClass = (item) => {
 		$scope.yourClass.push(item.name);
@@ -337,13 +339,13 @@ $scope.saveInfo = (charName, notes, HP, INITIATIVE, AC, STR, DEX, CON, INT, WIS,
 		$scope.yourNotes = notes; 
 		newCharacter.storyline = $scope.yourNotes;
 
-		var newCharToAdd = newCharacter;
+		let newCharToAdd = newCharacter;
 		postFactory.addCharacter(newCharToAdd);
 	};
 
 
 $scope.yourStat =[];//GENERATE RANDOM NUMBERS FOR STATS 
-var counter = 1;
+let counter = 1;
 	$scope.statNumber = () => {
 		if (counter < 7){
 			counter++;
