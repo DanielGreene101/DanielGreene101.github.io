@@ -6,10 +6,8 @@ let isAuth = (userFactory, $window) => new Promise((resolve, reject) => {
 	userFactory.isAuthenticated()
 	.then((userExists) => {
 		if(userExists === true) {
-			console.log( "YOU GOOD" );
 			resolve();
 		}  else  {
-			console.log( "YOU ARE NOT AUTHORIZED" );
 			$window.alert("NOT LOGGED IN!!!");
 			reject();
 		}

@@ -121,7 +121,6 @@ button {
   width: 90%;
   flex-direction: column;
   height: 250vh;
-  background: url("../images/elf-front-page.jpg") no-repeat fixed center;
   background-size: contain; }
 
 #characterBeingCreated {
@@ -216,7 +215,6 @@ button {
 
 #singleCharacterPage {
   width: 90%;
-  background: url("../images/dwarf-front.png") no-repeat fixed center;
   background-size: contain;
   height: 210vh; }
 
@@ -226,7 +224,6 @@ button {
 
 #myCharacterPageContainer {
   width: 100%;
-  background: url("../images/orc-front.png") no-repeat fixed right top;
   background-size: 50%; }
 
 .myCharactersDisplay {
@@ -307,7 +304,6 @@ button {
 /*******EDIT CHARACTER PAGE********/
 #editCharacterPage {
   width: 100%;
-  background: url("../images/dwarf-front.png") no-repeat fixed center;
   background-size: contain;
   height: 260vh; }
 
@@ -369,7 +365,6 @@ button {
 
 /*******************************HOME PAGE*******************************/
 #homePageContainer {
-  background-image: url("../images/elf-back.png"), url("../images/elf-front-page.jpg");
   background-position: right bottom, left top;
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;

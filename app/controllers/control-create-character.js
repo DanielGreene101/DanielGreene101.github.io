@@ -2,23 +2,6 @@
 
 app.controller('CreateCharCtrl', function ($scope, $location, $http, userFactory, postFactory, $q) {
 
-//SOUNDS
-$scope.playAdded = function() {
-        var audio = new Audio('./sounds/ADDED.wav');
-        audio.play();
-    };
-$scope.playRemoved = function() {
-        var audio = new Audio('./sounds/REMOVED.wav');
-        audio.play();
-    };
-$scope.playCreated = function() {
-        var audio = new Audio('./sounds/CREATED.wav');
-        audio.play();
-    };
-
-
-
-
 //Empty arrays for pushed items
 	$scope.yourName = "";
 	$scope.yourRace = "";
@@ -99,7 +82,7 @@ $scope.regionId = [];
 ////// pull in api /////////
 function callRaces(){ //SINGLE API CALL
 	$http({ method : 'GET',
-		url : 'http://dnd5eapi.co/api/race/',})
+		url : 'http://dnd5eapi.co/api/races/',})
 		.then(function(data){
 			$scope.races = data.data; //DATA SCOPED FOR DOM ARRAY
 		})
