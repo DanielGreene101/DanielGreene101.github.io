@@ -342,7 +342,7 @@ callRegions();
 		$scope.yourFeats.push(item.data.name);
 	};
 	$scope.addEquipment = (item) => {
-		$scope.yourEquipment.push(item.data.name);$scope.yourEquipment);
+		$scope.yourEquipment.push(item.data.name);
 	};
 	$scope.addMagicSchools = (item) => {
 		$scope.yourMagicSchools.push(item.name);

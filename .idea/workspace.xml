@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7fbfa6a-da4f-46e7-8383-4c38068272f1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/WBtest.js" beforeDir="false" afterPath="$PROJECT_DIR$/WBtest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/control-create-character.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-create-character.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/control-create-region.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-create-region.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/control-edit-characters.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-edit-characters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/control-my-characters.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-my-characters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/control-my-regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-my-regions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/control-navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/control-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/control-user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/factories/factory-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/factories/factory-user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/built.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/built.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +25,8 @@
       <file leaf-file-name="built.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dist/built.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="957" column="6" lean-forward="true" selection-start-line="957" selection-start-column="6" selection-end-line="957" selection-end-column="6" />
+            <state relative-caret-position="174">
+              <caret line="344" column="50" selection-start-line="344" selection-start-column="50" selection-end-line="344" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -696,6 +687,18 @@
             <path>
               <item name="danielgreene101.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="danielgreene101.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="factories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="danielgreene101.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="danielgreene101.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="values" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="danielgreene101.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="danielgreene101.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -703,6 +706,11 @@
               <item name="danielgreene101.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="main.css" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="danielgreene101.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="danielgreene101.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="danielgreene101.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -789,12 +797,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535916537752</updated>
-      <workItem from="1535916545443" duration="2298000" />
+      <workItem from="1535916545443" duration="2735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2298000" />
+    <option name="totallyTimeSpent" value="2735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="836" extended-state="0" />
@@ -888,8 +896,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/built.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="957" column="6" lean-forward="true" selection-start-line="957" selection-start-column="6" selection-end-line="957" selection-end-column="6" />
+        <state relative-caret-position="174">
+          <caret line="344" column="50" selection-start-line="344" selection-start-column="50" selection-end-line="344" selection-end-column="50" />
         </state>
       </provider>
     </entry>
