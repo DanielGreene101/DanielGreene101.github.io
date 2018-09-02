@@ -30,7 +30,6 @@ app.controller('userCtrl', function($scope, userFactory, $location, $window) {
 			if(fromFB.length === 0) {
 				userFactory.postUserObj(loginObjStorage[0]);
 			}
-			console.log("login successful");
 		})
 		.then(() => {
 			document.getElementById("logInBtn").style.display = "none"; 

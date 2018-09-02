@@ -6,11 +6,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 	$scope.regionData = [];
 	$scope.characterData = [];
 
-	$scope.playDeleted = function() {
-        var audio = new Audio('./sounds/DELETED.wav');
-        audio.play();
-    };
-
 
 	//GET ALL REGIONS FOR USER 
 	$scope.showMyRegions = () => {
@@ -24,7 +19,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 
 	//PULL IN CHARACTERS WITH MATCHING REGION
 		$scope.showThisRegionsCharacters = () =>{
-			console.log("showThisRegionsCharacters firing");
 			postFactory.getUserCharacters(userFactory.getCurrentUser())
 				.then((data) => {
 					$scope.characterData = data;
@@ -42,7 +36,6 @@ app.controller('MyMapsCtrl', function ($scope, postFactory, userFactory, $locati
 			postFactory.deleteReg(id)
 				.then(() => {
 		            $scope.showMyRegions();//UPDATES PAGE
-		            $scope.playDeleted();
 		        });
 			};
 
@@ -56,8 +49,6 @@ $scope.regionIdFunction = function(characterData, regionData) {
     		characterData.forEach(character => {
     			if(character.regionId === region.id){
     			aRegionsCharacters.push(character);
-    		}else{
-    			console.log("region - character did not match");
     		}
     		});
 
